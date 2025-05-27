@@ -1,0 +1,211 @@
+{
+  "main": {
+    "id": "c662c44e0f07b987",
+    "type": "split",
+    "children": [
+      {
+        "id": "11ced9841aa3eb8d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3c9f78bfff93ce00",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "README.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "README"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "1ddf07682d709ebd",
+    "type": "split",
+    "children": [
+      {
+        "id": "7386edec158416d2",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a09b9b60140fcbd5",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "324e8a11894f6e15",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "177af05c3e1c0fb3",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 217.5
+  },
+  "right": {
+    "id": "0f625f3186cf6842",
+    "type": "split",
+    "children": [
+      {
+        "id": "fdf98c8b7c9f13e9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "59cd8f981f5db703",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "view/汉语主题词表的视图.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for 汉语主题词表的视图"
+            }
+          },
+          {
+            "id": "271e46be27c3891e",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "view/汉语主题词表的视图.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from 汉语主题词表的视图"
+            }
+          },
+          {
+            "id": "571269e5be69849d",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "0418a376bedf3064",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "view/汉语主题词表的视图.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of 汉语主题词表的视图"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "3c9f78bfff93ce00",
+  "lastOpenFiles": [
+    "docs/1. 笔记库的结构.md",
+    "README.md",
+    "docs/3. 汉语主题词表笔记的相关标准.md",
+    "docs/2. 如何剪藏《汉表服务系统》的主题词.md",
+    "view/汉语主题词表的视图.md",
+    "Untitled.md",
+    "assets/preview-01.png",
+    "assets",
+    "data/82 汉语主题词表/主题词组配分类表/TP317 TP319 组配 主题词表.md",
+    "data/82 汉语主题词表/主题词组配分类表/TN943 TP309.7 组配 主题词表.md",
+    "data/82 汉语主题词表/主题词组配分类表/TN918 TP393.084 组配 主题词表.md",
+    "data/82 汉语主题词表/主题词组配分类表/TN918 TP309.7 组配 主题词表.md",
+    "data/82 汉语主题词表/主题词组配分类表/P19 ZT73_ 组配 主题词表.md",
+    "data/82 汉语主题词表/主题词组配分类表/G25 G252 组配 主题词表.md",
+    "data/82 汉语主题词表/主题词分类表/ZT73_ 时间、时期 主题词表.md",
+    "data/82 汉语主题词表/主题词分类表/ZT71_ 方式、形式、类型 主题词表.md",
+    "data/82 汉语主题词表/主题词分类表/ZT5_ 状态、形态、现象、过程 主题词表.md",
+    "data/82 汉语主题词表/主题词分类表/Z 综合性图书 主题词表.md",
+    "data/82 汉语主题词表/主题词分类表/TP393.084 网络加密技术 主题词表.md",
+    "data/82 汉语主题词表/主题词分类表/TP319 专用应用软件 主题词表.md",
+    "data/82 汉语主题词表/主题词分类表/TP317.5 多媒体软件 主题词表.md",
+    "data/82 汉语主题词表/主题词分类表/TP317.4 图像处理软件 主题词表.md",
+    "data/82 汉语主题词表/主题词分类表/TP317.2 文字处理软件 主题词表.md",
+    "data/82 汉语主题词表/主题词分类表/TP317 程序包（应用软件） 主题词表.md",
+    "data/82 汉语主题词表/主题词分类表/TP311.52 软件开发 主题词表.md",
+    "data/82 汉语主题词表/主题词分类表/TP311.5 软件工程 主题词表.md",
+    "data/82 汉语主题词表/主题词分类表/TP309.7 加密与解密 主题词表.md",
+    "data/82 汉语主题词表/主题词分类表/TP30 一般性问题 主题词表.md",
+    "data/82 汉语主题词表/主题词组配分类表",
+    "data/82 汉语主题词表/主题词分类表",
+    "data/82 汉语主题词表/主题词",
+    "data/82 汉语主题词表",
+    "data/1 中国图书馆分类法/Z 综合性图书/ZY_ 附表/② 世界地区表/②1 世界/②18 海洋/②182 北太平洋/②182.7 南海/②182.79 北部湾",
+    "data/1 中国图书馆分类法/Z 综合性图书/ZY_ 附表/② 世界地区表/②1 世界/②18 海洋/②182 北太平洋/②182.6 东海/②182.69 台湾海峡",
+    "data/1 中国图书馆分类法/Z 综合性图书/ZY_ 附表/⑥ 世界种族与民族表/⑥4 非洲民族/⑥42 东非民族/⑥425 坦桑尼亚人/⑥425.2 马赛人",
+    "data/1 中国图书馆分类法/Z 综合性图书/ZY_ 附表/⑥ 世界种族与民族表/⑥4 非洲民族/⑥42 东非民族/⑥425 坦桑尼亚人/⑥425.1 斯瓦希里人",
+    "data/1 中国图书馆分类法/Z 综合性图书/ZY_ 附表/⑥ 世界种族与民族表/⑥4 非洲民族/⑥42 东非民族/⑥421 埃塞俄比亚人/⑥421.5 锡达莫人"
+  ]
+}
