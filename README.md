@@ -1,6 +1,6 @@
 这是一个 Obisidian 示例库，用于存储和可视化显示 《汉语主题词表》 的主题词
 
-This a Obsidian Example Vault, used for collecting and using Descriptors of "Chinese Thesaurus"
+This is an Obisidian Example Vault for storing and visualizing the subject terms of the "Chinese Thesaurus".
 
 ## 可视化页面效果
 
