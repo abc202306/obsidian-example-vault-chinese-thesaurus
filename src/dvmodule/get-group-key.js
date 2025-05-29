@@ -3,10 +3,10 @@ function getGroupKey(p){
 	const ctime = p.file.ctime;
 
 	if (Date.now()-ctime.ts < 86400) {
-		return "today";
+		return "今天"; // "今天": "today"
 	}
 	
-	return ctime.setLocale('en-US').toRelative();
+	return "创建于："+ctime.setLocale('zh-CN').toRelative();
 }
 
 input(getGroupKey)

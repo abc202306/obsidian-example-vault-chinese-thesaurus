@@ -13,30 +13,15 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "data/1 中国图书馆分类法/D 政治、法律/D6 中国政治/D668 社会调查和社会分析.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "D668 社会调查和社会分析"
-            }
-          },
-          {
-            "id": "f9dc4d891a33ecaa",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "docs/1. 【设计文档】笔记库的结构和依赖.md",
-                "mode": "source",
+                "file": "README.md",
+                "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "1. 【设计文档】笔记库的结构和依赖"
+              "title": "README"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -93,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 418.5
+    "width": 305.5110321044922
   },
   "right": {
     "id": "0f625f3186cf6842",
@@ -109,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "docs/1. 【设计文档】笔记库的结构和依赖.md",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for 1. 【设计文档】笔记库的结构和依赖"
+              "title": "Backlinks for README"
             }
           },
           {
@@ -170,7 +155,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 369.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -183,35 +169,35 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "f9dc4d891a33ecaa",
+  "active": "233caeb823e5ae9b",
   "lastOpenFiles": [
-    "data/1 中国图书馆分类法.md",
+    "assets/preview-01-02.png",
+    "view/汉语主题词表的视图.md",
     "data/82 汉语主题词表.md",
-    "data/82 汉语主题词表/主题词组配分类表/TP317 TP319 组配 主题词表.md",
-    "data/82 汉语主题词表/主题词组配分类表/TN943 TP309.7 组配 主题词表.md",
-    "data/82 汉语主题词表/主题词组配分类表/TN918 TP393.084 组配 主题词表.md",
-    "data/82 汉语主题词表/主题词组配分类表/TN918 TP309.7 组配 主题词表.md",
-    "data/82 汉语主题词表/主题词组配分类表/P19 ZT73_ 组配 主题词表.md",
+    "data/1 中国图书馆分类法.md",
     "data/82 汉语主题词表/主题词组配分类表/G25 G252 组配 主题词表.md",
+    "data/82 汉语主题词表/主题词组配分类表/P19 ZT73_ 组配 主题词表.md",
+    "data/82 汉语主题词表/主题词组配分类表/TN918 TP309.7 组配 主题词表.md",
+    "data/82 汉语主题词表/主题词组配分类表/TN918 TP393.084 组配 主题词表.md",
+    "data/82 汉语主题词表/主题词组配分类表/TN943 TP309.7 组配 主题词表.md",
+    "data/82 汉语主题词表/主题词组配分类表/TP317 TP319 组配 主题词表.md",
+    "data/1 中国图书馆分类法/T 工业技术/TP3 计算技术、计算机技术/TP31 计算机软件/TP311 程序设计、软件工程.md",
+    "data/1 中国图书馆分类法/T 工业技术/TP3 计算技术、计算机技术/TP31 计算机软件/TP311 程序设计、软件工程/TP311.5 软件工程.md",
+    "data/1 中国图书馆分类法/T 工业技术/TP3 计算技术、计算机技术/TP31 计算机软件/TP311 程序设计、软件工程/TP311.5 软件工程/TP311.51 软件设计自动化.md",
+    "data/1 中国图书馆分类法/T 工业技术/TP3 计算技术、计算机技术/TP31 计算机软件/TP311 程序设计、软件工程/TP311.1 程序设计.md",
+    "data/1 中国图书馆分类法/T 工业技术/TP3 计算技术、计算机技术/TP31 计算机软件/TP311 程序设计、软件工程/TP311.5 软件工程/TP311.52 软件开发.md",
+    "data/1 中国图书馆分类法/T 工业技术/TP3 计算技术、计算机技术/TP31 计算机软件/TP311 程序设计、软件工程/TP311.5 软件工程/TP311.53 软件维护.md",
+    "data/1 中国图书馆分类法/T 工业技术/TP3 计算技术、计算机技术/TP31 计算机软件/TP311 程序设计、软件工程/TP311.5 软件工程/TP311.54 软件移植.md",
+    "data/1 中国图书馆分类法/T 工业技术/TP3 计算技术、计算机技术/TP31 计算机软件/TP311 程序设计、软件工程/TP311.5 软件工程/TP311.55 软件测试.md",
+    "data/1 中国图书馆分类法/T 工业技术/TP3 计算技术、计算机技术/TP31 计算机软件/TP311 程序设计、软件工程/TP311.5 软件工程/TP311.56 软件工具、工具软件.md",
+    "data/82 汉语主题词表/主题词/来源.md",
+    "docs/3. 【参考文档】如何剪藏《汉表服务系统》的主题词.md",
+    "docs/1. 【设计文档】笔记库的结构和依赖.md",
+    "docs/2. 【设计文档】汉语主题词表笔记的相关标准.md",
+    "data/1 中国图书馆分类法/D 政治、法律/D6 中国政治/D668 社会调查和社会分析.md",
     "data/1 中国图书馆分类法/N 自然科学总论/N2 自然科学机构、团体、会议.md",
     "data/1 中国图书馆分类法/N 自然科学总论.md",
-    "data/1 中国图书馆分类法/N 自然科学总论/[N7] 自然科学文献检索工具.md",
-    "data/1 中国图书馆分类法/G 文化、科学、教育、体育.md",
-    "data/1 中国图书馆分类法/A 马克思主义、列宁主义、毛泽东思想、邓小平理论.md",
-    "data/1 中国图书馆分类法/C 社会科学总论.md",
-    "data/1 中国图书馆分类法/C 社会科学总论/C0 社会科学理论与方法论.md",
-    "data/1 中国图书馆分类法/C 社会科学总论/C97 劳动科学.md",
-    "data/1 中国图书馆分类法/C 社会科学总论/[C7] 社会科学文献检索工具书.md",
-    "data/1 中国图书馆分类法/D 政治、法律.md",
-    "README.md",
-    "docs/1. 【设计文档】笔记库的结构和依赖.md",
-    "data/1 中国图书馆分类法/D 政治、法律/D6 中国政治/D668 社会调查和社会分析.md",
-    "view/汉语主题词表的视图.md",
     "assets/preview-02-02.png",
-    "data/1 中国图书馆分类法/T 工业技术/TP 自动化技术、计算机技术/TP1 自动化基础理论/TP18 人工智能理论.md",
-    "data/1 中国图书馆分类法/D 政治、法律/D6 中国政治/D669 社会生活与社会问题.md",
-    "data/82 汉语主题词表/主题词/连环漫画杂志.md",
-    "docs/2. 【设计文档】汉语主题词表笔记的相关标准.md",
     "assets/preview-02.png",
     "data/1 中国图书馆分类法/X 环境科学、安全科学",
     "assets/preview-01.png",
