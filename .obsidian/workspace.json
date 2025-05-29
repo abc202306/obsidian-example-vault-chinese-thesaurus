@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "docs/1. 【设计文档】笔记库的结构和依赖.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "1. 【设计文档】笔记库的结构和依赖"
             }
           },
           {
@@ -185,11 +185,11 @@
   },
   "active": "3c9f78bfff93ce00",
   "lastOpenFiles": [
-    "assets/preview-02.png",
+    "docs/2. 【设计文档】汉语主题词表笔记的相关标准.md",
     "README.md",
+    "assets/preview-02.png",
     "docs/1. 【设计文档】笔记库的结构和依赖.md",
     "docs/3. 【参考文档】如何剪藏《汉表服务系统》的主题词.md",
-    "docs/2. 【设计文档】汉语主题词表笔记的相关标准.md",
     "data/82 汉语主题词表.md",
     "data/1 中国图书馆分类法.md",
     "data/82 汉语主题词表/主题词组配分类表/TP317 TP319 组配 主题词表.md",
