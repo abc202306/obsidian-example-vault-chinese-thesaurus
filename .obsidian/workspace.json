@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 217.5
+    "width": 418.5
   },
   "right": {
     "id": "0f625f3186cf6842",
@@ -171,6 +171,9 @@
   "active": "3c9f78bfff93ce00",
   "lastOpenFiles": [
     "view/汉语主题词表的视图.md",
+    "docs/1. 【设计文档】笔记库的结构和依赖.md",
+    "docs/2. 【设计文档】汉语主题词表笔记的相关标准.md",
+    "docs/3. 【参考文档】如何剪藏《汉表服务系统》的主题词.md",
     "README.md",
     "data/1 中国图书馆分类法/Z 综合性图书.md",
     "data/1 中国图书馆分类法/X 环境科学、安全科学/X9 安全科学.md",
@@ -188,9 +191,6 @@
     "data/1 中国图书馆分类法/X 环境科学、安全科学",
     "data/1 中国图书馆分类法/X 环境科学、安全科学.md",
     "data/1 中国图书馆分类法/V 航空、航天.md",
-    "docs/1. 笔记库的结构.md",
-    "docs/3. 汉语主题词表笔记的相关标准.md",
-    "docs/2. 如何剪藏《汉表服务系统》的主题词.md",
     "Untitled.md",
     "assets/preview-01.png",
     "assets",
