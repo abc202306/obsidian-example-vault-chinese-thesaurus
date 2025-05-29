@@ -29,7 +29,7 @@
               "state": {
                 "file": "docs/1. 【设计文档】笔记库的结构和依赖.md",
                 "mode": "source",
-                "source": false
+                "source": true
               },
               "icon": "lucide-file",
               "title": "1. 【设计文档】笔记库的结构和依赖"
