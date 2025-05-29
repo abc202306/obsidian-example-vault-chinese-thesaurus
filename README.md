@@ -6,8 +6,8 @@ This is an Obisidian Example Vault for storing and visualizing the subject terms
 
 > （打开笔记 `view/汉语主题词表的视图.md` 的效果）
 
-![alt](assets/preview-01.png)
-
+![assets/preview-01.png](<assets/preview-01.png>)
+![assets/preview-02.png](<assets/preview-02.png>)
 ## 更多信息，参见如下的文档
 
 - [1. 【设计文档】笔记库的结构和依赖](<docs/1. 【设计文档】笔记库的结构和依赖.md>)

@@ -20,6 +20,20 @@
               "icon": "lucide-file",
               "title": "README"
             }
+          },
+          {
+            "id": "233caeb823e5ae9b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "docs/1. 【设计文档】笔记库的结构和依赖.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "1. 【设计文档】笔记库的结构和依赖"
+            }
           }
         ]
       }
@@ -165,40 +179,41 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "command-palette:Open command palette": false,
+      "templater-obsidian:Templater": false
     }
   },
   "active": "3c9f78bfff93ce00",
   "lastOpenFiles": [
-    "view/汉语主题词表的视图.md",
-    "docs/1. 【设计文档】笔记库的结构和依赖.md",
-    "docs/2. 【设计文档】汉语主题词表笔记的相关标准.md",
-    "docs/3. 【参考文档】如何剪藏《汉表服务系统》的主题词.md",
+    "assets/preview-02.png",
     "README.md",
-    "data/1 中国图书馆分类法/Z 综合性图书.md",
-    "data/1 中国图书馆分类法/X 环境科学、安全科学/X9 安全科学.md",
-    "data/1 中国图书馆分类法/X 环境科学、安全科学/X8 环境质量评价与环境监测.md",
-    "data/1 中国图书馆分类法/X 环境科学、安全科学/X7 废物处理与综合利用.md",
-    "data/1 中国图书馆分类法/X 环境科学、安全科学/X5 环境污染及其防治.md",
-    "data/1 中国图书馆分类法/X 环境科学、安全科学/X3 环境保护管理.md",
-    "data/1 中国图书馆分类法/X 环境科学、安全科学/X4 灾害及其防治.md",
-    "data/1 中国图书馆分类法/X 环境科学、安全科学/X1 环境科学基础理论.md",
-    "data/1 中国图书馆分类法/X 环境科学、安全科学/X2 社会与环境.md",
-    "data/1 中国图书馆分类法/X 环境科学、安全科学/X-1 环境科学技术现状与发展.md",
-    "data/1 中国图书馆分类法/X 环境科学、安全科学/X-4 环境保护宣传教育及普及.md",
-    "data/1 中国图书馆分类法/X 环境科学、安全科学/X-6 环境保护参考工具书.md",
-    "data/1 中国图书馆分类法/X 环境科学、安全科学/X-0 环境科学理论.md",
+    "docs/1. 【设计文档】笔记库的结构和依赖.md",
+    "docs/3. 【参考文档】如何剪藏《汉表服务系统》的主题词.md",
+    "docs/2. 【设计文档】汉语主题词表笔记的相关标准.md",
+    "data/82 汉语主题词表.md",
+    "data/1 中国图书馆分类法.md",
+    "data/82 汉语主题词表/主题词组配分类表/TP317 TP319 组配 主题词表.md",
+    "data/82 汉语主题词表/主题词/智能武器.md",
+    "data/82 汉语主题词表/主题词/日期.md",
+    "data/82 汉语主题词表/主题词/软件技术.md",
+    "view/汉语主题词表的视图.md",
+    "template/TP - 主题词.md",
+    "template/TP - Base.md",
+    "data/1 中国图书馆分类法/A 马克思主义、列宁主义、毛泽东思想、邓小平理论.md",
+    "data/82 汉语主题词表/主题词组配分类表/G25 G252 组配 主题词表.md",
+    "data/82 汉语主题词表/主题词/地理信息软件.md",
+    "data/82 汉语主题词表/主题词分类表/ZT73_ 时间、时期 主题词表.md",
+    "data/82 汉语主题词表/主题词分类表/Z 综合性图书 主题词表.md",
+    "data/82 汉语主题词表/主题词分类表/TP317 程序包（应用软件） 主题词表.md",
+    "data/82 汉语主题词表/主题词分类表/P19 时间、历法 主题词表.md",
+    "data/82 汉语主题词表/主题词分类表/B84 心理学 主题词表.md",
+    "data/82 汉语主题词表/主题词分类表/C93 管理学 主题词表.md",
+    "data/82 汉语主题词表/主题词分类表/E 军事 主题词表.md",
+    "data/82 汉语主题词表/主题词分类表/E9 军事技术 主题词表.md",
+    "data/82 汉语主题词表/主题词分类表/G25 图书馆事业、信息事业 主题词表.md",
     "data/1 中国图书馆分类法/X 环境科学、安全科学",
-    "data/1 中国图书馆分类法/X 环境科学、安全科学.md",
-    "data/1 中国图书馆分类法/V 航空、航天.md",
-    "Untitled.md",
     "assets/preview-01.png",
     "assets",
-    "data/82 汉语主题词表/主题词组配分类表/TP317 TP319 组配 主题词表.md",
-    "data/82 汉语主题词表/主题词组配分类表/TN943 TP309.7 组配 主题词表.md",
-    "data/82 汉语主题词表/主题词组配分类表/TN918 TP393.084 组配 主题词表.md",
-    "data/82 汉语主题词表/主题词组配分类表/TN918 TP309.7 组配 主题词表.md",
-    "data/82 汉语主题词表/主题词组配分类表/P19 ZT73_ 组配 主题词表.md",
     "data/82 汉语主题词表/主题词组配分类表",
     "data/82 汉语主题词表/主题词分类表",
     "data/82 汉语主题词表/主题词",
