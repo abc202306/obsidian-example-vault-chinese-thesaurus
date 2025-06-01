@@ -6,7 +6,7 @@ This is an Obisidian Example Vault for storing and visualizing the subject terms
 
 > （打开笔记 `view/汉语主题词表的视图.md` 的效果）
 
-![assets/preview-01.png](<assets/preview-01-03.png>)
+![assets/preview-01.png](<assets/preview-01-04.png>)
 
 ![assets/preview-02-02.png](<assets/preview-02-03.png>)
 
