@@ -1,6 +1,9 @@
 
-function getDCDescriptors(p){
-	const descriptorPath = dv.current()["主题词-文件夹路径"];
+function getDCDescriptors(p, descriptorPath){
+	if (!descriptorPath.endsWith("/")){
+		descriptorPath += "/";
+	}
+
 	return dv.func.unique(
 			p.file.outlinks.concat(p.file.inlinks)
 		)
