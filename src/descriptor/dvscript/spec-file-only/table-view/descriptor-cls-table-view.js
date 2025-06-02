@@ -69,14 +69,15 @@ function getElem(p){
 
 dv.container.style.overflowX = "visible";
 
+let i = 0;
+
 dv.pages(`"${descriptorClsPath}"`)
 	.sort(p=>p.file.ctime, "desc")
 	.groupBy(p=>getGroupKey(p))
 	.sort(g=>g.rows[0].file.ctime, "desc")
 	.forEach(g=>{
 		const details = document.createElement("details")
-		details.open = true;
-		dv.header(4, markerMap.text.folderIcon+g.key, {container: details.createEl("summary"), attr:{style:"display:inline"}});
+		dv.header(4, markerMap.text.folderIcon+g.key+" ("+g.rows.length+")", {container: details.createEl("summary"), attr:{style:"display:inline"}});
 		dv.api.table(
 			headers, 
 			g.rows.map(p=>getElem(p)), 
@@ -85,4 +86,8 @@ dv.pages(`"${descriptorClsPath}"`)
 			dv.currentFilePath
 		)
 		dv.container.appendChild(details)
+		if(i < 1){
+			details.open = true;
+		}
+		i++;
 	})

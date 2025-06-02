@@ -175,10 +175,11 @@ function show(){
 		.groupBy(p=>getGroupKey(p))
 		.sort(g=>g.rows[0].file.ctime, "desc");
 	
+	let i = 0;
+
 	groups.forEach(g=>{
 		const details = document.createElement("details")
-		details.open = true;
-		dv.header(4, markerMap.text.folderIcon+g.key,{container:details.createEl("summary"),attr:{style:"display:inline"}})
+		dv.header(4, markerMap.text.folderIcon+g.key+" ("+g.rows.length+")",{container:details.createEl("summary"),attr:{style:"display:inline"}})
 		dv.api.table(
 			headers, 
 			g.rows.map(p=>PageProxy.get(p).getElem()),
@@ -186,7 +187,11 @@ function show(){
 			dv.component,
 			dv.currentFilePath
 		)
-		dv.container.appendChild(details)
+		dv.container.appendChild(details);
+		if(i < 1){
+			details.open = true;
+		}
+		i++;
 	});
 }
 
