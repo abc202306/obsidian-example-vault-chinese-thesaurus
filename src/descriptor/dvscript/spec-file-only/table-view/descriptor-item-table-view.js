@@ -66,6 +66,12 @@ class LinkRenderUtil {
 		)
 	}
 	static getDescriptorClassificationResolvedLink(l){
+		if (l === undefined){
+			return undefined
+		}
+		if (typeof l === "string"){
+			return l;
+		}
 		return dv.func.link(
 			l.path,
 			markerMap.resolvedLink.descriptorClassification+l.path.replace(
