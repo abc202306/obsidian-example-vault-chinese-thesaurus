@@ -10,6 +10,8 @@ This is an Obisidian Example Vault for storing and visualizing the subject terms
 
 ![assets/preview-02-02.png](<assets/preview-02-03.png>)
 
+![assets/preview-02-02.png](<assets/preview-03-01.png>)
+
 ## 更多信息，参见如下的文档
 
 - [1. 【设计文档】笔记库的结构和依赖](<docs/1. 【设计文档】笔记库的结构和依赖.md>)
