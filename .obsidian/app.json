@@ -1,5 +1,6 @@
 {
   "alwaysUpdateLinks": true,
   "readableLineLength": false,
-  "showUnsupportedFiles": true
+  "showUnsupportedFiles": true,
+  "propertiesInDocument": "hidden"
 }

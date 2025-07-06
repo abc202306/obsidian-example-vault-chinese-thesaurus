@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "9c27ffd7c6b0e94b",
+        "id": "e188d944ac577816",
         "type": "tabs",
         "children": [
           {
-            "id": "9d19d6ee024e1214",
+            "id": "352289f82360cebf",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "data/82 汉语主题词表/主题词/主题词.md",
+                "file": "data/1 中国图书馆分类法/G 文化、科学、教育、体育/G3 科学、科学研究/G35 情报学、情报工作/G354 情报检索.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "主题词"
+              "title": "G354 情报检索"
             }
           }
         ]
@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#typescript",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -74,7 +74,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -94,7 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "docs/3. 【参考文档】如何剪藏《汉表服务系统》的主题词.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +105,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for README"
+              "title": "Backlinks for 3. 【参考文档】如何剪藏《汉表服务系统》的主题词"
             }
           },
           {
@@ -150,13 +151,39 @@
               "icon": "lucide-list",
               "title": "Outline of 汉语主题词表的视图"
             }
+          },
+          {
+            "id": "64827f7204de044d",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "9c90b6d2b5c987d1",
+            "type": "leaf",
+            "state": {
+              "type": "file-properties",
+              "state": {
+                "file": "data/1 中国图书馆分类法/G 文化、科学、教育、体育/G3 科学、科学研究/G35 情报学、情报工作/G354 情报检索.md"
+              },
+              "icon": "lucide-info",
+              "title": "File properties for G354 情报检索"
+            }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 369.5,
-    "collapsed": true
+    "width": 370.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -169,47 +196,48 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "9d19d6ee024e1214",
+  "active": "64827f7204de044d",
   "lastOpenFiles": [
-    "data/82 汉语主题词表/主题词分类表/G252 信息资源服务 主题词表.md",
-    "view/汉语主题词表的视图.md",
-    "data/1 中国图书馆分类法/A 马克思主义、列宁主义、毛泽东思想、邓小平理论/A49 邓小平著作.md",
-    "data/1 中国图书馆分类法/A 马克思主义、列宁主义、毛泽东思想、邓小平理论.md",
+    "templates/TP - Base.md",
+    "templates/TP - 主题词.md",
+    "data/82 汉语主题词表.md",
     "data/1 中国图书馆分类法.md",
-    "data/1 中国图书馆分类法/T 工业技术.md",
-    "data/1 中国图书馆分类法/T 工业技术/TP 自动化技术、计算机技术.md",
-    "data/1 中国图书馆分类法/T 工业技术/TP 自动化技术、计算机技术/TP3 计算技术、计算机技术.md",
-    "data/1 中国图书馆分类法/T 工业技术/TP3 计算技术、计算机技术/TP31 计算机软件.md",
-    "data/1 中国图书馆分类法/T 工业技术/TP3 计算技术、计算机技术/TP31 计算机软件/TP311 程序设计、软件工程.md",
-    "data/1 中国图书馆分类法/T 工业技术/TP3 计算技术、计算机技术/TP31 计算机软件/TP311 程序设计、软件工程/TP311.5 软件工程.md",
-    "data/82 汉语主题词表/主题词分类表/TP311.5 软件工程 主题词表.md",
-    "data/82 汉语主题词表/主题词/软件分发.md",
+    "views/汉语主题词表的视图.md",
+    "docs/1. 【设计文档】笔记库的结构和依赖.md",
     "README.md",
-    "data/1 中国图书馆分类法/G 文化、科学、教育、体育.md",
-    "data/1 中国图书馆分类法/G 文化、科学、教育、体育/G2 信息与知识传播.md",
-    "data/1 中国图书馆分类法/G 文化、科学、教育、体育/G2 信息与知识传播/G25 图书馆学、图书馆事业.md",
-    "data/1 中国图书馆分类法/G 文化、科学、教育、体育/G2 信息与知识传播/G25 图书馆学、图书馆事业/G252 读者工作.md",
-    "data/1 中国图书馆分类法/D 政治、法律/D8 外交、国际关系.md",
-    "data/1 中国图书馆分类法/D 政治、法律.md",
-    "data/1 中国图书馆分类法/D 政治、法律/D1 国际共产主义运动.md",
-    "data/1 中国图书馆分类法/D 政治、法律/D5 世界政治.md",
-    "data/1 中国图书馆分类法/J 艺术.md",
-    "data/1 中国图书馆分类法/P 天文学、地球科学.md",
-    "data/1 中国图书馆分类法/C 社会科学总论.md",
-    "data/1 中国图书馆分类法/A 马克思主义、列宁主义、毛泽东思想、邓小平理论/A1 马克思、恩格斯著作.md",
-    "assets/preview-01-04.png",
+    "assets/documents/javascript/descriptor/dvscript/spec-file-only/table-view/descriptor-item-table-view.js",
+    "assets/documents/javascript/descriptor/dvscript/spec-file-only/table-view/descriptor-cls-table-view.js",
+    "assets/documents/javascript/descriptor/dvscript/spec-file-only/table-view/descriptor-assembly-cls-table-view.js",
+    "assets/documents/javascript/descriptor/dvscript/spec-file-only/flat-content-view/descriptor-data-flat-content-view.js",
+    "assets/documents/javascript/descriptor/dvscript/spec-file-only/table-view",
+    "assets/documents/javascript/descriptor/dvscript/spec-file-only/flat-content-view",
+    "assets/documents/javascript/descriptor/dvscript/spec-file-only",
+    "assets/documents/javascript/descriptor/dvmodule/get-group-key.js",
+    "assets/documents/javascript/descriptor/dvmodule/get-dc-descriptors.js",
+    "assets/documents/javascript/descriptor/dvscript",
+    "data/82 汉语主题词表/主题词分类表/ZT73_ 时间、时期 主题词表.md",
+    "data/82 汉语主题词表/主题词分类表/ZT71_ 方式、形式、类型 主题词表.md",
+    "data/82 汉语主题词表/主题词分类表/ZT5_ 状态、形态、现象、过程 主题词表.md",
+    "data/82 汉语主题词表/主题词分类表/Z 综合性图书 主题词表.md",
+    "data/82 汉语主题词表/主题词分类表/TP393.096 网络辅助工具 主题词表.md",
+    "data/82 汉语主题词表/主题词分类表/TP393.092.4 网络浏览器 主题词表.md",
+    "data/82 汉语主题词表/主题词分类表/TP393.09 计算机网络应用 主题词表.md",
+    "data/82 汉语主题词表/主题词分类表/TP393.084 网络加密技术 主题词表.md",
+    "data/82 汉语主题词表/主题词分类表/TP391.7 机器辅助技术 主题词表.md",
+    "data/82 汉语主题词表/主题词分类表/TP391.3 检索机 主题词表.md",
+    "data/82 汉语主题词表/主题词分类表/TP337 计算机仿真器 主题词表.md",
+    "data/82 汉语主题词表/主题词分类表/TP33 电子数字计算机（不连续作用电子计算机） 主题词表.md",
+    "data/82 汉语主题词表/主题词分类表/TP319 专用应用软件 主题词表.md",
+    "data/82 汉语主题词表/主题词分类表/TP317.5 多媒体软件 主题词表.md",
+    "data/82 汉语主题词表/主题词分类表/TP317.4 图像处理软件 主题词表.md",
+    "data/82 汉语主题词表/主题词分类表/TP317.1 办公自动化系统 主题词表.md",
+    "data/82 汉语主题词表/主题词分类表/TP317.2 文字处理软件 主题词表.md",
+    "data/82 汉语主题词表/主题词分类表/TP317 程序包（应用软件） 主题词表.md",
+    "data/82 汉语主题词表/主题词分类表/TP316 操作系统 主题词表.md",
+    "assets/pictures/preview-03-01.png",
+    "assets/pictures/preview-02-03.png",
+    "assets/pictures/preview-01-04.png",
     "assets/preview-01-03.png",
-    "src/descriptor/dvscript/spec-file-only/flat-content-view/descriptor-data-flat-content-view.js",
-    "src/descriptor/dvscript/spec-file-only/flat-content-view",
-    "src/descriptor/dvscript/spec-file-only/table-view/descriptor-cls-table-view.js",
-    "src/descriptor/dvscript/spec-file-only/table-view/descriptor-item-table-view.js",
-    "src/descriptor/dvscript/spec-file-only/table-view/descriptor-assembly-cls-table-view.js",
-    "src/descriptor/dvscript/spec-file-only/table-view",
-    "src/descriptor/dvscript/spec-file-only",
-    "src/descriptor/dvscript/table-view/descriptor-cls-table-view.js",
-    "src/descriptor/dvscript/table-view/descriptor-item-table-view.js",
-    "src/descriptor/dvscript/table-view/descriptor-assembly-cls-table-view.js",
-    "assets/preview-02-03.png",
     "assets/preview-01-02.png",
     "assets/preview-02-02.png",
     "assets/preview-02.png",
