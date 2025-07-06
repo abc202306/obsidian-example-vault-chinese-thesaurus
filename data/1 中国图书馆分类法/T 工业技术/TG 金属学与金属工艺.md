@@ -1,9 +1,8 @@
 ---
 up:
   - "[[T 工业技术]]"
-date-link: "[[2024-12-06]]"
 date: 2024-12-06
-ctime-p: 2024-12-06T17:16:53
+ctime: 2024-12-06T17:16:53
 english: Metallography and metal processing technology
 aliases:
   - TG - Metallography and metal processing technology

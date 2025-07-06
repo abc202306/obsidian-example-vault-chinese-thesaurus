@@ -1,9 +1,8 @@
 ---
 up:
   - "[[1 中国图书馆分类法]]"
-date-link: "[[2024-12-06]]"
 date: 2024-12-06
-ctime-p: 2024-12-06T17:38:40
+ctime: 2024-12-06T17:38:40
 english: Politics,law
 aliases:
   - D - Politics,law

@@ -1,9 +1,8 @@
 ---
 up:
   - "[[1 中国图书馆分类法]]"
-date-link: "[[2025-03-01]]"
 date: 2025-03-01
-ctime-p: 2025-03-01T23:21:20
+ctime: 2025-03-01T23:21:20
 english: Art
 aliases:
   - J - Art
@@ -33,7 +32,7 @@ down:
 		- [[J0 艺术理论|Art theories]]
 	- [[J1 世界各国艺术概况]]
 		- [[J1 世界各国艺术概况|Overview of arts around the world]]
-	- [[J19 专题艺术与现代边缘艺术]]
+	- [[J19 专题艺术与现代边缘艺术]]
 		- [[J19 专题艺术与现代边缘艺术|Arts by special subject and modern fringe art]]
 	- [[J2 绘画]]
 		- [[J2 绘画|Painting]]

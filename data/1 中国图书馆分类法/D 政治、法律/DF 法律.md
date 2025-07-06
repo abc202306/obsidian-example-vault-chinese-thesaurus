@@ -1,9 +1,8 @@
 ---
 up:
   - "[[D 政治、法律]]"
-date-link: "[[2025-01-25]]"
 date: 2025-01-25
-ctime-p: 2025-01-25T14:54:41
+ctime: 2025-01-25T14:54:41
 english: Law
 aliases:
   - DF - Law

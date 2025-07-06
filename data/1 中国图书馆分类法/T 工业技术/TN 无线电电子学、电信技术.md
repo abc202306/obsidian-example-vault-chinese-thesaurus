@@ -1,9 +1,8 @@
 ---
 up:
   - "[[T 工业技术]]"
-date-link: "[[2024-12-06]]"
 date: 2024-12-06
-ctime-p: 2024-12-06T17:21:07
+ctime: 2024-12-06T17:21:07
 english: Electronic technique, communication technique
 aliases:
   - TN - Electronic technique, communication technique

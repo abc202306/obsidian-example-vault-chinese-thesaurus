@@ -1,9 +1,8 @@
 ---
 up:
   - "[[1 中国图书馆分类法]]"
-date-link: "[[2025-03-01]]"
 date: 2025-03-01
-ctime-p: 2025-03-01T23:22:00
+ctime: 2025-03-01T23:22:00
 english: Natural science (General)
 aliases:
   - A - Natural science (General)
@@ -46,7 +45,7 @@ down:
 		- [[N6 自然科学参考工具书|Reference books of natural science]]
 	- [[[N7] 自然科学文献检索工具]]
 		- [[[N7] 自然科学文献检索工具|Retrieval reference books of natural science]]
-	- [[N79 非书资料、视听资料]]
+	- [[N79 非书资料、视听资料]]
 		- [[N79 非书资料、视听资料|Non-book materials, audio-visual materials of natural science]]
 	- [[N8 自然科学调查、考察]]
 		- [[N8 自然科学调查、考察|Natural science expedition]]

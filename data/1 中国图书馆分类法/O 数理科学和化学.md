@@ -1,9 +1,8 @@
 ---
 up:
   - "[[1 中国图书馆分类法]]"
-date-link: "[[2025-03-01]]"
 date: 2025-03-01
-ctime-p: 2025-03-01T23:22:19
+ctime: 2025-03-01T23:22:19
 english: Mathematical science and chemistry
 aliases:
   - O - Mathematical science and chemistry
