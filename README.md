@@ -6,15 +6,16 @@ This is an Obisidian Example Vault for storing and visualizing the subject terms
 
 > （打开笔记 `view/汉语主题词表的视图.md` 的效果）
 
-![preview-01.png](<assets/pictures/preview-01-04.png>)
+![](assets/pictures/obsidian-example-vault-chinese-thesaurus/preview-01-04.png)
 
-![preview-02-02.png](<assets/pictures/preview-02-03.png>)
+![](assets/pictures/obsidian-example-vault-chinese-thesaurus/preview-02-03.png)
 
-![preview-02-02.png](<assets/pictures/preview-03-01.png>)
+![](assets/pictures/obsidian-example-vault-chinese-thesaurus/preview-03-01.png)
+
 
 ## 更多信息，参见如下的文档
 
-- [1. 【设计文档】笔记库的结构和依赖](<docs/1. 【设计文档】笔记库的结构和依赖.md>)
-- [2. 【设计文档】汉语主题词表笔记的相关标准](<docs/2. 【设计文档】汉语主题词表笔记的相关标准.md>) 
-- [3. 【参考文档】如何剪藏《汉表服务系统》的主题词](<docs/3. 【参考文档】如何剪藏《汉表服务系统》的主题词.md>)
-- [4. 【参考文档】论如何使用笔记库](<docs/4. 【参考文档】论如何使用笔记库.md>)
+- [1. 【设计文档】笔记库的结构和依赖](docs/help/obsidian-example-vault-chinese-thesaurus/1.%20【设计文档】笔记库的结构和依赖.md)
+- [2. 【设计文档】汉语主题词表笔记的相关标准](docs/help/obsidian-example-vault-chinese-thesaurus/2.%20【设计文档】汉语主题词表笔记的相关标准.md)
+- [3. 【参考文档】如何剪藏《汉表服务系统》的主题词](docs/help/obsidian-example-vault-chinese-thesaurus/3.%20【参考文档】如何剪藏《汉表服务系统》的主题词.md)
+- [4. 【参考文档】论如何使用笔记库](docs/help/obsidian-example-vault-chinese-thesaurus/4.%20【参考文档】论如何使用笔记库.md)
