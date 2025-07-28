@@ -1,13 +1,15 @@
 
-const configSectionStr = /\n##\s配置\n(([^]*?(?=\n##\s))|([^]*))/.exec(await dv.io.load(dv.currentFilePath))[0]
-
-function getConfigValue(key){
-	return new RegExp("\\|\\s*?"+key+"\\s*?\\|(.*?)\\|","").exec(configSectionStr)[1].trim()
+async function getConfigValue(key){
+	const fileContent = await dv.io.load(dv.currentFilePath);
+	const configSectionStrRegExp = /\n##\s配置\n(([^]*?(?=\n##\s))|([^]*))/;
+	const configSectionStr = configSectionStrRegExp.exec(fileContent)[0]
+	const configValueRegExp = new RegExp("\\|\\s*?"+key+"\\s*?\\|\\s*(.*?)\\s*\\|","")
+	return configValueRegExp.exec(configSectionStr)[1]
 }
 
 const configMap = {
 	path: {
-		relatedCTData: getConfigValue("汉语主题词表数据 - 文件夹路径"),
+		relatedCTData: await getConfigValue("汉语主题词表数据根目录"),
 	}
 }
 
@@ -40,7 +42,7 @@ dv.pages(`"${relatedCTDataPath}"`)
 				return eventListener;
 			}
 			details02.addEventListener("toggle",createEventListener(details02))
-			if(j < 3){
+			if(j < 0){
 				details02.open = true;
 				details.dispatchEvent(new ToggleEvent("toggle",{oldState:"close",newState:"open"}))
 			}

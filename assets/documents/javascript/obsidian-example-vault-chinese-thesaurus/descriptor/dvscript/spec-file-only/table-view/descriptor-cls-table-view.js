@@ -1,17 +1,26 @@
+async function getConfigValue(key){
+	const fileContent = await dv.io.load(dv.currentFilePath);
+	const configSectionStrRegExp = /\n##\s配置\n(([^]*?(?=\n##\s))|([^]*))/;
+	const configSectionStr = configSectionStrRegExp.exec(fileContent)[0]
+	const configValueRegExp = new RegExp("\\|\\s*?"+key+"\\s*?\\|\\s*(.*?)\\s*\\|","")
+	return configValueRegExp.exec(configSectionStr)[1]
+}
 
-const configSectionStr = /\n##\s配置\n(([^]*?(?=\n##\s))|([^]*))/.exec(await dv.io.load(dv.currentFilePath))[0]
-
-function getConfigValue(key){
-	return new RegExp("\\|\\s*?"+key+"\\s*?\\|(.*?)\\|","").exec(configSectionStr)[1].trim()
+async function getConfig(key){
+	return (await Promise.all([
+		"汉语主题词表数据根目录",
+		key
+	].map(async i=>getConfigValue(i)))).join("/")
 }
 
 const configMap = {
 	path: {
-		descriptor: getConfigValue("主题词 - 文件夹路径"),
-		descriptorCls: getConfigValue("主题词分类表 - 文件夹路径"),
-		assemblyDescriptorCls: getConfigValue("主题词组配分类表 - 文件夹路径")
+		descriptor: await getConfig("主题词子目录"),
+		descriptorCls: await getConfig("主题词分类表子目录"),
+		assemblyDescriptorCls: await getConfig("主题词组配分类表子目录")
 	}
 }
+
 
 const descriptorPath = configMap.path.descriptor;
 const descriptorClsPath = configMap.path.descriptorCls;
@@ -31,7 +40,7 @@ const headers = [
 ]
 
 const fieldMap = {
-	narrowerClses: "主题词表-下位主题词表"
+	narrowerClses: "narrowertermtables"
 }
 
 const regexMap = {

@@ -9,9 +9,16 @@ async function getConfigValue(key){
 	return configValueRegExp.exec(configSectionStr)[1]
 }
 
+async function getConfig(key){
+	return (await Promise.all([
+		"汉语主题词表数据根目录",
+		key
+	].map(async i=>getConfigValue(i)))).join("/")
+}
+
 const config = {
 	paths: {
-		descriptor: await getConfigValue("主题词 - 文件夹路径")
+		descriptor: await getConfig("主题词子目录")
 	},
 	headers: [
 		"File",
@@ -25,13 +32,13 @@ const config = {
 		"file.cday"
 	],
 	fields: {
-		english: "主题词-英文",
-		synonyms: "主题词-同义词",
-		broadTerms: "主题词-上位词",
-		narrowerTerms: "主题词-下位词",
-		relatedTerms: "主题词-相关词",
-		classifications: "主题词-分类",
-		sources: "主题词-来源"
+		english: "english",
+		synonyms: "synonyms",
+		broadTerms: "broadTerms",
+		narrowerTerms: "narrowerterms",
+		relatedTerms: "relatedterms",
+		classifications: "categories",
+		sources: "sources"
 	},
 	markers: {
 		resolvedLink: {
@@ -49,6 +56,7 @@ const config = {
 		}
 	}
 }
+
 
 /** @function */
 const getGroupKey = await new Promise(resolve => dv.view("dvmodule/get-group-key", resolve))
@@ -173,8 +181,9 @@ function getScrollableDiv(container){
 function show(){
 	dv.container.style.overflowX = "visible";
 
-	const groups = dv
-		.pages(`"${config.paths.descriptor}"`)
+	const ps = dv.pages(`"${config.paths.descriptor}"`);
+
+	const groups = ps
 		.sort(p=>p.file.ctime, "desc")
 		.groupBy(p=>getGroupKey(p))
 		.sort(g=>g.rows[0].file.ctime, "desc");

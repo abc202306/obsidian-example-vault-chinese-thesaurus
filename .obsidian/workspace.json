@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "e188d944ac577816",
+        "id": "185943b9003819e6",
         "type": "tabs",
         "children": [
           {
-            "id": "352289f82360cebf",
+            "id": "1717aa206a282d8a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "data/1 中国图书馆分类法/G 文化、科学、教育、体育/G3 科学、科学研究/G35 情报学、情报工作/G354 情报检索.md",
+                "file": "views/汉语主题词表的视图.md",
                 "mode": "preview",
                 "source": true
               },
               "icon": "lucide-file",
-              "title": "G354 情报检索"
+              "title": "汉语主题词表的视图"
             }
           }
         ]
@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#typescript",
+                "query": "[\"主题词-分类\"]",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -74,12 +74,11 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 305.5110321044922
+    "width": 311.5
   },
   "right": {
     "id": "0f625f3186cf6842",
@@ -196,47 +195,49 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "64827f7204de044d",
+  "active": "1717aa206a282d8a",
   "lastOpenFiles": [
-    "templates/TP - Base.md",
-    "templates/TP - 主题词.md",
-    "data/82 汉语主题词表.md",
-    "data/1 中国图书馆分类法.md",
+    "docs/help/obsidian-example-vault-chinese-thesaurus/4. 【参考文档】论如何使用笔记库.md",
+    "docs/help/obsidian-example-vault-chinese-thesaurus/3. 【参考文档】如何剪藏《汉表服务系统》的主题词.md",
+    "docs/help/obsidian-example-vault-chinese-thesaurus/1. 【设计文档】笔记库的结构和依赖.md",
+    "docs/help/obsidian-example-vault-chinese-thesaurus/2. 【设计文档】汉语主题词表笔记的相关标准.md",
     "views/汉语主题词表的视图.md",
-    "docs/1. 【设计文档】笔记库的结构和依赖.md",
+    "docs/汉语主题词表.md",
+    "data/中国图书馆分类法/V 航空、航天.md",
+    "data/中国图书馆分类法/T 工业技术.md",
+    "data/中国图书馆分类法/F 经济/F2 经济计划与管理.md",
+    "docs/中国图书馆分类法.md",
     "README.md",
-    "assets/documents/javascript/descriptor/dvscript/spec-file-only/table-view/descriptor-item-table-view.js",
-    "assets/documents/javascript/descriptor/dvscript/spec-file-only/table-view/descriptor-cls-table-view.js",
-    "assets/documents/javascript/descriptor/dvscript/spec-file-only/table-view/descriptor-assembly-cls-table-view.js",
-    "assets/documents/javascript/descriptor/dvscript/spec-file-only/flat-content-view/descriptor-data-flat-content-view.js",
-    "assets/documents/javascript/descriptor/dvscript/spec-file-only/table-view",
-    "assets/documents/javascript/descriptor/dvscript/spec-file-only/flat-content-view",
-    "assets/documents/javascript/descriptor/dvscript/spec-file-only",
-    "assets/documents/javascript/descriptor/dvmodule/get-group-key.js",
-    "assets/documents/javascript/descriptor/dvmodule/get-dc-descriptors.js",
-    "assets/documents/javascript/descriptor/dvscript",
-    "data/82 汉语主题词表/主题词分类表/ZT73_ 时间、时期 主题词表.md",
-    "data/82 汉语主题词表/主题词分类表/ZT71_ 方式、形式、类型 主题词表.md",
-    "data/82 汉语主题词表/主题词分类表/ZT5_ 状态、形态、现象、过程 主题词表.md",
-    "data/82 汉语主题词表/主题词分类表/Z 综合性图书 主题词表.md",
-    "data/82 汉语主题词表/主题词分类表/TP393.096 网络辅助工具 主题词表.md",
-    "data/82 汉语主题词表/主题词分类表/TP393.092.4 网络浏览器 主题词表.md",
-    "data/82 汉语主题词表/主题词分类表/TP393.09 计算机网络应用 主题词表.md",
-    "data/82 汉语主题词表/主题词分类表/TP393.084 网络加密技术 主题词表.md",
-    "data/82 汉语主题词表/主题词分类表/TP391.7 机器辅助技术 主题词表.md",
-    "data/82 汉语主题词表/主题词分类表/TP391.3 检索机 主题词表.md",
-    "data/82 汉语主题词表/主题词分类表/TP337 计算机仿真器 主题词表.md",
-    "data/82 汉语主题词表/主题词分类表/TP33 电子数字计算机（不连续作用电子计算机） 主题词表.md",
-    "data/82 汉语主题词表/主题词分类表/TP319 专用应用软件 主题词表.md",
-    "data/82 汉语主题词表/主题词分类表/TP317.5 多媒体软件 主题词表.md",
-    "data/82 汉语主题词表/主题词分类表/TP317.4 图像处理软件 主题词表.md",
-    "data/82 汉语主题词表/主题词分类表/TP317.1 办公自动化系统 主题词表.md",
-    "data/82 汉语主题词表/主题词分类表/TP317.2 文字处理软件 主题词表.md",
-    "data/82 汉语主题词表/主题词分类表/TP317 程序包（应用软件） 主题词表.md",
-    "data/82 汉语主题词表/主题词分类表/TP316 操作系统 主题词表.md",
-    "assets/pictures/preview-03-01.png",
-    "assets/pictures/preview-02-03.png",
-    "assets/pictures/preview-01-04.png",
+    "assets/pictures/obsidian-example-vault-chinese-thesaurus/preview-01-06.png",
+    "assets/pictures/obsidian-example-vault-chinese-thesaurus/preview-01-05.png",
+    "().md",
+    "templates/obsidian-example-vault-chinese-thesaurus",
+    "assets/pictures/obsidian-example-vault-chinese-thesaurus/preview-01-04.png",
+    "assets/pictures/obsidian-example-vault-chinese-thesaurus",
+    "docs/help/obsidian-example-vault-chinese-thesaurus",
+    "templates/obsidian-example-vault-chinese-thesaurus/TP - 主题词.md",
+    "templates/obsidian-example-vault-chinese-thesaurus/TP - Base.md",
+    "data/中国图书馆分类法/A 马克思主义、列宁主义、毛泽东思想、邓小平理论.md",
+    "data/汉语主题词表/主题词组配分类表/TP319 TP393.09 组配 主题词表.md",
+    "data/汉语主题词表/主题词组配分类表/TP317 TP393.09 组配 主题词表.md",
+    "data/汉语主题词表/主题词组配分类表/TN918 TP309.7 组配 主题词表.md",
+    "data/汉语主题词表/主题词组配分类表/TN915 TP33 组配 主题词表.md",
+    "data/汉语主题词表/主题词组配分类表/P19 ZT73_ 组配 主题词表.md",
+    "data/汉语主题词表/主题词组配分类表/G25 G252 组配 主题词表.md",
+    "data/汉语主题词表/主题词分类表/E 军事 主题词表.md",
+    "data/汉语主题词表/主题词/备份软件.md",
+    "docs/home",
+    "docs/help",
+    "data/中国图书馆分类法/G 文化、科学、教育、体育/G3 科学、科学研究/G35 情报学、情报工作/G354 情报检索.md",
+    "assets/documents/javascript/obsidian-example-vault-chinese-thesaurus/dvscript/spec-file-only/table-view/descriptor-item-table-view.js",
+    "assets/documents/javascript/obsidian-example-vault-chinese-thesaurus/dvscript/spec-file-only/table-view/descriptor-cls-table-view.js",
+    "assets/documents/javascript/obsidian-example-vault-chinese-thesaurus/dvscript/spec-file-only/table-view/descriptor-assembly-cls-table-view.js",
+    "assets/documents/javascript/obsidian-example-vault-chinese-thesaurus/dvscript/spec-file-only/flat-content-view/descriptor-data-flat-content-view.js",
+    "assets/documents/javascript/obsidian-example-vault-chinese-thesaurus/dvscript/spec-file-only/table-view",
+    "data/汉语主题词表/主题词分类表/ZT73_ 时间、时期 主题词表.md",
+    "data/汉语主题词表/主题词分类表/ZT71_ 方式、形式、类型 主题词表.md",
+    "assets/pictures/obsidian-example-vault-chinese-thesaurus/preview-03-01.png",
+    "assets/pictures/obsidian-example-vault-chinese-thesaurus/preview-02-03.png",
     "assets/preview-01-03.png",
     "assets/preview-01-02.png",
     "assets/preview-02-02.png",

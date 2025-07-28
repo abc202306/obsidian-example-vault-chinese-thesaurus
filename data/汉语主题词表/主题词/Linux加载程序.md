@@ -3,17 +3,17 @@ up:
   - "[[TP311.561 软件工具 主题词表]]"
 date: 2025-06-07
 ctime: 2025-06-07T21:01:14
-主题词-来源:
+sources:
   - 工程技术卷
-主题词-分类:
+categories:
   - "[[TP311.561 软件工具 主题词表]]"
-主题词-英文: Linux loader
-主题词-同义词:
+english: Linux loader
+synonyms:
   - LILO
-主题词-上位词:
+broadterms:
   - "[[工具软件]]"
-主题词-下位词: 
-主题词-相关词: 
+narrowerterms: 
+relatedterms: 
 aliases:
   - LILO
   - Linux loader

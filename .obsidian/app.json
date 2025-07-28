@@ -2,5 +2,7 @@
   "alwaysUpdateLinks": true,
   "readableLineLength": false,
   "showUnsupportedFiles": true,
-  "propertiesInDocument": "hidden"
+  "propertiesInDocument": "hidden",
+  "newLinkFormat": "shortest",
+  "useMarkdownLinks": false
 }
