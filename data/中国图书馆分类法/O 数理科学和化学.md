@@ -1,7 +1,6 @@
 ---
 up:
   - "[[中国图书馆分类法]]"
-date: 2025-03-01
 ctime: 2025-03-01T23:22:19
 english: Mathematical science and chemistry
 aliases:

@@ -1,7 +1,6 @@
 ---
 up:
   - "[[中国图书馆分类法]]"
-date: 2024-12-06
 ctime: 2024-12-06T17:36:48
 english: Culture, science, education and sport
 aliases:

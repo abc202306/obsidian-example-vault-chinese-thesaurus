@@ -34,7 +34,7 @@ const config = {
 	fields: {
 		english: "english",
 		synonyms: "synonyms",
-		broadTerms: "broadTerms",
+		broadTerms: "broadterms",
 		narrowerTerms: "narrowerterms",
 		relatedTerms: "relatedterms",
 		classifications: "categories",

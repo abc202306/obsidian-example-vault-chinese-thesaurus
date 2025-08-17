@@ -1,7 +1,6 @@
 ---
 up:
   - "[[T 工业技术]]"
-date: 2024-12-06
 ctime: 2024-12-06T17:22:44
 english: Chemical industries
 aliases:
