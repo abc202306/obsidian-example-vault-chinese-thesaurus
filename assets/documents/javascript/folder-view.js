@@ -190,13 +190,13 @@ class Tree {
 			}
 			
 			let folderIcon = "📁";
+			if (curFolderNode.pureLevel>=mocLevel){
+				folderIcon = "🏵️"
+			}
 			if (isMonthQueryFolder){
 				folderIcon = "📅"
 			}else if(isDayQueryFolder){
 				folderIcon = "🕦"
-			}
-			if (curFolderNode.pureLevel>=mocLevel){
-				folderIcon = "🏵️"
 			}
 			
 			const a1 = document.createElement("a");
