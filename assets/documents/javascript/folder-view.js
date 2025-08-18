@@ -33,6 +33,18 @@ class Node {
 	}
 }
 
+function tempHighlight(elem){
+	elem.style.backgroundColor="rgba(255,255,0,0.5)";
+	setTimeout(()=>{
+		elem.style.backgroundColor="";
+	},2000)
+}
+function tempHighlight2(elem){
+	elem.style.backgroundColor="rgba(255,255,0,0.1)";
+	setTimeout(()=>{
+		elem.style.backgroundColor="";
+	},2000)
+}
 class Tree {
 	treeRootNode;
 	nodes;
@@ -211,15 +223,10 @@ class Tree {
 			
 			function scrollIntoView01(){
 				liSummary.scrollIntoView({behavior:"smooth"})
-				liSummary.style.backgroundColor="rgba(255,255,0,0.5)";
-				setTimeout(()=>{
-					liSummary.style.backgroundColor="";
-				},2000)
-				
-				li2Summary.style.backgroundColor="rgba(255,255,0,0.5)";
-				setTimeout(()=>{
-					li2Summary.style.backgroundColor="";
-				},2000)
+				tempHighlight(liSummary)
+				tempHighlight2(liSummary.parentElement)
+				tempHighlight(li2Summary)
+				tempHighlight2(li2Summary.parentElement)
 			}
 			function scrollIntoView02(){
 				li2Summary.scrollIntoView({behavior:"smooth"})
@@ -230,6 +237,8 @@ class Tree {
 				a3 = document.createElement("a");
 				a3.innerText = "🔎"
 				a3.onclick = ()=>{
+					tempHighlight(liSummary)
+					tempHighlight2(liSummary.parentElement)
 					folderViewFunc(curFolderNode.path)
 				}
 			}
@@ -336,6 +345,7 @@ class Main{
 	static viewNavCon = document.createElement("div");
 	static viewNavConIsLoaded = false;
 	static curViewCon = document.createElement("div");
+	static curViewConIsLoaded = false;
 	static viewConMap = {};
 	static now = Date.now();
 	static getCon(){
@@ -347,7 +357,7 @@ class Main{
 	static getMocCon(){
 		const divMoc = document.createElement("div")
 		divMoc.style.overflowY = "scroll"
-		divMoc.style.height = "calc(100vh - 100px)"
+		divMoc.style.height = "calc(100vh - 80px)"
 		divMoc.style.flexShrink = "0"
 		return divMoc;
 	}
@@ -355,7 +365,7 @@ class Main{
 		const divResultContent = document.createElement("div")
 		divResultContent.style.width = "100%"
 		divResultContent.style.overflowY = "scroll"
-		divResultContent.style.height = "calc(100vh - 100px)"
+		divResultContent.style.height = "calc(100vh - 80px)"
 		return divResultContent;
 	}
 	static appendRowsTo(con){
@@ -392,16 +402,32 @@ class Main{
 				Main.displayFolderStruct(cwd,source);
 				
 			}})
-			
+			function createH2(){
+				const h2 = document.createElement("h2");
+				const a = document.createElement("a")
+				a.innerText = "🔎"
+				a.onclick = ()=>{
+					//Main.viewNavCon.querySelectorAll("h2").forEach(h2=>tempHighlight(h2))
+					//tempHighlight2(Main.viewNavCon)
+					if (Main.curViewConIsLoaded){
+						Main.curViewCon.scrollIntoView({behavior:"smooth"})
+						Main.curViewCon.querySelectorAll("h2").forEach(h2=>tempHighlight(h2))
+						tempHighlight2(Main.curViewCon)
+					}
+				}
+				h2.appendChild(a)
+				h2.appendChild(document.createTextNode("Folders"))
+				return h2;
+			}
 			const ul = document.createElement("ul")
 			ul.appendChild(resultContent)
-			dv.header(2,"🔎Folders",{container:viewNavConResult})
+			viewNavConResult.appendChild(createH2())
 			viewNavConResult.appendChild(ul)
 			Main.appendRowsTo(viewNavConResult)
 			
 			const ul2 = document.createElement("ul")
 			ul2.appendChild(resultMoc)
-			dv.header(2,"🔎Folders",{container:viewNavConMoc})
+			viewNavConMoc.appendChild(createH2())
 			viewNavConMoc.appendChild(ul2)
 			Main.appendRowsTo(viewNavConMoc)
 			oldViewNavCon.replaceWith(Main.viewNavCon)
@@ -409,7 +435,12 @@ class Main{
 		}
 		
 		const callerElemID = "view("+Main.viewNavCon.id+")"+"-(result-content)-li("+callerCWD+")";
-		document.getElementById(callerElemID)?.scrollIntoView({behavior:"smooth"})
+		const elem = document.getElementById(callerElemID)
+		if (elem){
+			elem.scrollIntoView({behavior:"smooth"})
+			tempHighlight(elem)
+			tempHighlight2(elem.parentElement)
+		}
 	}
 
 	static displayFolderStruct(cwd, source) {
@@ -438,6 +469,8 @@ class Main{
 				const a = document.createElement("a")
 				a.innerText = "🔎"
 				a.onclick = ()=>{
+					Main.curViewCon.querySelectorAll("h2").forEach(h2=>tempHighlight(h2))
+					tempHighlight2(Main.curViewCon)
 					Main.displayRootFolderStructDepthN(cwd)
 				}
 				return a;
@@ -450,7 +483,7 @@ class Main{
 			}
 			
 			const divMoc = this.getMocCon();
-			
+
 			divMoc.append(createH2())
 			
 			dv.span("> "+cwdParts.slice(0,cwdParts.length-1).join("/"),{container:divMoc})
@@ -467,6 +500,7 @@ class Main{
 			viewCon.appendChild(divMoc)
 			viewCon.appendChild(divResultContent)
 			Main.viewConMap[vID] = viewCon;
+			Main.curViewConIsLoaded = true;
 		}
 		
 		const oldViewCon = Main.curViewCon;
@@ -475,7 +509,9 @@ class Main{
 		if (oldViewCon !== viewCon){
 			oldViewCon.replaceWith(viewCon)
 		}
-		
+		Main.curViewCon.querySelectorAll("h2").forEach(h2=>tempHighlight(h2))
+		tempHighlight2(Main.curViewCon)
+
 		Main.curViewCon.scrollIntoView({behavior:"smooth"})
 	}
 }
