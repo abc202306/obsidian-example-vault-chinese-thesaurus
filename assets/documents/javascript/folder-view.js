@@ -294,7 +294,7 @@ class Tree {
 				a3 = document.createElement("a");
 				a3.innerText = "🔎"
 				a3.onclick = () => {
-					a3.innerText = "⬇️"
+					setTimeout(()=>{a3.innerText = "⬇️"},2000)
 					tempHighlight(liSummary)
 					tempHighlight2(liSummary.parentElement)
 					folderViewFunc(curFolderNode.path)
@@ -362,7 +362,13 @@ class Tree {
 							});
 							return monthQueryFolder;
 						})
-					push(monthQueryFolders, childrenUL, childrenUL2, { isMonthQueryFolder: true, isDayQueryFolder: false, mocLevel: mocLevel });
+
+					if (monthQueryFolders.length!==1){
+						push(monthQueryFolders, childrenUL, childrenUL2, { isMonthQueryFolder: true, isDayQueryFolder: false, mocLevel: mocLevel });
+					} else {
+						push(childFiles, childrenUL, childrenUL2, { isMonthQueryFolder: false, isDayQueryFolder: false, mocLevel: mocLevel });
+					}
+					
 				} else if (isMonthQueryFolder) {
 					const dayQueryFolders = childFiles.groupBy(c => dv.func.dateformat(c.page.file.cday, "yyyy-MM-dd"))
 						.sort(g => g.key, "desc")
@@ -377,7 +383,11 @@ class Tree {
 							});
 							return dayQueryFolder;
 						})
-					push(dayQueryFolders, childrenUL, childrenUL2, { isMonthQueryFolder: false, isDayQueryFolder: true, mocLevel: mocLevel });
+					if (dayQueryFolders.length !== 1) {
+						push(dayQueryFolders, childrenUL, childrenUL2, { isMonthQueryFolder: false, isDayQueryFolder: true, mocLevel: mocLevel });
+					} else {
+						push(childFiles, childrenUL, childrenUL2, { isMonthQueryFolder: false, isDayQueryFolder: false, mocLevel: mocLevel });
+					}
 				} else {
 					push(childFiles, childrenUL, childrenUL2, { isMonthQueryFolder: false, isDayQueryFolder: false, mocLevel: mocLevel });
 				}
@@ -399,7 +409,9 @@ class Main {
 		Main.con.appendChild(Main.viewNavCon)
 		Main.con.appendChild(Main.curViewCon)
 		dv.container.appendChild(Main.con)
+		console.time("rootfolder")
 		this.displayRootFolderStructDepthN()
+		console.timeEnd("rootfolder")
 	}
 	static con = document.createElement("div");
 	static viewNavCon = document.createElement("div");
@@ -458,7 +470,6 @@ class Main {
 				.sort(pagePath => pagePath)
 			const cwdDisplay = "Root"
 			const tree = new Tree(pagePaths, cwdDisplay);
-
 			const { resultContent, resultMoc } = Tree.toResult(tree.treeRootNode, vID, {
 				mocLevel: mocLevel, isMonthQueryFolder: false, isDayQueryFolder: false, folderViewFunc: (folderPath) => {
 					const cwd = folderPath;
