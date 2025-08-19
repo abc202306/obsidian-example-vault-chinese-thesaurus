@@ -2,7 +2,7 @@
 const config = {
 	rootFolderView: {
 		mocLevel: 4,
-		folderLevel: 10
+		folderLevel: 7
 	},
 	specFolderView: {
 		mocLevel: 5
@@ -40,15 +40,15 @@ class Node {
 	}
 }
 
-function getKeywordsFromPage(page){
+function getKeywordsFromPage(page) {
 	return dv.array([
-		...(page.kws||[]).map(kw=>dv.value.isLink(kw)?(kw.display||kw.path.split("/").at(-1)):kw),
-		...page.file.tags.map(tag=>tag.substring(1))
+		...(page.kws || []).map(kw => dv.value.isLink(kw) ? (kw.display || kw.path.split("/").at(-1).replace(/\.md$/, "")) : kw),
+		...page.file.tags.map(tag => tag.substring(1))
 	]).distinct()
 }
 
-function getKeywords(pages){
-	return pages.flatMap(p=> getKeywordsFromPage(p)).distinct();
+function getKeywords(pages) {
+	return pages.flatMap(p => getKeywordsFromPage(p)).distinct();
 }
 
 function scrollIntoView01(liSummary, li2Summary) {
@@ -77,7 +77,7 @@ function tempHighlight2(elem) {
 function turnPageArrIntoLinkArrStr(pages01) {
 	return "\\[" + pages01.map((p, i) => dv.fileLink(p.file.path, false, "" + (i + 1))).join(", ") + "\\]"
 }
-function tryGetPageArr(str){
+function tryGetPageArr(str) {
 	let page = dv.page(str)
 	const pages01 = []
 	if (page) {
@@ -256,9 +256,10 @@ class Tree {
 		let display;
 
 		if (node.type === "file") {
-			getKeywordsFromPage(dv.page(node.path)).forEach(kw=>{
-				const keyword = dv.value.isLink(kw)?(kw.display||kw.path.split("/").at(-1)):kw;
-				liSummary.classList.add("kw-"+keyword);
+			getKeywordsFromPage(dv.page(node.path)).forEach(kw => {
+				const keyword = dv.value.isLink(kw) ? (kw.display || kw.path.split("/").at(-1)) : kw;
+				const keywordClass = "kw-" + keyword.replaceAll(" ", "_")
+				liSummary.classList.add(keywordClass);
 			})
 			display = node.displayName;
 			dv.api.renderValue(display, liSummary, dv.component, dv.currentFilePath)
@@ -310,17 +311,17 @@ class Tree {
 				a3 = document.createElement("a");
 				a3.innerText = "🔎"
 				a3.onclick = () => {
-					setTimeout(()=>{a3.innerText = "⬇️"},2000)
+					setTimeout(() => { a3.innerText = "⬇️" }, 2000)
 					tempHighlight(liSummary)
 					tempHighlight2(liSummary.parentElement)
 					folderViewFunc(curFolderNode.path)
 				}
 			}
-			a1.onclick = ()=>scrollIntoView02(liSummary,li2Summary);
+			a1.onclick = () => scrollIntoView02(liSummary, li2Summary);
 
 			a2 = document.createElement("a");
 			a2.innerText = folderIcon;
-			a2.onclick = ()=>scrollIntoView01(liSummary, li2Summary);
+			a2.onclick = () => scrollIntoView01(liSummary, li2Summary);
 
 			li2Summary.appendChild(a2)
 			dv.api.renderValue(
@@ -379,12 +380,12 @@ class Tree {
 							return monthQueryFolder;
 						})
 
-					if (monthQueryFolders.length!==1){
+					if (monthQueryFolders.length !== 1) {
 						push(monthQueryFolders, childrenUL, childrenUL2, { isMonthQueryFolder: true, isDayQueryFolder: false, mocLevel: mocLevel });
 					} else {
 						push(childFiles, childrenUL, childrenUL2, { isMonthQueryFolder: false, isDayQueryFolder: false, mocLevel: mocLevel });
 					}
-					
+
 				} else if (isMonthQueryFolder) {
 					const dayQueryFolders = childFiles.groupBy(c => dv.func.dateformat(c.page.file.cday, "yyyy-MM-dd"))
 						.sort(g => g.key, "desc")
@@ -480,8 +481,7 @@ class Main {
 
 			const pagePaths = allPages
 				.map(page => page.file.folder)
-				.distinct()
-				.filter(pagePath => pagePath.length !== 0 && pagePath.split("/").length <= folderLevel)
+				.filter(pagePath => pagePath.length !== 0 && pagePath.split("/").length < folderLevel)
 				.distinct()
 				.sort(pagePath => pagePath)
 			const cwdDisplay = "Root"
@@ -534,7 +534,6 @@ class Main {
 
 	static displayFolderStruct(cwd, { isCache, query }) {
 		const vID = "viewresultcontent-" + Main.now + "-" + cwd;
-		console.log(vID)
 		const mocLevel = config.specFolderView.mocLevel;
 
 		let cachedViewCon = Main.viewConMap[vID];
@@ -556,7 +555,8 @@ class Main {
 			function createH2() {
 				const h2 = document.createElement("h2")
 				h2.appendChild(createA())
-				dv.span(cwdParts.at(-1), { container: h2 })
+				const headerText = cwd.length === 0 ? "Root" : cwdParts.at(-1)
+				dv.span(headerText, { container: h2 })
 				return h2;
 			}
 
@@ -566,8 +566,11 @@ class Main {
 			const divMoc = this.getMocCon();
 
 			divMoc.appendChild(createH2())
-			
-			dv.span(cwdParts.map((part,i)=>"> "+"    ".repeat(i)+"- "+part+(i!==cwdParts.length-1?"/":"")+"\n").join(""), { container: divMoc })
+
+			const blockQuote = cwd.length === 0
+				? "> Root"
+				: cwdParts.map((part, i) => "> " + "    ".repeat(i) + "- " + part + (i !== cwdParts.length - 1 ? "/" : "") + "\n").join("");
+			dv.span(blockQuote, { container: divMoc })
 
 
 			const divResultContent = this.getResultContentCon();
@@ -585,7 +588,7 @@ class Main {
 
 			function appendResult() {
 				let cwdDisplay = cwd.split("/").at(-1);
-				if (cwdDisplay.length === 0){
+				if (cwdDisplay.length === 0) {
 					cwdDisplay = "Root"
 				}
 				const tree = new Tree(pagePaths, cwdDisplay);
@@ -598,11 +601,11 @@ class Main {
 				divResultContent.appendChild(ul)
 				divMoc.appendChild(ul2);
 
-				const links = tryGetPageArr(cwdDisplay).map(p=>p.file.link);
-				if (links.length!==0){
+				const links = tryGetPageArr(cwdDisplay).map(p => p.file.link);
+				if (links.length !== 0) {
 					const resultInfoH = document.createElement("h3");
 					const resultInfoSummarySpan = document.createElement("span");
-					resultInfoSummarySpan.id = "view("+vID+")-info-"+"(result-content)"
+					resultInfoSummarySpan.id = "view(" + vID + ")-info-" + "(result-content)"
 					resultInfoH.appendChild(resultInfoSummarySpan);
 					divResultContent.appendChild(resultInfoH)
 
@@ -612,7 +615,7 @@ class Main {
 					const resultInfoMocLI = document.createElement("li")
 					resultInfoMocLI.style.listStyleType = "none"
 					const resultInfoMocLISummarySpan = document.createElement("span");
-					resultInfoMocLISummarySpan.id = "view("+vID+")-info-"+"(result-moc)"
+					resultInfoMocLISummarySpan.id = "view(" + vID + ")-info-" + "(result-moc)"
 					resultInfoMocLI.appendChild(resultInfoMocLISummarySpan)
 					ul2.appendChild(resultInfoMocLI);
 
@@ -620,39 +623,47 @@ class Main {
 					const a2 = document.createElement("a")
 					a.innerText = "📄"
 					a2.innerText = "📄"
-					a.onclick = ()=>scrollIntoView01(resultInfoSummarySpan,resultInfoMocLISummarySpan)
-					a2.onclick = ()=>scrollIntoView02(resultInfoSummarySpan,resultInfoMocLISummarySpan)
+					a.onclick = () => scrollIntoView01(resultInfoSummarySpan, resultInfoMocLISummarySpan)
+					a2.onclick = () => scrollIntoView02(resultInfoSummarySpan, resultInfoMocLISummarySpan)
 					resultInfoSummarySpan.appendChild(a2)
 					resultInfoMocLISummarySpan.appendChild(a);
 
-					
-					dv.span(links.join(" "),{container:resultInfoSummarySpan})
-					dv.span(links.join(" "),{container:resultInfoMocLISummarySpan})
 
-					links.forEach(link=>{
-						dv.paragraph(dv.func.embed(link), {container: resultInfoContentDiv})
+					dv.span(links.join(" "), { container: resultInfoSummarySpan })
+					dv.span(links.join(" "), { container: resultInfoMocLISummarySpan })
+
+					links.forEach(link => {
+						dv.paragraph(dv.func.embed(link), { container: resultInfoContentDiv })
 					})
 				}
 
 				const kws = getKeywords(pages);
-				if (kws.length!==0){
+				if (kws.length !== 0) {
+					dv.header(3, "🏷️Keywords", {container: divMoc})
+
 					const buttonCon = document.createElement("div");
 					buttonCon.style.width = "400px"
 					divMoc.appendChild(buttonCon)
 
 					const showAllButton = document.createElement("button");
 					showAllButton.innerText = "f: showAll"
-					showAllButton.onclick = ()=>{
-						ul.querySelectorAll("li").forEach(li=>li.style.display = "")
+					showAllButton.onclick = () => {
+						ul.querySelectorAll("li").forEach(li => li.style.display = "")
+						buttonCon.querySelectorAll("button").forEach(btn=>btn.style.backgroundColor = "");
+						showAllButton.style.backgroundColor = "rgba(0,0,255,0.3)"
 					}
 					buttonCon.appendChild(showAllButton)
-					
-					kws.forEach(kw=>{
+
+					kws.forEach(kw => {
 						const kwButton = document.createElement("button")
 						kwButton.innerText = kw;
-						kwButton.onclick = ()=>{
-							ul.querySelectorAll("li").forEach(li=>li.style.display = "")
-							ul.querySelectorAll("li:not(:has(.kw-"+kw+"))").forEach(li=>li.style.display = "none");
+						kwButton.onclick = () => {
+							ul.querySelectorAll("li").forEach(li => li.style.display = "")
+							const keywordClass = "kw-" + kw.replaceAll(" ", "_")
+							const cssSelector = "li:not(:has(." + keywordClass + "))";
+							ul.querySelectorAll(cssSelector).forEach(li => li.style.display = "none");
+							buttonCon.querySelectorAll("button").forEach(btn=>btn.style.backgroundColor = "");
+							kwButton.style.backgroundColor = "rgba(0,0,255,0.3)"
 						}
 						buttonCon.appendChild(kwButton)
 					})
@@ -681,23 +692,23 @@ class Main {
 		}
 		if (!isCache) {
 			const oldViewCon = Main.curViewCon;
-			if (cachedViewCon){
+			if (cachedViewCon) {
 				Main.curViewCon = cachedViewCon;
 				const order = cachedViewCon.style.order;
 				Object.values(Main.viewConMap)
-					.filter(vc=>vc.style.order<order)
-					.forEach(vc=>vc.style.order=Number(vc.style.order)+1)
+					.filter(vc => vc.style.order < order)
+					.forEach(vc => vc.style.order = Number(vc.style.order) + 1)
 				cachedViewCon.style.order = "1";
-			}else{
+			} else {
 				Main.curViewCon = newViewCon;
 
 				if (oldViewCon !== newViewCon) {
 					Object.values(Main.viewConMap)
-						.forEach(vc=>vc.style.order=Number(vc.style.order)+1)
-					oldViewCon.parentElement.insertBefore(newViewCon,oldViewCon)
+						.forEach(vc => vc.style.order = Number(vc.style.order) + 1)
+					oldViewCon.parentElement.insertBefore(newViewCon, oldViewCon)
 				}
 			}
-			
+
 			Main.curViewCon.querySelectorAll("h2").forEach(h2 => tempHighlight(h2))
 			tempHighlight2(Main.curViewCon)
 
