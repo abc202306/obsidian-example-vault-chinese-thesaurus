@@ -257,7 +257,11 @@ class Tree {
 		let display;
 
 		if (node.type === "file") {
-			getKeywordsFromPage(dv.page(node.path)).forEach(kw => {
+			const kws = getKeywordsFromPage(dv.page(node.path));
+			if (kws.length === 0){
+				liSummary.classList.add("kw-withoutkeyword");
+			}
+			kws.forEach(kw => {
 				const keyword = dv.value.isLink(kw) ? (kw.display || kw.path.split("/").at(-1)) : kw;
 				const keywordClass = "kw-" + keyword.replaceAll(/[\s\[\]\(\)]/g, "-")
 				liSummary.classList.add(keywordClass);
@@ -630,8 +634,8 @@ class Main {
 					resultInfoMocLISummarySpan.appendChild(a);
 
 
-					dv.span(links.join(" "), { container: resultInfoSummarySpan })
-					dv.span(links.join(" "), { container: resultInfoMocLISummarySpan })
+					dv.span(links.join(", "), { container: resultInfoSummarySpan })
+					dv.span(links.join(", "), { container: resultInfoMocLISummarySpan })
 
 					links.forEach(link => {
 						dv.paragraph(dv.func.embed(link), { container: resultInfoContentDiv })
@@ -647,13 +651,25 @@ class Main {
 					divMoc.appendChild(buttonCon)
 
 					const showAllButton = document.createElement("button");
-					showAllButton.innerText = "f: showAll"
+					showAllButton.innerText = "[All] ("+pages.length+")"
 					showAllButton.onclick = () => {
 						ul.querySelectorAll("li").forEach(li => li.style.display = "")
 						buttonCon.querySelectorAll("button").forEach(btn=>btn.style.backgroundColor = "");
 						showAllButton.style.backgroundColor = "rgba(0,0,255,0.3)"
 					}
 					buttonCon.appendChild(showAllButton)
+
+					const showAllUntaggedButton = document.createElement("button");
+					showAllUntaggedButton.innerText = "[Untagged] ("+pages.filter(p=>getKeywordsFromPage(p).length===0).length+")"
+					showAllUntaggedButton.onclick = () => {
+						ul.querySelectorAll("li").forEach(li => li.style.display = "")
+						const keywordClass = "kw-withoutkeyword";
+						const cssSelector = "li:not(:has(." + keywordClass + "))";
+						ul.querySelectorAll(cssSelector).forEach(li => li.style.display = "none");
+						buttonCon.querySelectorAll("button").forEach(btn=>btn.style.backgroundColor = "");
+						showAllUntaggedButton.style.backgroundColor = "rgba(0,0,255,0.3)"
+					}
+					buttonCon.appendChild(showAllUntaggedButton)
 
 					const kwInfos = kws.map(kw=>[kw,pages.filter(p=>getKeywordsFromPage(p).includes(kw))])
 						.sort(([_,relatedPages])=>relatedPages.length, "desc");
