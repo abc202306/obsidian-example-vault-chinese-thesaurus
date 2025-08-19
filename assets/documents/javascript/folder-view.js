@@ -39,7 +39,17 @@ class Node {
 		}
 	}
 }
-
+function scrollIntoView01(liSummary, li2Summary) {
+	liSummary.scrollIntoView({ behavior: behavior })
+	tempHighlight(liSummary)
+	tempHighlight2(liSummary.parentElement)
+	tempHighlight(li2Summary)
+	tempHighlight2(li2Summary.parentElement)
+}
+function scrollIntoView02(liSummary, li2Summary) {
+	li2Summary.scrollIntoView({ behavior: behavior })
+	scrollIntoView01(liSummary, li2Summary)
+}
 function tempHighlight(elem) {
 	elem.style.backgroundColor = "rgba(255,255,0,0.5)";
 	setTimeout(() => {
@@ -55,15 +65,19 @@ function tempHighlight2(elem) {
 function turnPageArrIntoLinkArrStr(pages01) {
 	return "\\[" + pages01.map((p, i) => dv.fileLink(p.file.path, false, "" + (i + 1))).join(", ") + "\\]"
 }
-function tryRenderWithLink(str) {
+function tryGetPageArr(str){
 	let page = dv.page(str)
 	const pages01 = []
-	if (page){
+	if (page) {
 		pages01.push(page)
 	}
 	const pages02 = dv.array(pages01).concat(allPages.filter(p => p.file.aliases.some(a => a.toLowerCase() === str.toLowerCase())));
+	return pages02;
+}
+function tryRenderWithLink(str) {
+	const pages02 = tryGetPageArr(str);
 	let firstPart;
-	if (pages02.length!==0){
+	if (pages02.length !== 0) {
 		page = pages02[0];
 		firstPart = dv.fileLink(page.file.path, false, str)
 	}
@@ -72,23 +86,29 @@ function tryRenderWithLink(str) {
 	const pages03 = pages02.slice(1);
 	const pages04 = allPages.filter(p => p.file.aliases.some(a => str.toLowerCase().startsWith(a.toLowerCase())));
 	const pages05 = allPages.filter(p => p.file.aliases.some(a => str.toLowerCase().endsWith(a.toLowerCase())));
-	const pages06 = pages04.concat(pages05).distinct().filter(p=>p.file.path!==page.file.path)
-	if (pages03.length !== 0){
+	const pages06 = allPages.filter(p => p.file.aliases.some(a => {
+		const strL = str.toLowerCase();
+		const aL = a.toLowerCase();
+		return !strL.startsWith(aL) && !strL.endsWith(aL) && strL.includes(aL);
+	}))
+	const pages07 = pages04.concat(pages05).concat(pages06).distinct().filter(p => p.file.path !== page?.file?.path)
+
+	if (pages03.length !== 0) {
 		secondPart += " "
 		secondPart += "&lt;"
 		secondPart += pages03.map((p, i) => dv.fileLink(p.file.path, false, "" + (i + 1))).join(", ");
 		secondPart += "&gt;"
 	}
-	if (pages06.length !== 0){
+	if (pages07.length !== 0) {
 		secondPart += " "
 		secondPart += "\\["
-		secondPart += pages06.map((p, i) => dv.fileLink(p.file.path, false, "" + (i + 1))).join(", ")
+		secondPart += pages07.map((p, i) => dv.fileLink(p.file.path, false, "" + (i + 1))).join(", ")
 		secondPart += "\\]"
 	}
-	
+
 	let renderResult = firstPart || str;
 
-	if (secondPart){
+	if (secondPart) {
 		renderResult += secondPart;
 	}
 
@@ -270,32 +290,21 @@ class Tree {
 
 			let a3;
 
-			function scrollIntoView01() {
-				liSummary.scrollIntoView({ behavior: behavior })
-				tempHighlight(liSummary)
-				tempHighlight2(liSummary.parentElement)
-				tempHighlight(li2Summary)
-				tempHighlight2(li2Summary.parentElement)
-			}
-			function scrollIntoView02() {
-				li2Summary.scrollIntoView({ behavior: behavior })
-				scrollIntoView01()
-			}
-
 			if (folderViewFunc) {
 				a3 = document.createElement("a");
 				a3.innerText = "🔎"
 				a3.onclick = () => {
+					a3.innerText = "⬇️"
 					tempHighlight(liSummary)
 					tempHighlight2(liSummary.parentElement)
 					folderViewFunc(curFolderNode.path)
 				}
 			}
-			a1.onclick = scrollIntoView02;
+			a1.onclick = ()=>scrollIntoView02(liSummary,li2Summary);
 
 			a2 = document.createElement("a");
 			a2.innerText = folderIcon;
-			a2.onclick = scrollIntoView01;
+			a2.onclick = ()=>scrollIntoView01(liSummary, li2Summary);
 
 			li2Summary.appendChild(a2)
 			dv.api.renderValue(
@@ -383,11 +392,13 @@ class Tree {
 
 class Main {
 	static main() {
+		Main.con.style.display = "flex"
+		Main.con.style.flexDirection = "column";
+
 		dv.container.style.overflowX = "visible"
 		Main.con.appendChild(Main.viewNavCon)
 		Main.con.appendChild(Main.curViewCon)
 		dv.container.appendChild(Main.con)
-		//this.displayFolderStruct(defaultCWD, defaultSource)
 		this.displayRootFolderStructDepthN()
 	}
 	static con = document.createElement("div");
@@ -397,16 +408,18 @@ class Main {
 	static curViewConIsLoaded = false;
 	static viewConMap = {};
 	static now = Date.now();
-	static getCon() {
+	static getViewCon() {
 		const con = document.createElement("div")
 		con.style.display = "flex"
 		con.style.width = "100%"
+		con.style.order = "1";
 		return con;
 	}
 	static getMocCon() {
 		const divMoc = document.createElement("div")
-		divMoc.style.overflowY = "scroll"
 		divMoc.style.height = "calc(100vh - 80px)"
+		divMoc.style.overflowY = "scroll"
+
 		divMoc.style.flexShrink = "0"
 		return divMoc;
 	}
@@ -429,7 +442,8 @@ class Main {
 			const oldViewNavCon = Main.viewNavCon;
 
 			const vID = "viewnav-" + Main.now;
-			Main.viewNavCon = this.getCon();
+			Main.viewNavCon = this.getViewCon();
+			Main.viewNavCon.style.order = "0"
 			Main.viewNavCon.id = vID;
 			const viewNavConMoc = this.getMocCon();
 			const viewNavConResult = this.getResultContentCon();
@@ -448,8 +462,7 @@ class Main {
 			const { resultContent, resultMoc } = Tree.toResult(tree.treeRootNode, vID, {
 				mocLevel: mocLevel, isMonthQueryFolder: false, isDayQueryFolder: false, folderViewFunc: (folderPath) => {
 					const cwd = folderPath;
-					const source = `"${cwd}"`;
-					Main.displayFolderStruct(cwd, source);
+					Main.displayFolderStruct(cwd, { isCache: false });
 
 				}
 			})
@@ -494,29 +507,17 @@ class Main {
 		}
 	}
 
-	static displayFolderStruct(cwd, source, isCache = false) {
-		const vID = "viewresultcontent-" + Main.now + "-" + cwd + "-" + source;
+	static displayFolderStruct(cwd, { isCache, query }) {
+		const vID = "viewresultcontent-" + Main.now + "-" + cwd;
 		console.log(vID)
 		const mocLevel = config.specFolderView.mocLevel;
 
-		let viewCon = Main.viewConMap[vID];
-		if (!viewCon) {
-			viewCon = this.getCon();
-			viewCon.id = vID
+		let cachedViewCon = Main.viewConMap[vID];
+		let newViewCon;
+		if (!cachedViewCon) {
+			newViewCon = this.getViewCon();
+			newViewCon.id = vID
 
-			const pagePaths = dv.pages(source)
-				.map(page => page.file.path.slice(cwd.length + 1))
-				.sort(pagePath => pagePath)
-			const cwdDisplay = cwd.split("/").at(-1);
-			const tree = new Tree(pagePaths, cwdDisplay);
-
-			const ul = document.createElement("ul")
-			const ul2 = document.createElement("ul")
-			const { resultContent, resultMoc } = Tree.toResult(tree.treeRootNode, vID, { isMonthQueryFolder: false, isDayQueryFolder: false, mocLevel: mocLevel })
-			ul.appendChild(resultContent);
-			ul2.appendChild(resultMoc);
-
-			const cwdParts = cwd.split("/");
 			function createA() {
 				const a = document.createElement("a")
 				a.innerText = "🔎"
@@ -534,34 +535,114 @@ class Main {
 				return h2;
 			}
 
+			const cwdParts = cwd.split("/");
+
+
 			const divMoc = this.getMocCon();
 
-			divMoc.append(createH2())
-
-			dv.span("> " + cwdParts.slice(0, cwdParts.length - 1).join("/"), { container: divMoc })
-			divMoc.appendChild(ul2)
-			Main.appendRowsTo(divMoc)
+			divMoc.appendChild(createH2())
+			
+			dv.span(cwdParts.map((part,i)=>"> "+"    ".repeat(i)+"- "+part+(i!==cwdParts.length-1?"/":"")+"\n").join(""), { container: divMoc })
 
 
 			const divResultContent = this.getResultContentCon();
 
-			divResultContent.append(createH2())
-			divResultContent.appendChild(ul)
-			Main.appendRowsTo(divResultContent)
+			divResultContent.appendChild(createH2())
 
-			viewCon.appendChild(divMoc)
-			viewCon.appendChild(divResultContent)
-			Main.viewConMap[vID] = viewCon;
+			newViewCon.appendChild(divMoc)
+			newViewCon.appendChild(divResultContent)
+
+			const pagePaths = dv.pages(`"${cwd}"`)
+				.map(page => page.file.path.slice(cwd.length + 1))
+				.sort(pagePath => pagePath);
+
+			function appendResult() {
+				const cwdDisplay = cwd.split("/").at(-1);
+				const tree = new Tree(pagePaths, cwdDisplay);
+
+				const ul = document.createElement("ul")
+				const ul2 = document.createElement("ul")
+				const { resultContent, resultMoc } = Tree.toResult(tree.treeRootNode, vID, { isMonthQueryFolder: false, isDayQueryFolder: false, mocLevel: mocLevel })
+				ul.appendChild(resultContent);
+				ul2.appendChild(resultMoc);
+				divResultContent.appendChild(ul)
+				divMoc.appendChild(ul2);
+
+				const links = tryGetPageArr(cwdDisplay).map(p=>p.file.link);
+				if (links.length!==0){
+					const resultInfoH = document.createElement("h3");
+					const resultInfoSummarySpan = document.createElement("span");
+					resultInfoSummarySpan.id = "view("+vID+")-info-"+"(result-content)"
+					resultInfoH.appendChild(resultInfoSummarySpan);
+					divResultContent.appendChild(resultInfoH)
+
+					const resultInfoContentDiv = document.createElement("div");
+					divResultContent.appendChild(resultInfoContentDiv)
+
+					const resultInfoMocLI = document.createElement("li")
+					resultInfoMocLI.style.listStyleType = "none"
+					const resultInfoMocLISummarySpan = document.createElement("span");
+					resultInfoMocLISummarySpan.id = "view("+vID+")-info-"+"(result-moc)"
+					resultInfoMocLI.appendChild(resultInfoMocLISummarySpan)
+					ul2.appendChild(resultInfoMocLI);
+
+					const a = document.createElement("a")
+					const a2 = document.createElement("a")
+					a.innerText = "📄"
+					a2.innerText = "📄"
+					a.onclick = ()=>scrollIntoView01(resultInfoSummarySpan,resultInfoMocLISummarySpan)
+					a2.onclick = ()=>scrollIntoView02(resultInfoSummarySpan,resultInfoMocLISummarySpan)
+					resultInfoSummarySpan.appendChild(a2)
+					resultInfoMocLISummarySpan.appendChild(a);
+
+					
+					dv.span(links.join(" "),{container:resultInfoSummarySpan})
+					dv.span(links.join(" "),{container:resultInfoMocLISummarySpan})
+
+					links.forEach(link=>{
+						dv.paragraph(dv.func.embed(link), {container: resultInfoContentDiv})
+					})
+				}
+
+				Main.appendRowsTo(divResultContent)
+				Main.appendRowsTo(divMoc)
+			}
+			const itemDefaultCountMax = 300;
+			if (pagePaths.length < itemDefaultCountMax) {
+				appendResult()
+			} else {
+				const button = document.createElement("button");
+				button.innerText = "Show the hidden " + pagePaths.length + " items (itemDefaultCountMax=" + itemDefaultCountMax + ")"
+				button.onclick = () => {
+					button.remove();
+					appendResult()
+				}
+				divMoc.appendChild(button)
+			}
+
+
+			Main.viewConMap[vID] = newViewCon;
 			Main.curViewConIsLoaded = true;
 		}
 		if (!isCache) {
 			const oldViewCon = Main.curViewCon;
+			if (cachedViewCon){
+				Main.curViewCon = cachedViewCon;
+				const order = cachedViewCon.style.order;
+				Object.values(Main.viewConMap)
+					.filter(vc=>vc.style.order<order)
+					.forEach(vc=>vc.style.order=Number(vc.style.order)+1)
+				cachedViewCon.style.order = "1";
+			}else{
+				Main.curViewCon = newViewCon;
 
-			Main.curViewCon = viewCon;
-
-			if (oldViewCon !== viewCon) {
-				oldViewCon.replaceWith(viewCon)
+				if (oldViewCon !== newViewCon) {
+					Object.values(Main.viewConMap)
+						.forEach(vc=>vc.style.order=Number(vc.style.order)+1)
+					oldViewCon.parentElement.insertBefore(newViewCon,oldViewCon)
+				}
 			}
+			
 			Main.curViewCon.querySelectorAll("h2").forEach(h2 => tempHighlight(h2))
 			tempHighlight2(Main.curViewCon)
 
