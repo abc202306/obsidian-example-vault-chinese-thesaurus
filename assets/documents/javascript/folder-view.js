@@ -39,6 +39,18 @@ class Node {
 		}
 	}
 }
+
+function getKeywordsFromPage(page){
+	return dv.array([
+		...(page.kws||[]).map(kw=>dv.value.isLink(kw)?(kw.display||kw.path.split("/").at(-1)):kw),
+		...page.file.tags.map(tag=>tag.substring(1))
+	]).distinct()
+}
+
+function getKeywords(pages){
+	return pages.flatMap(p=> getKeywordsFromPage(p)).distinct();
+}
+
 function scrollIntoView01(liSummary, li2Summary) {
 	liSummary.scrollIntoView({ behavior: behavior })
 	tempHighlight(liSummary)
@@ -244,6 +256,10 @@ class Tree {
 		let display;
 
 		if (node.type === "file") {
+			getKeywordsFromPage(dv.page(node.path)).forEach(kw=>{
+				const keyword = dv.value.isLink(kw)?(kw.display||kw.path.split("/").at(-1)):kw;
+				liSummary.classList.add("kw-"+keyword);
+			})
 			display = node.displayName;
 			dv.api.renderValue(display, liSummary, dv.component, dv.currentFilePath)
 			return { resultContent: li, resultMoc: null };
@@ -482,8 +498,6 @@ class Main {
 				const a = document.createElement("a")
 				a.innerText = "🔎"
 				a.onclick = () => {
-					//Main.viewNavCon.querySelectorAll("h2").forEach(h2=>tempHighlight(h2))
-					//tempHighlight2(Main.viewNavCon)
 					if (Main.curViewConIsLoaded) {
 						Main.curViewCon.scrollIntoView({ behavior: behavior })
 						Main.curViewCon.querySelectorAll("h2").forEach(h2 => tempHighlight(h2))
@@ -564,7 +578,8 @@ class Main {
 			newViewCon.appendChild(divResultContent)
 
 			const folderMarkerPos = cwd.length === 0 ? 0 : cwd.length + 1;
-			const pagePaths = dv.pages(`"${cwd}"`)
+			const pages = dv.pages(`"${cwd}"`);
+			const pagePaths = pages
 				.map(page => page.file.path.slice(folderMarkerPos))
 				.sort(pagePath => pagePath);
 
@@ -618,6 +633,31 @@ class Main {
 						dv.paragraph(dv.func.embed(link), {container: resultInfoContentDiv})
 					})
 				}
+
+				const kws = getKeywords(pages);
+				if (kws.length!==0){
+					const buttonCon = document.createElement("div");
+					buttonCon.style.width = "400px"
+					divMoc.appendChild(buttonCon)
+
+					const showAllButton = document.createElement("button");
+					showAllButton.innerText = "f: showAll"
+					showAllButton.onclick = ()=>{
+						ul.querySelectorAll("li").forEach(li=>li.style.display = "")
+					}
+					buttonCon.appendChild(showAllButton)
+					
+					kws.forEach(kw=>{
+						const kwButton = document.createElement("button")
+						kwButton.innerText = kw;
+						kwButton.onclick = ()=>{
+							ul.querySelectorAll("li").forEach(li=>li.style.display = "")
+							ul.querySelectorAll("li:not(:has(.kw-"+kw+"))").forEach(li=>li.style.display = "none");
+						}
+						buttonCon.appendChild(kwButton)
+					})
+				}
+
 
 				Main.appendRowsTo(divResultContent)
 				Main.appendRowsTo(divMoc)
