@@ -563,12 +563,16 @@ class Main {
 			newViewCon.appendChild(divMoc)
 			newViewCon.appendChild(divResultContent)
 
+			const folderMarkerPos = cwd.length === 0 ? 0 : cwd.length + 1;
 			const pagePaths = dv.pages(`"${cwd}"`)
-				.map(page => page.file.path.slice(cwd.length + 1))
+				.map(page => page.file.path.slice(folderMarkerPos))
 				.sort(pagePath => pagePath);
 
 			function appendResult() {
-				const cwdDisplay = cwd.split("/").at(-1);
+				let cwdDisplay = cwd.split("/").at(-1);
+				if (cwdDisplay.length === 0){
+					cwdDisplay = "Root"
+				}
 				const tree = new Tree(pagePaths, cwdDisplay);
 
 				const ul = document.createElement("ul")
