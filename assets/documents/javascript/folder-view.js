@@ -89,6 +89,7 @@ function tryGetPageArr(str) {
 function tryRenderWithLink(str) {
 	const pages02 = tryGetPageArr(str);
 	let firstPart;
+	let page;
 	if (pages02.length !== 0) {
 		page = pages02[0];
 		firstPart = dv.fileLink(page.file.path, false, str)
@@ -258,7 +259,7 @@ class Tree {
 		if (node.type === "file") {
 			getKeywordsFromPage(dv.page(node.path)).forEach(kw => {
 				const keyword = dv.value.isLink(kw) ? (kw.display || kw.path.split("/").at(-1)) : kw;
-				const keywordClass = "kw-" + keyword.replaceAll(" ", "_")
+				const keywordClass = "kw-" + keyword.replaceAll(/[\s\[\]\(\)]/g, "-")
 				liSummary.classList.add(keywordClass);
 			})
 			display = node.displayName;
@@ -654,18 +655,21 @@ class Main {
 					}
 					buttonCon.appendChild(showAllButton)
 
-					kws.forEach(kw => {
-						const kwButton = document.createElement("button")
-						kwButton.innerText = kw;
+					const kwInfos = kws.map(kw=>[kw,pages.filter(p=>getKeywordsFromPage(p).includes(kw))])
+						.sort(([_,relatedPages])=>relatedPages.length, "desc");
+					
+					kwInfos.forEach(([kw,relatedPages])=>{
+						const kwButton = document.createElement("button");
+						kwButton.innerText = kw+" ("+relatedPages.length+")";
 						kwButton.onclick = () => {
 							ul.querySelectorAll("li").forEach(li => li.style.display = "")
-							const keywordClass = "kw-" + kw.replaceAll(" ", "_")
+							const keywordClass = "kw-" + kw.replaceAll(/[\s\[\]\(\)]/g, "-")
 							const cssSelector = "li:not(:has(." + keywordClass + "))";
 							ul.querySelectorAll(cssSelector).forEach(li => li.style.display = "none");
 							buttonCon.querySelectorAll("button").forEach(btn=>btn.style.backgroundColor = "");
 							kwButton.style.backgroundColor = "rgba(0,0,255,0.3)"
 						}
-						buttonCon.appendChild(kwButton)
+						buttonCon.appendChild(kwButton);
 					})
 				}
 
