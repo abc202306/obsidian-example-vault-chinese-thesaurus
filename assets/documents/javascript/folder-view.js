@@ -351,7 +351,7 @@ class Tree {
 				liSummary.classList.add("kw-withoutkeyword");
 			}
 			kws.forEach(kw => {
-				const keywordClass = "kw-" + kw.replaceAll(/[\s\[\]\(\)]/g, "-");
+				const keywordClass = "kw-" + kw.replaceAll(/[\s\[\]\(\)\.]/g, "-");
 				liSummary.classList.add(keywordClass);
 			});
 
@@ -365,7 +365,15 @@ class Tree {
 				}
 				indexItems.forEach(indexItem => {
 					const indexItemKey = tryTurnLinkIntoLinkText(indexItem);
-					const indexClass = "index-" + key + "-" + indexItemKey;
+					let indexClass;
+					try{
+						indexClass = "index-" + key + "-" + (indexItemKey+"").replaceAll(/[\s\[\]\(\)\.]/g, "-");
+					}catch(e){
+						console.log(indexItemKey)
+						console.log(key)
+						throw e;
+					}
+					
 					liSummary.classList.add(indexClass);
 				});
 			});
@@ -787,7 +795,7 @@ class Main {
 						kwButton.innerText = kw + " (" + relatedPages.length + ")";
 						kwButton.onclick = () => {
 							ul.querySelectorAll("li").forEach(li => li.style.display = "");
-							const keywordClass = "kw-" + kw.replaceAll(/[\s\[\]\(\)]/g, "-");
+							const keywordClass = "kw-" + kw.replaceAll(/[\s\[\]\(\)\.]/g, "-");
 							const cssSelector = "li:not(:has(." + keywordClass + "))";
 							ul.querySelectorAll(cssSelector).forEach(li => li.style.display = "none");
 							divMoc.querySelectorAll("button").forEach(btn => btn.style.backgroundColor = "");
@@ -853,7 +861,7 @@ class Main {
 							indexItemKeyButton.innerText = indexItemKey + " (" + relatedPages.length + ")";
 							indexItemKeyButton.onclick = () => {
 								ul.querySelectorAll("li").forEach(li => li.style.display = "");
-								const indexItemKeyClass = "index-" + key + "-" + indexItemKey;
+								const indexItemKeyClass = "index-" + key + "-" + (indexItemKey+"").replaceAll(/[\s\[\]\(\)\.]/g, "-");
 								const cssSelector = "li:not(:has(." + indexItemKeyClass + "))";
 								ul.querySelectorAll(cssSelector).forEach(li => li.style.display = "none");
 								divMoc.querySelectorAll("button").forEach(btn => btn.style.backgroundColor = "");
