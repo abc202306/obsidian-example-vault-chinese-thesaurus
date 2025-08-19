@@ -1,3 +1,7 @@
+// 
+// built in property: ["icon", "cover", "kws", "tags", "description", "status", "categories", "rating"]
+// indexedKeyFuncMap: ["status", "categories", "rating"]
+//
 
 const config = {
 	rootFolderView: {
@@ -9,14 +13,16 @@ const config = {
 	},
 	scrollIntoViewOption: {
 		behavior: "smooth" // "smooth" | "instant" | "auto"
-	}
+	},
+	indexedKeyFuncMap: {
+		status: p => p.status,
+		categories: p => p.categories,
+		rating: p => p.rating
+	} // add entries like {key: convertPageIntoValueFunc}
 }
 
 const behavior = config.scrollIntoViewOption.behavior;
 const allPages = dv.pages();
-// 
-// built in property: ["icon", "cover", "kws", "tags"]
-//
 
 class Node {
 	type; // file OR folder
@@ -39,10 +45,19 @@ class Node {
 		}
 	}
 }
+function tryTurnLinkIntoLinkText(linkOrStr) {
+	if (!dv.value.isLink(linkOrStr)) {
+		const str = linkOrStr;
+		return str;
+	} else {
+		const link = linkOrStr;
+		return link.display || link.path.split("/").at(-1).replace(/\.md$/, "");
+	}
+}
 
 function getKeywordsFromPage(page) {
 	return dv.array([
-		...(page.kws || []).map(kw => dv.value.isLink(kw) ? (kw.display || kw.path.split("/").at(-1).replace(/\.md$/, "")) : kw),
+		...(page.kws || []).map(kw => tryTurnLinkIntoLinkText(kw)),
 		...page.file.tags.map(tag => tag.substring(1))
 	]).distinct()
 }
@@ -146,7 +161,7 @@ class Tree {
 	static getFileNode(pagePath) {
 		let pathParts;
 		let fileNodeShortPath;
-		let fileNodeDisplayName;
+		let fileNodeDisplayNameSpan;
 		let page;
 		let tdata;
 
@@ -159,36 +174,104 @@ class Tree {
 			false,
 			fileNodeShortPath
 		)
-		fileNodeDisplayName = pageLink;
+
+		fileNodeDisplayNameSpan = document.createElement("span");
+
+
 		if (page.icon && dv.value.isLink(page.icon)) {
 			const iconFileLink = dv.fileLink(
 				page.icon.path,
 				true,
 				"16"
 			)
-			fileNodeDisplayName = iconFileLink + " " + fileNodeDisplayName;
+			dv.span(iconFileLink, { container: fileNodeDisplayNameSpan })
+		} else {
+			dv.span("📄", { container: fileNodeDisplayNameSpan })
+		}
+
+		dv.span(pageLink, { container: fileNodeDisplayNameSpan })
+
+		const cDayStr = page.file.ctime.toFormat("yyyy-MM-dd");
+		const cDayPage = dv.page(cDayStr);
+
+		const cDaySpan = document.createElement("span");
+		cDaySpan.style.float = "right"
+		cDaySpan.style.whiteSpace = "nowrap"
+		if (cDayPage) {
+			dv.span("➕[[" + cDayStr + "]]", { container: cDaySpan })
+		} else {
+			cDaySpan.innerText = "➕" + cDayStr;
+		}
+
+		fileNodeDisplayNameSpan.appendChild(cDaySpan);
+
+		const mDayStr = page.file.mday.toFormat("yyyy-MM-dd");
+		const mDayPage = dv.page(mDayStr);
+
+		const mDaySpan = document.createElement("span");
+		mDaySpan.style.float = "right"
+		mDaySpan.style.whiteSpace = "nowrap"
+		if (mDayPage) {
+			dv.span("❇️[[" + mDayStr + "]]", { container: mDaySpan })
+		} else {
+			mDaySpan.innerText = "❇️" + mDayStr;
+		}
+
+		fileNodeDisplayNameSpan.appendChild(mDaySpan);
+
+
+		if (page.description && page.description.length != 0) {
+			const blockQuote = document.createElement("blockquote")
+			blockQuote.innerText = page.description;
+			fileNodeDisplayNameSpan.appendChild(blockQuote)
+		}
+
+
+		if (page.cover && dv.value.isLink(page.cover)) {
+			fileNodeDisplayNameSpan.appendChild(document.createElement("br"))
+			dv.span(dv.fileLink(page.cover.path, true, "300"), { container: fileNodeDisplayNameSpan })
 		}
 
 		tdata = []
-		if (page.kws && page.kws.length !== 0) {
+		if (page.kws && dv.value.isArray(page.kws) && page.kws.length !== 0) {
 			tdata.push(["🟢", page.kws.join(" ")])
 		}
 		if (page.file.tags.length !== 0) {
 			tdata.push(["🔴", page.file.tags.join(" ")])
 		}
-		if (tdata.length !== 0) {
-			fileNodeDisplayName += "<br>";
-			const tbodyInnerHTML = tdata.map(tr => `<tr>${tr.map(td => `<td>${td}</td>`).join("")}</tr>`).join("");
-			fileNodeDisplayName += `<table style="margin-top:1em;margin-bottom:1em;"><tbody>${tbodyInnerHTML}</tbody></table>`;
+		if (page.categories && dv.value.isArray(page.categories) && page.categories.length !== 0){
+			tdata.push(["🟠", page.categories.join(" ")])
 		}
-		if (page.cover && dv.value.isLink(page.cover)) {
-			fileNodeDisplayName += "<br>" + dv.fileLink(page.cover.path, true, "300");
+		if (page.status){
+			tdata.push(["ℹ️", page.status])
+		}
+		if (page.rating && typeof page.rating === "number"){
+			tdata.push(["⭐", "⭐".repeat(page.rating%6)])
+		}
+		if (tdata.length !== 0) {
+			fileNodeDisplayNameSpan.appendChild(document.createElement("br"))
+
+			const table = document.createElement("table")
+			table.style.marginTop = "1em";
+			table.style.marginBottom = "1em";
+			const tbody = document.createElement("tbody")
+			table.appendChild(tbody);
+			tdata.forEach(tRowData => {
+				const tr = document.createElement("tr")
+				tRowData.forEach(tItemData => {
+					const td = document.createElement("td");
+					dv.span(tItemData, { container: td })
+					tr.appendChild(td)
+				})
+				tbody.appendChild(tr)
+			})
+			fileNodeDisplayNameSpan.appendChild(table);
 		}
 
 		const fileNode = new Node({
 			type: "file",
 			path: pagePath,
-			displayName: fileNodeDisplayName,
+			displayName: fileNodeDisplayNameSpan,
 			level: pathParts.length
 		})
 
@@ -257,15 +340,36 @@ class Tree {
 		let display;
 
 		if (node.type === "file") {
-			const kws = getKeywordsFromPage(dv.page(node.path));
-			if (kws.length === 0){
+			const page = dv.page(node.path)
+
+			const kws = getKeywordsFromPage(page);
+			if (kws.length === 0) {
 				liSummary.classList.add("kw-withoutkeyword");
 			}
 			kws.forEach(kw => {
-				const keyword = dv.value.isLink(kw) ? (kw.display || kw.path.split("/").at(-1)) : kw;
-				const keywordClass = "kw-" + keyword.replaceAll(/[\s\[\]\(\)]/g, "-")
+				const keywordClass = "kw-" + kw.replaceAll(/[\s\[\]\(\)]/g, "-")
 				liSummary.classList.add(keywordClass);
 			})
+
+			Object.entries(config.indexedKeyFuncMap).forEach(([key, keyFunc]) => {
+				let indexItems = keyFunc(page);
+				if (!indexItems) {
+					return;
+				}
+				if (!dv.value.isArray(indexItems)) {
+					indexItems = [indexItems];
+				}
+				indexItems.forEach(indexItem => {
+					const indexItemKey = tryTurnLinkIntoLinkText(indexItem)
+					const indexClass = "index-" + key + "-" + indexItemKey;
+					liSummary.classList.add(indexClass);
+				})
+			})
+
+			liSummary.classList.add("ctime-" + page.file.ctime.toFormat("yyyy-MM"));
+			liSummary.classList.add("mtime-" + page.file.mtime.toFormat("yyyy-MM"));
+
+
 			display = node.displayName;
 			dv.api.renderValue(display, liSummary, dv.component, dv.currentFilePath)
 			return { resultContent: li, resultMoc: null };
@@ -371,7 +475,7 @@ class Tree {
 				push(childFiles, childrenUL, childrenUL2, { isMonthQueryFolder: false, isDayQueryFolder: false, mocLevel: mocLevel });
 			} else {
 				if (!isMonthQueryFolder && !isDayQueryFolder) {
-					const monthQueryFolders = childFiles.groupBy(c => dv.func.dateformat(c.page.file.cday, "yyyy-MM"))
+					const monthQueryFolders = childFiles.groupBy(c => dv.func.dateformat(c.page.file.ctime, "yyyy-MM"))
 						.sort(g => g.key, "desc")
 						.map(g => {
 							const monthQueryFolder = new Node({
@@ -626,8 +730,8 @@ class Main {
 
 					const a = document.createElement("a")
 					const a2 = document.createElement("a")
-					a.innerText = "📄"
-					a2.innerText = "📄"
+					a.innerText = "📜"
+					a2.innerText = "📜"
 					a.onclick = () => scrollIntoView01(resultInfoSummarySpan, resultInfoMocLISummarySpan)
 					a2.onclick = () => scrollIntoView02(resultInfoSummarySpan, resultInfoMocLISummarySpan)
 					resultInfoSummarySpan.appendChild(a2)
@@ -644,50 +748,168 @@ class Main {
 
 				const kws = getKeywords(pages);
 				if (kws.length !== 0) {
-					dv.header(3, "🏷️Keywords", {container: divMoc})
+					dv.header(3, "🏷️Keywords", { container: divMoc })
 
 					const buttonCon = document.createElement("div");
 					buttonCon.style.width = "400px"
 					divMoc.appendChild(buttonCon)
 
 					const showAllButton = document.createElement("button");
-					showAllButton.innerText = "[All] ("+pages.length+")"
+					showAllButton.innerText = "[All] (" + pages.length + ")"
 					showAllButton.onclick = () => {
 						ul.querySelectorAll("li").forEach(li => li.style.display = "")
-						buttonCon.querySelectorAll("button").forEach(btn=>btn.style.backgroundColor = "");
+						divMoc.querySelectorAll("button").forEach(btn => btn.style.backgroundColor = "");
 						showAllButton.style.backgroundColor = "rgba(0,0,255,0.3)"
 					}
 					buttonCon.appendChild(showAllButton)
 
 					const showAllUntaggedButton = document.createElement("button");
-					showAllUntaggedButton.innerText = "[Untagged] ("+pages.filter(p=>getKeywordsFromPage(p).length===0).length+")"
+					showAllUntaggedButton.innerText = "[Untagged] (" + pages.filter(p => getKeywordsFromPage(p).length === 0).length + ")"
 					showAllUntaggedButton.onclick = () => {
 						ul.querySelectorAll("li").forEach(li => li.style.display = "")
 						const keywordClass = "kw-withoutkeyword";
 						const cssSelector = "li:not(:has(." + keywordClass + "))";
 						ul.querySelectorAll(cssSelector).forEach(li => li.style.display = "none");
-						buttonCon.querySelectorAll("button").forEach(btn=>btn.style.backgroundColor = "");
+						divMoc.querySelectorAll("button").forEach(btn => btn.style.backgroundColor = "");
 						showAllUntaggedButton.style.backgroundColor = "rgba(0,0,255,0.3)"
 					}
 					buttonCon.appendChild(showAllUntaggedButton)
 
-					const kwInfos = kws.map(kw=>[kw,pages.filter(p=>getKeywordsFromPage(p).includes(kw))])
-						.sort(([_,relatedPages])=>relatedPages.length, "desc");
-					
-					kwInfos.forEach(([kw,relatedPages])=>{
+					const kwInfos = kws.map(kw => [kw, pages.filter(p => getKeywordsFromPage(p).includes(kw))])
+						.sort(([_, relatedPages]) => relatedPages.length, "desc");
+
+					kwInfos.forEach(([kw, relatedPages]) => {
 						const kwButton = document.createElement("button");
-						kwButton.innerText = kw+" ("+relatedPages.length+")";
+						kwButton.innerText = kw + " (" + relatedPages.length + ")";
 						kwButton.onclick = () => {
 							ul.querySelectorAll("li").forEach(li => li.style.display = "")
 							const keywordClass = "kw-" + kw.replaceAll(/[\s\[\]\(\)]/g, "-")
 							const cssSelector = "li:not(:has(." + keywordClass + "))";
 							ul.querySelectorAll(cssSelector).forEach(li => li.style.display = "none");
-							buttonCon.querySelectorAll("button").forEach(btn=>btn.style.backgroundColor = "");
+							divMoc.querySelectorAll("button").forEach(btn => btn.style.backgroundColor = "");
 							kwButton.style.backgroundColor = "rgba(0,0,255,0.3)"
 						}
 						buttonCon.appendChild(kwButton);
 					})
 				}
+
+
+				const indexDivArr = dv.array(Object.entries(config.indexedKeyFuncMap)).map(([key, keyFunc]) => {
+					const indexDiv = document.createElement("div")
+					const indexMap = {}
+					pages.forEach(p => {
+						let indexItems = keyFunc(p);
+						if (!indexItems) {
+							return null;
+						}
+						if (!dv.value.isArray(indexItems)) {
+							indexItems = [indexItems];
+						}
+						indexItems.forEach(indexItem => {
+							const indexItemKey = tryTurnLinkIntoLinkText(indexItem);
+							if (!indexMap[indexItemKey]) {
+								indexMap[indexItemKey] = [p]
+							} else {
+								indexMap[indexItemKey].push(p)
+							}
+						})
+					})
+					const indexMapEntries = dv.array(Object.entries(indexMap)).sort(([_, relatedPages]) => relatedPages.length, "desc")
+					console.log(indexMapEntries)
+					if (indexMapEntries.length !== 0) {
+						dv.header(4, "✅" + key, { container: indexDiv })
+
+						const buttonCon = document.createElement("div");
+						buttonCon.style.width = "400px"
+						indexDiv.appendChild(buttonCon)
+
+						const showAllButton = document.createElement("button");
+						showAllButton.innerText = "[All] (" + pages.length + ")"
+						showAllButton.onclick = () => {
+							ul.querySelectorAll("li").forEach(li => li.style.display = "")
+							divMoc.querySelectorAll("button").forEach(btn => btn.style.backgroundColor = "");
+							showAllButton.style.backgroundColor = "rgba(0,0,255,0.3)"
+						}
+						buttonCon.appendChild(showAllButton)
+
+						const showAllUnindexedButton = document.createElement("button");
+						showAllUnindexedButton.innerText = "[Unindexed] (" + pages.filter(p => indexMapEntries.every(([_, relatedPages]) => relatedPages.every(p2 => p2.file.path !== p.file.path))).length + ")"
+						showAllUnindexedButton.onclick = () => {
+							ul.querySelectorAll("li").forEach(li => li.style.display = "")
+							const keywordClass = "kw-withoutkeyword";
+							const cssSelector = "li:not(:has(." + keywordClass + "))";
+							ul.querySelectorAll(cssSelector).forEach(li => li.style.display = "none");
+							divMoc.querySelectorAll("button").forEach(btn => btn.style.backgroundColor = "");
+							showAllUnindexedButton.style.backgroundColor = "rgba(0,0,255,0.3)"
+						}
+						buttonCon.appendChild(showAllUnindexedButton)
+
+						indexMapEntries.forEach(([indexItemKey, relatedPages]) => {
+							const indexItemKeyButton = document.createElement("button");
+							indexItemKeyButton.innerText = indexItemKey + " (" + relatedPages.length + ")";
+							indexItemKeyButton.onclick = () => {
+								ul.querySelectorAll("li").forEach(li => li.style.display = "")
+								const indexItemKeyClass = "index-" + key + "-" + indexItemKey;
+								const cssSelector = "li:not(:has(." + indexItemKeyClass + "))";
+								ul.querySelectorAll(cssSelector).forEach(li => li.style.display = "none");
+								divMoc.querySelectorAll("button").forEach(btn => btn.style.backgroundColor = "");
+								indexItemKeyButton.style.backgroundColor = "rgba(0,0,255,0.3)"
+							}
+							buttonCon.appendChild(indexItemKeyButton);
+						})
+
+						return indexDiv;
+					} else {
+						return null;
+					}
+				}).filter(indexDiv=>indexDiv)
+
+				if (indexDivArr.length!==0){
+					dv.header(3, "🔖Indexes", { container: divMoc })
+					indexDivArr.forEach(indexDiv=>{
+						divMoc.appendChild(indexDiv)
+					})
+				}
+
+				[
+					["➕[C]", "ctime"],
+					["❇️[M]", "mtime"]
+				].forEach(([timePropertyIcon, timePropertyName]) => {
+					const months = pages.map(p => p.file[timePropertyName].toFormat("yyyy-MM"))
+						.distinct()
+						.sort(monthStr => monthStr, "desc");
+					if (months.length !== 0) { // separate variables
+						dv.header(3, timePropertyIcon + "Months", { container: divMoc })
+						const buttonCon = document.createElement("div");
+						buttonCon.style.width = "400px"
+						divMoc.appendChild(buttonCon)
+
+						const showAllButton = document.createElement("button");
+						showAllButton.innerText = "[All] (" + pages.length + ")"
+						showAllButton.onclick = () => {
+							ul.querySelectorAll("li").forEach(li => li.style.display = "")
+							divMoc.querySelectorAll("button").forEach(btn => btn.style.backgroundColor = "");
+							showAllButton.style.backgroundColor = "rgba(0,0,255,0.3)"
+						}
+						buttonCon.appendChild(showAllButton)
+
+						months.map(monthStr => [monthStr, pages.filter(p => p.file[timePropertyName].toFormat("yyyy-MM") === monthStr)])
+							.sort(([monthStr, _]) => monthStr, "desc")
+							.forEach(([monthStr, relatedPages]) => {
+								const monthButton = document.createElement("button");
+								monthButton.innerText = monthStr + " (" + relatedPages.length + ")"
+								monthButton.onclick = () => {
+									ul.querySelectorAll("li").forEach(li => li.style.display = "")
+									const monthClass = timePropertyName + "-" + monthStr;
+									const cssSelector = "li:not(:has(." + monthClass + "))";
+									ul.querySelectorAll(cssSelector).forEach(li => li.style.display = "none");
+									divMoc.querySelectorAll("button").forEach(btn => btn.style.backgroundColor = "");
+									monthButton.style.backgroundColor = "rgba(0,0,255,0.3)"
+								}
+								buttonCon.appendChild(monthButton);
+							})
+					}
+				})
 
 
 				Main.appendRowsTo(divResultContent)
