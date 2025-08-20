@@ -908,7 +908,7 @@ class Main {
 								const monthButton = document.createElement("button");
 								monthButton.innerText = monthStr + " (" + relatedPages.length + ")";
 								monthButton.onclick = () => {
-									buttonOnclickInitAll(showAllButton)
+									buttonOnclickInitAll(monthButton)
 									const monthClass = timePropertyName + "-" + monthStr;
 									const cssSelector = "li:not(:has(." + monthClass + "))";
 									ul.querySelectorAll(cssSelector).forEach(li => li.style.display = "none");
