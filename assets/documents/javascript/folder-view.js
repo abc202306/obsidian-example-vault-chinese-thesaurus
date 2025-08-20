@@ -2,7 +2,7 @@
  * dataviewjs 脚本 | dataviewjs script;
  * fileName: `folder-view.js`;
  * built in property: ["icon", "cover", "kws", "tags", "description", "status", "categories", "rating"];
- * indexedKeyFuncMap: ["status", "categories", "rating"];
+ * indexedKeyFuncMap: ["status", "categories", "rating", "description"];
  * config.scrollIntoViewOption.behaior: value is in ["smooth", "instant", "auto"];
  * config.indexedKeyFuncMap: add entries like {key: convertPageIntoValueFunc} to the value;
  */
@@ -22,7 +22,7 @@ const config = {
 		status: p => p.status,
 		categories: p => p.categories,
 		rating: p => p.rating,
-		description: p => p.description ? "hasdescription": undefined
+		description: p => p.description ? "hasdescription": null
 	} 
 };
 
