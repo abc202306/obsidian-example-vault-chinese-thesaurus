@@ -21,7 +21,8 @@ const config = {
 	indexedKeyFuncMap: {
 		status: p => p.status,
 		categories: p => p.categories,
-		rating: p => p.rating
+		rating: p => p.rating,
+		description: p => p.description ? "hasdescription": undefined
 	} 
 };
 
@@ -358,10 +359,13 @@ class Tree {
 			Object.entries(config.indexedKeyFuncMap).forEach(([key, keyFunc]) => {
 				let indexItems = keyFunc(page);
 				if (!indexItems) {
-					return;
+					indexItems = [];
 				}
 				if (!dv.value.isArray(indexItems)) {
 					indexItems = [indexItems];
+				}
+				if (indexItems.length === 0){
+					liSummary.classList.add("index-" + key + "-withoutindex")
 				}
 				indexItems.forEach(indexItem => {
 					const indexItemKey = tryTurnLinkIntoLinkText(indexItem);
@@ -848,7 +852,7 @@ class Main {
 						showAllUnindexedButton.innerText = "[Unindexed] (" + pages.filter(p => indexMapEntries.every(([_, relatedPages]) => relatedPages.every(p2 => p2.file.path !== p.file.path))).length + ")";
 						showAllUnindexedButton.onclick = () => {
 							ul.querySelectorAll("li").forEach(li => li.style.display = "");
-							const keywordClass = "kw-withoutkeyword";
+							const keywordClass = "index-" + key + "-withoutindex";
 							const cssSelector = "li:not(:has(." + keywordClass + "))";
 							ul.querySelectorAll(cssSelector).forEach(li => li.style.display = "none");
 							divMoc.querySelectorAll("button").forEach(btn => btn.style.backgroundColor = "");
