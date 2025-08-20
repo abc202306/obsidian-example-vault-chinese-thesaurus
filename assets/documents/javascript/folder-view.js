@@ -81,17 +81,23 @@ function scrollIntoView02(liSummary, li2Summary) {
 	li2Summary.scrollIntoView(config.scrollIntoViewOption);
 	scrollIntoView01(liSummary, li2Summary);
 }
-function tempHighlight(elem) {
-	elem.style.backgroundColor = "rgba(255,255,0,0.5)";
-	setTimeout(() => {
-		elem.style.backgroundColor = "";;
-	}, 2000);
+async function tempHighlight(elem) {
+	return new Promise((resolve) => {
+		elem.style.backgroundColor = "rgba(255,255,0,0.5)";
+		setTimeout(() => {
+			elem.style.backgroundColor = "";
+			resolve();
+		}, 2000);
+	})
 }
-function tempHighlight2(elem) {
-	elem.style.backgroundColor = "rgba(255,255,0,0.1)";
-	setTimeout(() => {
-		elem.style.backgroundColor = "";
-	}, 2000);
+async function tempHighlight2(elem) {
+	return new Promise((resolve) => {
+		elem.style.backgroundColor = "rgba(255,255,0,0.1)";
+		setTimeout(() => {
+			elem.style.backgroundColor = "";
+			resolve();
+		}, 2000);
+	})
 }
 function turnPageArrIntoLinkArrStr(pages01) {
 	return "\\[" + pages01.map((p, i) => dv.fileLink(p.file.path, false, "" + (i + 1))).join(", ") + "\\]";
@@ -769,10 +775,10 @@ class Main {
 					resultContent.scrollIntoView(config.scrollIntoViewOption);
 					tempHighlight(resultContent.querySelector("&>span.li-summary"));
 					tempHighlight2(resultContent);
-					tempHighlight(button.parentElement);
+					
+					const allRadioButtons = divMoc.querySelectorAll("input[type=\"radio\"]");
 
-					divMoc.querySelectorAll("input[type=\"radio\"]")
-						.forEach(btn => {
+					allRadioButtons.forEach(btn => {
 							if (btn !== button) {
 								btn.checked = null;
 							}
@@ -783,6 +789,13 @@ class Main {
 						const cssSelector = "li:not(:has(." + targetClass + "))";
 						ul.querySelectorAll(cssSelector).forEach(li => li.style.display = "none");
 					}
+					const buttonSpan = button.parentElement;
+					allRadioButtons.forEach(btn=>btn.parentElement.style.backgroundColor = "")
+					tempHighlight(buttonSpan).then(()=>{
+						if (button.checked){
+							buttonSpan.style.backgroundColor = "rgba(255,0,0,0.3)"
+						}
+					})
 				}
 
 				function createLabel(forAttr, labelText, countInfo) {
