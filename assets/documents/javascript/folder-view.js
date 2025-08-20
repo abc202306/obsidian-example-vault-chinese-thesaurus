@@ -762,11 +762,17 @@ class Main {
 					});
 				}
 
-				function buttonOnclickInitAll(button){
+				function buttonOnclick(button){
 					ul.querySelectorAll("li").forEach(li => li.style.display = "");
 					ul2.querySelector("&>li>span.li-summary>a")?.click()
 					divMoc.querySelectorAll("button").forEach(btn => btn.style.backgroundColor = "");
 					button.style.backgroundColor = "rgba(0,0,255,0.3)";
+
+					const targetClass = button.dataset.targetClass;
+					if (targetClass){
+						const cssSelector = "li:not(:has(." + targetClass + "))";
+						ul.querySelectorAll(cssSelector).forEach(li => li.style.display = "none");
+					}
 				}
 
 				const kws = getKeywords(pages);
@@ -779,19 +785,13 @@ class Main {
 
 					const showAllButton = document.createElement("button");
 					showAllButton.innerText = "[All] (" + pages.length + ")";
-					showAllButton.onclick = () => {
-						buttonOnclickInitAll(showAllButton)
-					};
+					showAllButton.onclick = () => buttonOnclick(showAllButton)
 					buttonCon.appendChild(showAllButton);
 
 					const showAllUntaggedButton = document.createElement("button");
 					showAllUntaggedButton.innerText = "[Untagged] (" + pages.filter(p => getKeywordsFromPage(p).length === 0).length + ")";
-					showAllUntaggedButton.onclick = () => {
-						buttonOnclickInitAll(showAllUntaggedButton)
-						const keywordClass = "kw-withoutkeyword";
-						const cssSelector = "li:not(:has(." + keywordClass + "))";
-						ul.querySelectorAll(cssSelector).forEach(li => li.style.display = "none");
-					};
+					showAllUntaggedButton.dataset.targetClass = "kw-withoutkeyword";
+					showAllUntaggedButton.onclick = () => buttonOnclick(showAllUntaggedButton)
 					buttonCon.appendChild(showAllUntaggedButton);
 
 					const kwInfos = kws.map(kw => [kw, pages.filter(p => getKeywordsFromPage(p).includes(kw))])
@@ -800,12 +800,8 @@ class Main {
 					kwInfos.forEach(([kw, relatedPages]) => {
 						const kwButton = document.createElement("button");
 						kwButton.innerText = kw + " (" + relatedPages.length + ")";
-						kwButton.onclick = () => {
-							buttonOnclickInitAll(kwButton)
-							const keywordClass = "kw-" + kw.replaceAll(/[\s\[\]\(\)\.]/g, "-");
-							const cssSelector = "li:not(:has(." + keywordClass + "))";
-							ul.querySelectorAll(cssSelector).forEach(li => li.style.display = "none");
-						};
+						showAllUntaggedButton.dataset.targetClass = "kw-" + kw.replaceAll(/[\s\[\]\(\)\.]/g, "-")
+						kwButton.onclick = () => buttonOnclick(kwButton);
 						buttonCon.appendChild(kwButton);
 					});
 				}
@@ -842,30 +838,20 @@ class Main {
 
 						const showAllButton = document.createElement("button");
 						showAllButton.innerText = "[All] (" + pages.length + ")";
-						showAllButton.onclick = () => {
-							buttonOnclickInitAll(showAllButton)
-						};
+						showAllButton.onclick = () => buttonOnclick(showAllButton)
 						buttonCon.appendChild(showAllButton);
 
 						const showAllUnindexedButton = document.createElement("button");
 						showAllUnindexedButton.innerText = "[Unindexed] (" + pages.filter(p => indexMapEntries.every(([_, relatedPages]) => relatedPages.every(p2 => p2.file.path !== p.file.path))).length + ")";
-						showAllUnindexedButton.onclick = () => {
-							buttonOnclickInitAll(showAllUnindexedButton)
-							const keywordClass = "index-" + key + "-withoutindex";
-							const cssSelector = "li:not(:has(." + keywordClass + "))";
-							ul.querySelectorAll(cssSelector).forEach(li => li.style.display = "none");
-						};
+						showAllUnindexedButton.dataset.targetClass = "index-" + key + "-withoutindex"
+						showAllUnindexedButton.onclick = () => buttonOnclick(showAllUnindexedButton)
 						buttonCon.appendChild(showAllUnindexedButton);
 
 						indexMapEntries.forEach(([indexItemKey, relatedPages]) => {
 							const indexItemKeyButton = document.createElement("button");
 							indexItemKeyButton.innerText = indexItemKey + " (" + relatedPages.length + ")";
-							indexItemKeyButton.onclick = () => {
-								buttonOnclickInitAll(indexItemKeyButton)
-								const indexItemKeyClass = "index-" + key + "-" + (indexItemKey+"").replaceAll(/[\s\[\]\(\)\.]/g, "-");
-								const cssSelector = "li:not(:has(." + indexItemKeyClass + "))";
-								ul.querySelectorAll(cssSelector).forEach(li => li.style.display = "none");
-							};
+							indexItemKeyButton.dataset.targetClass = "index-" + key + "-" + (indexItemKey+"").replaceAll(/[\s\[\]\(\)\.]/g, "-");
+							indexItemKeyButton.onclick = () => buttonOnclick(indexItemKeyButton)
 							buttonCon.appendChild(indexItemKeyButton);
 						});
 
@@ -897,9 +883,7 @@ class Main {
 
 						const showAllButton = document.createElement("button");
 						showAllButton.innerText = "[All] (" + pages.length + ")";
-						showAllButton.onclick = () => {
-							buttonOnclickInitAll(showAllButton)
-						};
+						showAllButton.onclick = () => buttonOnclick(showAllButton)
 						buttonCon.appendChild(showAllButton);
 
 						months.map(monthStr => [monthStr, pages.filter(p => p.file[timePropertyName].toFormat("yyyy-MM") === monthStr)])
@@ -907,12 +891,8 @@ class Main {
 							.forEach(([monthStr, relatedPages]) => {
 								const monthButton = document.createElement("button");
 								monthButton.innerText = monthStr + " (" + relatedPages.length + ")";
-								monthButton.onclick = () => {
-									buttonOnclickInitAll(monthButton)
-									const monthClass = timePropertyName + "-" + monthStr;
-									const cssSelector = "li:not(:has(." + monthClass + "))";
-									ul.querySelectorAll(cssSelector).forEach(li => li.style.display = "none");
-								};
+								monthButton.dataset.targetClass = timePropertyName + "-" + monthStr
+								monthButton.onclick = () => buttonOnclick(monthButton)
 								buttonCon.appendChild(monthButton);
 							});
 					}
