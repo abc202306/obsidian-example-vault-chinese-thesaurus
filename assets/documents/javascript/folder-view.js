@@ -1,8 +1,8 @@
 /**
  * dataviewjs 脚本 | dataviewjs script;
  * fileName: `folder-view.js`;
- * built in property: ["icon", "cover", "kws", "tags", "description", "status", "categories", "rating"];
- * indexedKeyFuncMap: ["status", "categories", "rating", "description"];
+ * built in property: ["icon", "cover", "kws", "tags", "description", "status", "categories", "up", "rating"];
+ * indexedKeyFuncMap: ["status", "categories", "rating", "description", "up"];
  * config.scrollIntoViewOption.behaior: value is in ["smooth", "instant", "auto"];
  * config.indexedKeyFuncMap: add entries like {key: convertPageIntoValueFunc} to the value;
  */
@@ -21,6 +21,7 @@ const config = {
 	indexedKeyFuncMap: {
 		status: p => p.status,
 		categories: p => p.categories,
+		up: p => p.up,
 		rating: p => p.rating,
 		description: p => p.description ? "hasdescription" : null
 	}
@@ -88,7 +89,7 @@ async function tempHighlight(elem) {
 			elem.style.backgroundColor = "";
 			resolve();
 		}, 2000);
-	})
+	});
 }
 async function tempHighlight2(elem) {
 	return new Promise((resolve) => {
@@ -97,7 +98,7 @@ async function tempHighlight2(elem) {
 			elem.style.backgroundColor = "";
 			resolve();
 		}, 2000);
-	})
+	});
 }
 function turnPageArrIntoLinkArrStr(pages01) {
 	return "\\[" + pages01.map((p, i) => dv.fileLink(p.file.path, false, "" + (i + 1))).join(", ") + "\\]";
@@ -664,7 +665,7 @@ class Main {
 		}
 	}
 
-	static displayFolderStruct(cwd, { isCache}) {
+	static displayFolderStruct(cwd, { isCache }) {
 		const vID = "viewresultcontent-" + Main.now + "-" + cwd;
 		const mocLevel = config.specFolderView.mocLevel;
 
@@ -775,14 +776,14 @@ class Main {
 					resultContent.scrollIntoView(config.scrollIntoViewOption);
 					tempHighlight(resultContent.querySelector("&>span.li-summary"));
 					tempHighlight2(resultContent);
-					
+
 					const allRadioButtons = divMoc.querySelectorAll("input[type=\"radio\"]");
 
 					allRadioButtons.forEach(btn => {
-							if (btn !== button) {
-								btn.checked = null;
-							}
-						});
+						if (btn !== button) {
+							btn.checked = null;
+						}
+					});
 
 					const targetClass = button.value;
 					if (targetClass !== "on") {
@@ -790,12 +791,12 @@ class Main {
 						ul.querySelectorAll(cssSelector).forEach(li => li.style.display = "none");
 					}
 					const buttonSpan = button.parentElement;
-					allRadioButtons.forEach(btn=>btn.parentElement.style.backgroundColor = "")
-					tempHighlight(buttonSpan).then(()=>{
-						if (button.checked){
-							buttonSpan.style.backgroundColor = "rgba(255,0,0,0.3)"
+					allRadioButtons.forEach(btn => btn.parentElement.style.backgroundColor = "");
+					tempHighlight(buttonSpan).then(() => {
+						if (button.checked) {
+							buttonSpan.style.backgroundColor = "rgba(255,0,0,0.3)";
 						}
-					})
+					});
 				}
 
 				function createLabel(forAttr, labelText, countInfo) {
@@ -833,9 +834,9 @@ class Main {
 					radioButtonCon.style.width = "400px";
 					fieldset.appendChild(radioButtonCon);
 
-					const buttonSpan01 = document.createElement("span")
-                    buttonSpan01.style.color = "darkcyan"
-					radioButtonCon.appendChild(buttonSpan01)
+					const buttonSpan01 = document.createElement("span");
+					buttonSpan01.style.color = "darkcyan";
+					radioButtonCon.appendChild(buttonSpan01);
 					const showAllButton = document.createElement("input");
 					showAllButton.type = "radio";
 					showAllButton.id = "radio-bn-keywords-showall";
@@ -852,8 +853,8 @@ class Main {
 						.sort(([_, relatedPages]) => relatedPages.length, "desc");
 
 					kwInfos.forEach(([kw, relatedPages]) => {
-						const buttonSpan03 = document.createElement("span")
-						radioButtonCon.appendChild(buttonSpan03)
+						const buttonSpan03 = document.createElement("span");
+						radioButtonCon.appendChild(buttonSpan03);
 						const kwButton = document.createElement("input");
 						kwButton.type = "radio";
 						kwButton.value = "kw-" + kw.replaceAll(/[\s\[\]\(\)\.]/g, "-");
@@ -868,21 +869,24 @@ class Main {
 						));
 					});
 
-					const buttonSpan02 = document.createElement("span")
-                    buttonSpan02.style.color = "pink"
-					radioButtonCon.appendChild(buttonSpan02)
-					const showAllUntaggedButton = document.createElement("input");
-					showAllUntaggedButton.type = "radio";
-					showAllUntaggedButton.id = "radio-bn-keywords-showalluntagged";
-					showAllUntaggedButton.value = "kw-withoutkeyword";
-					showAllUntaggedButton.name = "radiobuttonname01";
-					showAllUntaggedButton.onclick = () => buttonOnclick(showAllUntaggedButton);
-					buttonSpan02.appendChild(showAllUntaggedButton);
-					buttonSpan02.appendChild(createLabel(
-						showAllUntaggedButton.id,
-						"[Untagged]",
-						pages.filter(p => getKeywordsFromPage(p).length === 0).length
-					));
+					const pagesUntagged = pages.filter(p => getKeywordsFromPage(p).length === 0);
+					if (pagesUntagged.length !== 0) {
+						const buttonSpan02 = document.createElement("span");
+						buttonSpan02.style.color = "pink";
+						radioButtonCon.appendChild(buttonSpan02);
+						const showAllUntaggedButton = document.createElement("input");
+						showAllUntaggedButton.type = "radio";
+						showAllUntaggedButton.id = "radio-bn-keywords-showalluntagged";
+						showAllUntaggedButton.value = "kw-withoutkeyword";
+						showAllUntaggedButton.name = "radiobuttonname01";
+						showAllUntaggedButton.onclick = () => buttonOnclick(showAllUntaggedButton);
+						buttonSpan02.appendChild(showAllUntaggedButton);
+						buttonSpan02.appendChild(createLabel(
+							showAllUntaggedButton.id,
+							"[Untagged]",
+							pagesUntagged.length
+						));
+					}
 				}
 
 
@@ -926,10 +930,10 @@ class Main {
 					radioButtonCon.style.width = "400px";
 					fieldset.appendChild(radioButtonCon);
 
-					
-					const buttonSpan01 = document.createElement("span")
-                    buttonSpan01.style.color = "darkcyan"
-					radioButtonCon.appendChild(buttonSpan01)
+
+					const buttonSpan01 = document.createElement("span");
+					buttonSpan01.style.color = "darkcyan";
+					radioButtonCon.appendChild(buttonSpan01);
 					const showAllButton = document.createElement("input");
 					showAllButton.type = "radio";
 					showAllButton.id = "radio-btn-index-" + key + "-" + "showall";
@@ -942,8 +946,8 @@ class Main {
 						pages.length
 					));
 					indexMapEntries.forEach(([indexItemKey, relatedPages]) => {
-						const buttonSpan03 = document.createElement("span")
-						radioButtonCon.appendChild(buttonSpan03)
+						const buttonSpan03 = document.createElement("span");
+						radioButtonCon.appendChild(buttonSpan03);
 						const indexItemKeyButton = document.createElement("input");
 						indexItemKeyButton.type = "radio";
 						indexItemKeyButton.value = "index-" + key + "-" + (indexItemKey + "").replaceAll(/[\s\[\]\(\)\.]/g, "-");
@@ -957,23 +961,25 @@ class Main {
 							relatedPages.length
 						));
 					});
-                    
 
-                    const buttonSpan02 = document.createElement("span")
-                    buttonSpan02.style.color = "pink"
-                    radioButtonCon.appendChild(buttonSpan02)
-                    const showAllUnindexedButton = document.createElement("input");
-                    showAllUnindexedButton.type = "radio";
-                    showAllUnindexedButton.id = "radio-btn-index-" + key + "-" + "showallunindexed";
-                    showAllUnindexedButton.value = "index-" + key + "-withoutindex";
-                    showAllUnindexedButton.name = "radiobuttonname01";
-                    showAllUnindexedButton.onclick = () => buttonOnclick(showAllUnindexedButton);
-                    buttonSpan02.appendChild(showAllUnindexedButton);
-                    buttonSpan02.appendChild(createLabel(
-                        showAllUnindexedButton.id,
-                        "[Unindexed]",
-                        pages.filter(p => indexMapEntries.every(([_, relatedPages]) => relatedPages.every(p2 => p2.file.path !== p.file.path))).length
-                    ));
+					const pagesUnindexed = pages.filter(p => indexMapEntries.every(([_, relatedPages]) => relatedPages.every(p2 => p2.file.path !== p.file.path)));
+					if (pagesUnindexed.length !== 0) {
+						const buttonSpan02 = document.createElement("span");
+						buttonSpan02.style.color = "pink";
+						radioButtonCon.appendChild(buttonSpan02);
+						const showAllUnindexedButton = document.createElement("input");
+						showAllUnindexedButton.type = "radio";
+						showAllUnindexedButton.id = "radio-btn-index-" + key + "-" + "showallunindexed";
+						showAllUnindexedButton.value = "index-" + key + "-withoutindex";
+						showAllUnindexedButton.name = "radiobuttonname01";
+						showAllUnindexedButton.onclick = () => buttonOnclick(showAllUnindexedButton);
+						buttonSpan02.appendChild(showAllUnindexedButton);
+						buttonSpan02.appendChild(createLabel(
+							showAllUnindexedButton.id,
+							"[Unindexed]",
+							pagesUnindexed.length
+						));
+					}
 
 					return form;
 				}).filter(form => form);
@@ -1004,14 +1010,14 @@ class Main {
 
 						const fieldset = document.createElement("fieldset");
 						form.appendChild(fieldset);
-						
+
 						const radioButtonCon = document.createElement("div");
 						radioButtonCon.style.width = "400px";
 						fieldset.appendChild(radioButtonCon);
 
-						const buttonSpan01 = document.createElement("span")
-                        buttonSpan01.style.color = "darkcyan"
-						radioButtonCon.appendChild(buttonSpan01)
+						const buttonSpan01 = document.createElement("span");
+						buttonSpan01.style.color = "darkcyan";
+						radioButtonCon.appendChild(buttonSpan01);
 						const showAllButton = document.createElement("input");
 						showAllButton.type = "radio";
 						showAllButton.id = "radio-btn-month-" + timePropertyName + "-showall";
@@ -1027,8 +1033,8 @@ class Main {
 						months.map(monthStr => [monthStr, pages.filter(p => p.file[timePropertyName].toFormat("yyyy-MM") === monthStr)])
 							.sort(([monthStr, _]) => monthStr, "desc")
 							.forEach(([monthStr, relatedPages]) => {
-								const buttonSpan02 = document.createElement("span")
-								radioButtonCon.appendChild(buttonSpan02)
+								const buttonSpan02 = document.createElement("span");
+								radioButtonCon.appendChild(buttonSpan02);
 								const monthButton = document.createElement("input");
 								monthButton.type = "radio";
 								monthButton.value = timePropertyName + "-" + monthStr;
