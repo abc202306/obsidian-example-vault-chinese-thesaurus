@@ -762,6 +762,13 @@ class Main {
 					});
 				}
 
+				function buttonOnclickInitAll(button){
+					ul.querySelectorAll("li").forEach(li => li.style.display = "");
+					ul2.querySelector("&>li>span.li-summary>a")?.click()
+					divMoc.querySelectorAll("button").forEach(btn => btn.style.backgroundColor = "");
+					button.style.backgroundColor = "rgba(0,0,255,0.3)";
+				}
+
 				const kws = getKeywords(pages);
 				if (kws.length !== 0) {
 					dv.header(3, "🏷️Keywords", { container: divMoc });
@@ -773,21 +780,17 @@ class Main {
 					const showAllButton = document.createElement("button");
 					showAllButton.innerText = "[All] (" + pages.length + ")";
 					showAllButton.onclick = () => {
-						ul.querySelectorAll("li").forEach(li => li.style.display = "");
-						divMoc.querySelectorAll("button").forEach(btn => btn.style.backgroundColor = "");
-						showAllButton.style.backgroundColor = "rgba(0,0,255,0.3)";
+						buttonOnclickInitAll(showAllButton)
 					};
 					buttonCon.appendChild(showAllButton);
 
 					const showAllUntaggedButton = document.createElement("button");
 					showAllUntaggedButton.innerText = "[Untagged] (" + pages.filter(p => getKeywordsFromPage(p).length === 0).length + ")";
 					showAllUntaggedButton.onclick = () => {
-						ul.querySelectorAll("li").forEach(li => li.style.display = "");
+						buttonOnclickInitAll(showAllUntaggedButton)
 						const keywordClass = "kw-withoutkeyword";
 						const cssSelector = "li:not(:has(." + keywordClass + "))";
 						ul.querySelectorAll(cssSelector).forEach(li => li.style.display = "none");
-						divMoc.querySelectorAll("button").forEach(btn => btn.style.backgroundColor = "");
-						showAllUntaggedButton.style.backgroundColor = "rgba(0,0,255,0.3)";
 					};
 					buttonCon.appendChild(showAllUntaggedButton);
 
@@ -798,12 +801,10 @@ class Main {
 						const kwButton = document.createElement("button");
 						kwButton.innerText = kw + " (" + relatedPages.length + ")";
 						kwButton.onclick = () => {
-							ul.querySelectorAll("li").forEach(li => li.style.display = "");
+							buttonOnclickInitAll(kwButton)
 							const keywordClass = "kw-" + kw.replaceAll(/[\s\[\]\(\)\.]/g, "-");
 							const cssSelector = "li:not(:has(." + keywordClass + "))";
 							ul.querySelectorAll(cssSelector).forEach(li => li.style.display = "none");
-							divMoc.querySelectorAll("button").forEach(btn => btn.style.backgroundColor = "");
-							kwButton.style.backgroundColor = "rgba(0,0,255,0.3)";
 						};
 						buttonCon.appendChild(kwButton);
 					});
@@ -842,21 +843,17 @@ class Main {
 						const showAllButton = document.createElement("button");
 						showAllButton.innerText = "[All] (" + pages.length + ")";
 						showAllButton.onclick = () => {
-							ul.querySelectorAll("li").forEach(li => li.style.display = "");
-							divMoc.querySelectorAll("button").forEach(btn => btn.style.backgroundColor = "");
-							showAllButton.style.backgroundColor = "rgba(0,0,255,0.3)";
+							buttonOnclickInitAll(showAllButton)
 						};
 						buttonCon.appendChild(showAllButton);
 
 						const showAllUnindexedButton = document.createElement("button");
 						showAllUnindexedButton.innerText = "[Unindexed] (" + pages.filter(p => indexMapEntries.every(([_, relatedPages]) => relatedPages.every(p2 => p2.file.path !== p.file.path))).length + ")";
 						showAllUnindexedButton.onclick = () => {
-							ul.querySelectorAll("li").forEach(li => li.style.display = "");
+							buttonOnclickInitAll(showAllUnindexedButton)
 							const keywordClass = "index-" + key + "-withoutindex";
 							const cssSelector = "li:not(:has(." + keywordClass + "))";
 							ul.querySelectorAll(cssSelector).forEach(li => li.style.display = "none");
-							divMoc.querySelectorAll("button").forEach(btn => btn.style.backgroundColor = "");
-							showAllUnindexedButton.style.backgroundColor = "rgba(0,0,255,0.3)";
 						};
 						buttonCon.appendChild(showAllUnindexedButton);
 
@@ -864,12 +861,10 @@ class Main {
 							const indexItemKeyButton = document.createElement("button");
 							indexItemKeyButton.innerText = indexItemKey + " (" + relatedPages.length + ")";
 							indexItemKeyButton.onclick = () => {
-								ul.querySelectorAll("li").forEach(li => li.style.display = "");
+								buttonOnclickInitAll(indexItemKeyButton)
 								const indexItemKeyClass = "index-" + key + "-" + (indexItemKey+"").replaceAll(/[\s\[\]\(\)\.]/g, "-");
 								const cssSelector = "li:not(:has(." + indexItemKeyClass + "))";
 								ul.querySelectorAll(cssSelector).forEach(li => li.style.display = "none");
-								divMoc.querySelectorAll("button").forEach(btn => btn.style.backgroundColor = "");
-								indexItemKeyButton.style.backgroundColor = "rgba(0,0,255,0.3)";
 							};
 							buttonCon.appendChild(indexItemKeyButton);
 						});
@@ -903,9 +898,7 @@ class Main {
 						const showAllButton = document.createElement("button");
 						showAllButton.innerText = "[All] (" + pages.length + ")";
 						showAllButton.onclick = () => {
-							ul.querySelectorAll("li").forEach(li => li.style.display = "");
-							divMoc.querySelectorAll("button").forEach(btn => btn.style.backgroundColor = "");
-							showAllButton.style.backgroundColor = "rgba(0,0,255,0.3)";
+							buttonOnclickInitAll(showAllButton)
 						};
 						buttonCon.appendChild(showAllButton);
 
@@ -915,12 +908,10 @@ class Main {
 								const monthButton = document.createElement("button");
 								monthButton.innerText = monthStr + " (" + relatedPages.length + ")";
 								monthButton.onclick = () => {
-									ul.querySelectorAll("li").forEach(li => li.style.display = "");
+									buttonOnclickInitAll(showAllButton)
 									const monthClass = timePropertyName + "-" + monthStr;
 									const cssSelector = "li:not(:has(." + monthClass + "))";
 									ul.querySelectorAll(cssSelector).forEach(li => li.style.display = "none");
-									divMoc.querySelectorAll("button").forEach(btn => btn.style.backgroundColor = "");
-									monthButton.style.backgroundColor = "rgba(0,0,255,0.3)";
 								};
 								buttonCon.appendChild(monthButton);
 							});
