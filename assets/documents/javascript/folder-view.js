@@ -664,7 +664,7 @@ class Main {
 		}
 	}
 
-	static displayFolderStruct(cwd, { isCache, query }) {
+	static displayFolderStruct(cwd, { isCache}) {
 		const vID = "viewresultcontent-" + Main.now + "-" + cwd;
 		const mocLevel = config.specFolderView.mocLevel;
 
@@ -810,7 +810,7 @@ class Main {
 
 					const span = document.createElement("span");
 					span.innerText = "(" + countInfo + ")";
-					span.style.opacity = "0.618";
+					span.style.opacity = "0.8";
 					label.appendChild(span);
 
 
@@ -834,6 +834,7 @@ class Main {
 					fieldset.appendChild(radioButtonCon);
 
 					const buttonSpan01 = document.createElement("span")
+                    buttonSpan01.style.color = "darkcyan"
 					radioButtonCon.appendChild(buttonSpan01)
 					const showAllButton = document.createElement("input");
 					showAllButton.type = "radio";
@@ -845,21 +846,6 @@ class Main {
 						showAllButton.id,
 						"[All]",
 						pages.length
-					));
-
-					const buttonSpan02 = document.createElement("span")
-					radioButtonCon.appendChild(buttonSpan02)
-					const showAllUntaggedButton = document.createElement("input");
-					showAllUntaggedButton.type = "radio";
-					showAllUntaggedButton.id = "radio-bn-keywords-showalluntagged";
-					showAllUntaggedButton.value = "kw-withoutkeyword";
-					showAllUntaggedButton.name = "radiobuttonname01";
-					showAllUntaggedButton.onclick = () => buttonOnclick(showAllUntaggedButton);
-					buttonSpan02.appendChild(showAllUntaggedButton);
-					buttonSpan02.appendChild(createLabel(
-						showAllUntaggedButton.id,
-						"[Untagged]",
-						pages.filter(p => getKeywordsFromPage(p).length === 0).length
 					));
 
 					const kwInfos = kws.map(kw => [kw, pages.filter(p => getKeywordsFromPage(p).includes(kw))])
@@ -881,6 +867,22 @@ class Main {
 							relatedPages.length
 						));
 					});
+
+					const buttonSpan02 = document.createElement("span")
+                    buttonSpan02.style.color = "pink"
+					radioButtonCon.appendChild(buttonSpan02)
+					const showAllUntaggedButton = document.createElement("input");
+					showAllUntaggedButton.type = "radio";
+					showAllUntaggedButton.id = "radio-bn-keywords-showalluntagged";
+					showAllUntaggedButton.value = "kw-withoutkeyword";
+					showAllUntaggedButton.name = "radiobuttonname01";
+					showAllUntaggedButton.onclick = () => buttonOnclick(showAllUntaggedButton);
+					buttonSpan02.appendChild(showAllUntaggedButton);
+					buttonSpan02.appendChild(createLabel(
+						showAllUntaggedButton.id,
+						"[Untagged]",
+						pages.filter(p => getKeywordsFromPage(p).length === 0).length
+					));
 				}
 
 
@@ -926,6 +928,7 @@ class Main {
 
 					
 					const buttonSpan01 = document.createElement("span")
+                    buttonSpan01.style.color = "darkcyan"
 					radioButtonCon.appendChild(buttonSpan01)
 					const showAllButton = document.createElement("input");
 					showAllButton.type = "radio";
@@ -938,22 +941,6 @@ class Main {
 						"[All]",
 						pages.length
 					));
-
-					const buttonSpan02 = document.createElement("span")
-					radioButtonCon.appendChild(buttonSpan02)
-					const showAllUnindexedButton = document.createElement("input");
-					showAllUnindexedButton.type = "radio";
-					showAllUnindexedButton.id = "radio-btn-index-" + key + "-" + "showallunindexed";
-					showAllUnindexedButton.value = "index-" + key + "-withoutindex";
-					showAllUnindexedButton.name = "radiobuttonname01";
-					showAllUnindexedButton.onclick = () => buttonOnclick(showAllUnindexedButton);
-					buttonSpan02.appendChild(showAllUnindexedButton);
-					buttonSpan02.appendChild(createLabel(
-						showAllUnindexedButton.id,
-						"[Unindexed]",
-						pages.filter(p => indexMapEntries.every(([_, relatedPages]) => relatedPages.every(p2 => p2.file.path !== p.file.path))).length
-					));
-
 					indexMapEntries.forEach(([indexItemKey, relatedPages]) => {
 						const buttonSpan03 = document.createElement("span")
 						radioButtonCon.appendChild(buttonSpan03)
@@ -970,9 +957,27 @@ class Main {
 							relatedPages.length
 						));
 					});
+                    
+
+                    const buttonSpan02 = document.createElement("span")
+                    buttonSpan02.style.color = "pink"
+                    radioButtonCon.appendChild(buttonSpan02)
+                    const showAllUnindexedButton = document.createElement("input");
+                    showAllUnindexedButton.type = "radio";
+                    showAllUnindexedButton.id = "radio-btn-index-" + key + "-" + "showallunindexed";
+                    showAllUnindexedButton.value = "index-" + key + "-withoutindex";
+                    showAllUnindexedButton.name = "radiobuttonname01";
+                    showAllUnindexedButton.onclick = () => buttonOnclick(showAllUnindexedButton);
+                    buttonSpan02.appendChild(showAllUnindexedButton);
+                    buttonSpan02.appendChild(createLabel(
+                        showAllUnindexedButton.id,
+                        "[Unindexed]",
+                        pages.filter(p => indexMapEntries.every(([_, relatedPages]) => relatedPages.every(p2 => p2.file.path !== p.file.path))).length
+                    ));
 
 					return form;
 				}).filter(form => form);
+
 
 				if (formArr.length !== 0) {
 					dv.header(3, "🔖Indexes", { container: divMoc });
@@ -1005,6 +1010,7 @@ class Main {
 						fieldset.appendChild(radioButtonCon);
 
 						const buttonSpan01 = document.createElement("span")
+                        buttonSpan01.style.color = "darkcyan"
 						radioButtonCon.appendChild(buttonSpan01)
 						const showAllButton = document.createElement("input");
 						showAllButton.type = "radio";
