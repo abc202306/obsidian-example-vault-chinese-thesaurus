@@ -22,11 +22,10 @@ const config = {
 		status: p => p.status,
 		categories: p => p.categories,
 		rating: p => p.rating,
-		description: p => p.description ? "hasdescription": null
-	} 
+		description: p => p.description ? "hasdescription" : null
+	}
 };
 
-const behavior = config.scrollIntoViewOption.behavior;
 const allPages = dv.pages();
 
 class Node {
@@ -72,14 +71,14 @@ function getKeywords(pages) {
 }
 
 function scrollIntoView01(liSummary, li2Summary) {
-	liSummary.scrollIntoView({ behavior: behavior });
+	liSummary.scrollIntoView(config.scrollIntoViewOption);
 	tempHighlight(liSummary);
 	tempHighlight2(liSummary.parentElement);
 	tempHighlight(li2Summary);
 	tempHighlight2(li2Summary.parentElement);
 }
 function scrollIntoView02(liSummary, li2Summary) {
-	li2Summary.scrollIntoView({ behavior: behavior });
+	li2Summary.scrollIntoView(config.scrollIntoViewOption);
 	scrollIntoView01(liSummary, li2Summary);
 }
 function tempHighlight(elem) {
@@ -364,20 +363,20 @@ class Tree {
 				if (!dv.value.isArray(indexItems)) {
 					indexItems = [indexItems];
 				}
-				if (indexItems.length === 0){
-					liSummary.classList.add("index-" + key + "-withoutindex")
+				if (indexItems.length === 0) {
+					liSummary.classList.add("index-" + key + "-withoutindex");
 				}
 				indexItems.forEach(indexItem => {
 					const indexItemKey = tryTurnLinkIntoLinkText(indexItem);
 					let indexClass;
-					try{
-						indexClass = "index-" + key + "-" + (indexItemKey+"").replaceAll(/[\s\[\]\(\)\.]/g, "-");
-					}catch(e){
-						console.log(indexItemKey)
-						console.log(key)
+					try {
+						indexClass = "index-" + key + "-" + (indexItemKey + "").replaceAll(/[\s\[\]\(\)\.]/g, "-");
+					} catch (e) {
+						console.log(indexItemKey);
+						console.log(key);
 						throw e;
 					}
-					
+
 					liSummary.classList.add(indexClass);
 				});
 			});
@@ -551,9 +550,9 @@ class Main {
 		Main.con.appendChild(Main.viewNavCon);
 		Main.con.appendChild(Main.curViewCon);
 		dv.container.appendChild(Main.con);
-		console.time("rootfolder");
+		console.time("call func displayRootFolderStructDepthN()");
 		this.displayRootFolderStructDepthN();
-		console.timeEnd("rootfolder");
+		console.timeEnd("call func displayRootFolderStructDepthN()");
 	}
 	static con = document.createElement("div");
 	static viewNavCon = document.createElement("div");
@@ -610,7 +609,9 @@ class Main {
 				.distinct()
 				.sort(pagePath => pagePath);
 			const cwdDisplay = "Root";
+			console.time("call func new Tree(pagePaths, cwdDisplay)");
 			const tree = new Tree(pagePaths, cwdDisplay);
+			console.timeEnd("call func new Tree(pagePaths, cwdDisplay)");
 			const { resultContent, resultMoc } = Tree.toResult(tree.treeRootNode, vID, {
 				mocLevel: mocLevel, isMonthQueryFolder: false, isDayQueryFolder: false, folderViewFunc: (folderPath) => {
 					const cwd = folderPath;
@@ -624,7 +625,7 @@ class Main {
 				a.innerText = "🔎";
 				a.onclick = () => {
 					if (Main.curViewConIsLoaded) {
-						Main.curViewCon.scrollIntoView({ behavior: behavior });
+						Main.curViewCon.scrollIntoView(config.scrollIntoViewOption);
 						Main.curViewCon.querySelectorAll("h2").forEach(h2 => tempHighlight(h2));
 						tempHighlight2(Main.curViewCon);
 					}
@@ -651,7 +652,7 @@ class Main {
 		const callerElemID = "view(" + Main.viewNavCon.id + ")" + "-(result-content)-li(" + callerCWD + ")";
 		const elem = document.getElementById(callerElemID);
 		if (elem) {
-			elem.scrollIntoView({ behavior: behavior });
+			elem.scrollIntoView(config.scrollIntoViewOption);
 			tempHighlight(elem);
 			tempHighlight2(elem.parentElement);
 		}
@@ -762,53 +763,115 @@ class Main {
 					});
 				}
 
-				function buttonOnclick(button){
+				function buttonOnclick(button) {
 					ul.querySelectorAll("li").forEach(li => li.style.display = "");
-					ul2.querySelector("&>li>span.li-summary>a")?.click()
-					divMoc.querySelectorAll("button").forEach(btn => btn.style.backgroundColor = "");
-					button.style.backgroundColor = "rgba(0,0,255,0.3)";
 
-					const targetClass = button.dataset.targetClass;
-					if (targetClass){
+					resultContent.scrollIntoView(config.scrollIntoViewOption);
+					tempHighlight(resultContent.querySelector("&>span.li-summary"));
+					tempHighlight2(resultContent);
+					tempHighlight(button.parentElement);
+
+					divMoc.querySelectorAll("input[type=\"radio\"]")
+						.forEach(btn => {
+							if (btn !== button) {
+								btn.checked = null;
+							}
+						});
+
+					const targetClass = button.value;
+					if (targetClass !== "on") {
 						const cssSelector = "li:not(:has(." + targetClass + "))";
 						ul.querySelectorAll(cssSelector).forEach(li => li.style.display = "none");
 					}
 				}
 
+				function createLabel(forAttr, labelText, countInfo) {
+					const label = document.createElement("label");
+					label.setAttribute('for', forAttr);
+
+					const b = document.createElement("b");
+					b.innerText = labelText;
+					label.appendChild(b);
+
+					label.appendChild(document.createTextNode(" "));
+
+					const span = document.createElement("span");
+					span.innerText = "(" + countInfo + ")";
+					span.style.opacity = "0.618";
+					label.appendChild(span);
+
+
+					return label;
+				}
+
 				const kws = getKeywords(pages);
 				if (kws.length !== 0) {
-					dv.header(3, "🏷️Keywords", { container: divMoc });
+					const headerText = "🏷️Keywords";
 
-					const buttonCon = document.createElement("div");
-					buttonCon.style.width = "400px";
-					divMoc.appendChild(buttonCon);
+					dv.header(3, headerText, { container: divMoc });
 
-					const showAllButton = document.createElement("button");
-					showAllButton.innerText = "[All] (" + pages.length + ")";
-					showAllButton.onclick = () => buttonOnclick(showAllButton)
-					buttonCon.appendChild(showAllButton);
+					const form = document.createElement("form");
+					divMoc.appendChild(form);
 
-					const showAllUntaggedButton = document.createElement("button");
-					showAllUntaggedButton.innerText = "[Untagged] (" + pages.filter(p => getKeywordsFromPage(p).length === 0).length + ")";
-					showAllUntaggedButton.dataset.targetClass = "kw-withoutkeyword";
-					showAllUntaggedButton.onclick = () => buttonOnclick(showAllUntaggedButton)
-					buttonCon.appendChild(showAllUntaggedButton);
+					const fieldset = document.createElement("fieldset");
+					form.appendChild(fieldset);
+
+					const radioButtonCon = document.createElement("div");
+					radioButtonCon.style.width = "400px";
+					fieldset.appendChild(radioButtonCon);
+
+					const buttonSpan01 = document.createElement("span")
+					radioButtonCon.appendChild(buttonSpan01)
+					const showAllButton = document.createElement("input");
+					showAllButton.type = "radio";
+					showAllButton.id = "radio-bn-keywords-showall";
+					showAllButton.name = "radiobuttonname01";
+					showAllButton.onclick = () => buttonOnclick(showAllButton);
+					buttonSpan01.appendChild(showAllButton);
+					buttonSpan01.appendChild(createLabel(
+						showAllButton.id,
+						"[All]",
+						pages.length
+					));
+
+					const buttonSpan02 = document.createElement("span")
+					radioButtonCon.appendChild(buttonSpan02)
+					const showAllUntaggedButton = document.createElement("input");
+					showAllUntaggedButton.type = "radio";
+					showAllUntaggedButton.id = "radio-bn-keywords-showalluntagged";
+					showAllUntaggedButton.value = "kw-withoutkeyword";
+					showAllUntaggedButton.name = "radiobuttonname01";
+					showAllUntaggedButton.onclick = () => buttonOnclick(showAllUntaggedButton);
+					buttonSpan02.appendChild(showAllUntaggedButton);
+					buttonSpan02.appendChild(createLabel(
+						showAllUntaggedButton.id,
+						"[Untagged]",
+						pages.filter(p => getKeywordsFromPage(p).length === 0).length
+					));
 
 					const kwInfos = kws.map(kw => [kw, pages.filter(p => getKeywordsFromPage(p).includes(kw))])
 						.sort(([_, relatedPages]) => relatedPages.length, "desc");
 
 					kwInfos.forEach(([kw, relatedPages]) => {
-						const kwButton = document.createElement("button");
-						kwButton.innerText = kw + " (" + relatedPages.length + ")";
-						showAllUntaggedButton.dataset.targetClass = "kw-" + kw.replaceAll(/[\s\[\]\(\)\.]/g, "-")
+						const buttonSpan03 = document.createElement("span")
+						radioButtonCon.appendChild(buttonSpan03)
+						const kwButton = document.createElement("input");
+						kwButton.type = "radio";
+						kwButton.value = "kw-" + kw.replaceAll(/[\s\[\]\(\)\.]/g, "-");
+						kwButton.id = "radio-bn-keywords-to-" + kwButton.value;
+						kwButton.name = "radiobuttonname01";
 						kwButton.onclick = () => buttonOnclick(kwButton);
-						buttonCon.appendChild(kwButton);
+						buttonSpan03.appendChild(kwButton);
+						buttonSpan03.appendChild(createLabel(
+							kwButton.id,
+							kw,
+							relatedPages.length
+						));
 					});
 				}
 
 
-				const indexDivArr = dv.array(Object.entries(config.indexedKeyFuncMap)).map(([key, keyFunc]) => {
-					const indexDiv = document.createElement("div");
+				const formArr = dv.array(Object.entries(config.indexedKeyFuncMap)).map(([key, keyFunc]) => {
 					const indexMap = {};
 					pages.forEach(p => {
 						let indexItems = keyFunc(p);
@@ -829,42 +892,79 @@ class Main {
 					});
 					const indexMapEntries = dv.array(Object.entries(indexMap)).sort(([_, relatedPages]) => relatedPages.length, "desc");
 					console.log(indexMapEntries);
-					if (indexMapEntries.length !== 0) {
-						dv.header(4, "✅" + key, { container: indexDiv });
-
-						const buttonCon = document.createElement("div");
-						buttonCon.style.width = "400px";
-						indexDiv.appendChild(buttonCon);
-
-						const showAllButton = document.createElement("button");
-						showAllButton.innerText = "[All] (" + pages.length + ")";
-						showAllButton.onclick = () => buttonOnclick(showAllButton)
-						buttonCon.appendChild(showAllButton);
-
-						const showAllUnindexedButton = document.createElement("button");
-						showAllUnindexedButton.innerText = "[Unindexed] (" + pages.filter(p => indexMapEntries.every(([_, relatedPages]) => relatedPages.every(p2 => p2.file.path !== p.file.path))).length + ")";
-						showAllUnindexedButton.dataset.targetClass = "index-" + key + "-withoutindex"
-						showAllUnindexedButton.onclick = () => buttonOnclick(showAllUnindexedButton)
-						buttonCon.appendChild(showAllUnindexedButton);
-
-						indexMapEntries.forEach(([indexItemKey, relatedPages]) => {
-							const indexItemKeyButton = document.createElement("button");
-							indexItemKeyButton.innerText = indexItemKey + " (" + relatedPages.length + ")";
-							indexItemKeyButton.dataset.targetClass = "index-" + key + "-" + (indexItemKey+"").replaceAll(/[\s\[\]\(\)\.]/g, "-");
-							indexItemKeyButton.onclick = () => buttonOnclick(indexItemKeyButton)
-							buttonCon.appendChild(indexItemKeyButton);
-						});
-
-						return indexDiv;
-					} else {
+					if (indexMapEntries.length === 0) {
 						return null;
 					}
-				}).filter(indexDiv => indexDiv);
 
-				if (indexDivArr.length !== 0) {
+					const form = document.createElement("form");
+
+					const fieldset = document.createElement("fieldset");
+					form.appendChild(fieldset);
+
+
+					const legend = document.createElement("legend");
+					legend.innerText = "✅" + key;
+					fieldset.appendChild(legend);
+
+
+					const radioButtonCon = document.createElement("div");
+					radioButtonCon.style.width = "400px";
+					fieldset.appendChild(radioButtonCon);
+
+					
+					const buttonSpan01 = document.createElement("span")
+					radioButtonCon.appendChild(buttonSpan01)
+					const showAllButton = document.createElement("input");
+					showAllButton.type = "radio";
+					showAllButton.id = "radio-btn-index-" + key + "-" + "showall";
+					showAllButton.name = "radiobuttonname01";
+					showAllButton.onclick = () => buttonOnclick(showAllButton);
+					buttonSpan01.appendChild(showAllButton);
+					buttonSpan01.appendChild(createLabel(
+						showAllButton.id,
+						"[All]",
+						pages.length
+					));
+
+					const buttonSpan02 = document.createElement("span")
+					radioButtonCon.appendChild(buttonSpan02)
+					const showAllUnindexedButton = document.createElement("input");
+					showAllUnindexedButton.type = "radio";
+					showAllUnindexedButton.id = "radio-btn-index-" + key + "-" + "showallunindexed";
+					showAllUnindexedButton.value = "index-" + key + "-withoutindex";
+					showAllUnindexedButton.name = "radiobuttonname01";
+					showAllUnindexedButton.onclick = () => buttonOnclick(showAllUnindexedButton);
+					buttonSpan02.appendChild(showAllUnindexedButton);
+					buttonSpan02.appendChild(createLabel(
+						showAllUnindexedButton.id,
+						"[Unindexed]",
+						pages.filter(p => indexMapEntries.every(([_, relatedPages]) => relatedPages.every(p2 => p2.file.path !== p.file.path))).length
+					));
+
+					indexMapEntries.forEach(([indexItemKey, relatedPages]) => {
+						const buttonSpan03 = document.createElement("span")
+						radioButtonCon.appendChild(buttonSpan03)
+						const indexItemKeyButton = document.createElement("input");
+						indexItemKeyButton.type = "radio";
+						indexItemKeyButton.value = "index-" + key + "-" + (indexItemKey + "").replaceAll(/[\s\[\]\(\)\.]/g, "-");
+						indexItemKeyButton.id = "radio-btn-index-" + key + "-to-" + indexItemKeyButton.value;
+						indexItemKeyButton.name = "radiobuttonname01";
+						indexItemKeyButton.onclick = () => buttonOnclick(indexItemKeyButton);
+						buttonSpan03.appendChild(indexItemKeyButton);
+						buttonSpan03.appendChild(createLabel(
+							indexItemKeyButton.id,
+							indexItemKey,
+							relatedPages.length
+						));
+					});
+
+					return form;
+				}).filter(form => form);
+
+				if (formArr.length !== 0) {
 					dv.header(3, "🔖Indexes", { container: divMoc });
-					indexDivArr.forEach(indexDiv => {
-						divMoc.appendChild(indexDiv);
+					formArr.forEach(form => {
+						divMoc.appendChild(form);
 					});
 				}
 
@@ -876,24 +976,52 @@ class Main {
 						.distinct()
 						.sort(monthStr => monthStr, "desc");
 					if (months.length !== 0) { /** separate variables */
-						dv.header(3, timePropertyIcon + "Months", { container: divMoc });
-						const buttonCon = document.createElement("div");
-						buttonCon.style.width = "400px";
-						divMoc.appendChild(buttonCon);
 
-						const showAllButton = document.createElement("button");
-						showAllButton.innerText = "[All] (" + pages.length + ")";
-						showAllButton.onclick = () => buttonOnclick(showAllButton)
-						buttonCon.appendChild(showAllButton);
+						const headerText = timePropertyIcon + "Months";
+
+						dv.header(3, headerText, { container: divMoc });
+
+						const form = document.createElement("form");
+						divMoc.appendChild(form);
+
+						const fieldset = document.createElement("fieldset");
+						form.appendChild(fieldset);
+						
+						const radioButtonCon = document.createElement("div");
+						radioButtonCon.style.width = "400px";
+						fieldset.appendChild(radioButtonCon);
+
+						const buttonSpan01 = document.createElement("span")
+						radioButtonCon.appendChild(buttonSpan01)
+						const showAllButton = document.createElement("input");
+						showAllButton.type = "radio";
+						showAllButton.id = "radio-btn-month-" + timePropertyName + "-showall";
+						showAllButton.name = "radiobuttonname01";
+						showAllButton.onclick = () => buttonOnclick(showAllButton);
+						buttonSpan01.appendChild(showAllButton);
+						buttonSpan01.appendChild(createLabel(
+							showAllButton.id,
+							"[All]",
+							pages.length
+						));
 
 						months.map(monthStr => [monthStr, pages.filter(p => p.file[timePropertyName].toFormat("yyyy-MM") === monthStr)])
 							.sort(([monthStr, _]) => monthStr, "desc")
 							.forEach(([monthStr, relatedPages]) => {
-								const monthButton = document.createElement("button");
-								monthButton.innerText = monthStr + " (" + relatedPages.length + ")";
-								monthButton.dataset.targetClass = timePropertyName + "-" + monthStr
-								monthButton.onclick = () => buttonOnclick(monthButton)
-								buttonCon.appendChild(monthButton);
+								const buttonSpan02 = document.createElement("span")
+								radioButtonCon.appendChild(buttonSpan02)
+								const monthButton = document.createElement("input");
+								monthButton.type = "radio";
+								monthButton.value = timePropertyName + "-" + monthStr;
+								monthButton.id = "radio-btn-month-" + timePropertyName + "-to-" + monthButton.value;
+								monthButton.name = "radiobuttonname01";
+								monthButton.onclick = () => buttonOnclick(monthButton);
+								buttonSpan02.appendChild(monthButton);
+								buttonSpan02.appendChild(createLabel(
+									monthButton.id,
+									monthStr,
+									relatedPages.length
+								));
 							});
 					}
 				});
@@ -941,7 +1069,7 @@ class Main {
 			Main.curViewCon.querySelectorAll("h2").forEach(h2 => tempHighlight(h2));
 			tempHighlight2(Main.curViewCon);
 
-			Main.curViewCon.scrollIntoView({ behavior: behavior });
+			Main.curViewCon.scrollIntoView(config.scrollIntoViewOption);
 		}
 	}
 }
