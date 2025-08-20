@@ -7,10 +7,24 @@
  * config.indexedKeyFuncMap: add entries like {key: convertPageIntoValueFunc} to the value;
  */
 
+function rateBar(n) {
+	n = Number.parseInt(n) % 11;
+	const m = 10 - n;
+	const isOdd = n % 2;
+	const k1 = "𒊹";
+	const k2 = "◐";
+	const k3 = "◯";
+	if (isOdd) {
+		return k1.repeat(Number.parseInt(n / 2)) + k2 + k3.repeat(Number.parseInt(m / 2));
+	} else {
+		return k1.repeat(Number.parseInt(n / 2)) + k3.repeat(Number.parseInt(m / 2));
+	}
+}
+
 const config = {
 	rootFolderView: {
-		mocLevel: 4,
-		folderLevel: 7
+		mocLevel: 7,
+		folderLevel: 9
 	},
 	specFolderView: {
 		mocLevel: 5
@@ -22,7 +36,7 @@ const config = {
 		status: p => p.status,
 		categories: p => p.categories,
 		up: p => p.up,
-		rating: p => p.rating,
+		rating: p => rateBar(p.rating),
 		description: p => p.description ? "hasdescription" : null
 	}
 };
@@ -257,7 +271,7 @@ class Tree {
 			tdata.push(["ℹ️", page.status]);
 		}
 		if (page.rating && typeof page.rating === "number") {
-			tdata.push(["⭐", "⭐".repeat(page.rating % 6)]);
+			tdata.push(["⭐", rateBar(page.rating)]);
 		}
 		if (tdata.length !== 0) {
 			fileNodeDisplayNameSpan.appendChild(document.createElement("br"));
@@ -612,8 +626,9 @@ class Main {
 
 			const pagePaths = allPages
 				.map(page => page.file.folder)
-				.filter(pagePath => pagePath.length !== 0 && pagePath.split("/").length < folderLevel)
+				.map(folder=>folder.split("/").slice(0,folderLevel).join("/"))
 				.distinct()
+				.filter(folder=>folder.length!==0)
 				.sort(pagePath => pagePath);
 			const cwdDisplay = "Root";
 			console.time("call func new Tree(pagePaths, cwdDisplay)");
