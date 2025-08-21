@@ -7,39 +7,43 @@
  * config.indexedKeyFuncMap: add entries like {key: convertPageIntoValueFunc} to the value;
  */
 
-function rateBar(n) {
-	n = Number.parseInt(n) % 11;
-	const m = 10 - n;
-	const isOdd = n % 2;
-	const k1 = "𒊹";
-	const k2 = "◐";
-	const k3 = "◯";
-	if (isOdd) {
-		return k1.repeat(Number.parseInt(n / 2)) + k2 + k3.repeat(Number.parseInt(m / 2));
-	} else {
-		return k1.repeat(Number.parseInt(n / 2)) + k3.repeat(Number.parseInt(m / 2));
+class Component {
+	static rateBar(n) {
+		n = Number.parseInt(n) % 11;
+		const m = 10 - n;
+		const isOdd = n % 2;
+		const k1 = "𒊹";
+		const k2 = "◐";
+		const k3 = "◯";
+		if (isOdd) {
+			return k1.repeat(Number.parseInt(n / 2)) + k2 + k3.repeat(Number.parseInt(m / 2));
+		} else {
+			return k1.repeat(Number.parseInt(n / 2)) + k3.repeat(Number.parseInt(m / 2));
+		}
 	}
 }
 
-const config = {
-	rootFolderView: {
-		mocLevel: 7,
-		folderLevel: 9
-	},
-	specFolderView: {
-		mocLevel: 5
-	},
-	scrollIntoViewOption: {
-		behavior: "smooth" /**  */
-	},
-	indexedKeyFuncMap: {
-		status: p => p.status,
-		categories: p => p.categories,
-		up: p => p.up,
-		rating: p => rateBar(p.rating),
-		description: p => p.description ? "hasdescription" : null
-	}
-};
+class Config {
+	static config = {
+		rootFolderView: {
+			mocLevel: 6,
+			folderLevel: 10
+		},
+		specFolderView: {
+			mocLevel: 5
+		},
+		scrollIntoViewOption: {
+			behavior: "smooth" /**  */
+		},
+		indexedKeyFuncMap: {
+			status: p => p.status,
+			categories: p => p.categories,
+			up: p => p.up,
+			rating: p => Component.rateBar(p.rating),
+			description: p => p.description ? "hasdescription" : null
+		}
+	};
+}
 
 const allPages = dv.pages();
 
@@ -64,108 +68,109 @@ class Node {
 		}
 	}
 }
-function tryTurnLinkIntoLinkText(linkOrStr) {
-	if (!dv.value.isLink(linkOrStr)) {
-		const str = linkOrStr;
-		return str;
-	} else {
-		const link = linkOrStr;
-		return link.display || link.path.split("/").at(-1).replace(/\.md$/, "");
+
+
+class Util {
+	static tryTurnLinkIntoLinkText(linkOrStr) {
+		if (!dv.value.isLink(linkOrStr)) {
+			const str = linkOrStr;
+			return str;
+		} else {
+			const link = linkOrStr;
+			return link.display || link.path.split("/").at(-1).replace(/\.md$/, "");
+		}
 	}
-}
-
-function getKeywordsFromPage(page) {
-	return dv.array([
-		...(page.kws || []).map(kw => tryTurnLinkIntoLinkText(kw)),
-		...page.file.tags.map(tag => tag.substring(1))
-	]).distinct();
-}
-
-function getKeywords(pages) {
-	return pages.flatMap(p => getKeywordsFromPage(p)).distinct();
-}
-
-function scrollIntoView01(liSummary, li2Summary) {
-	liSummary.scrollIntoView(config.scrollIntoViewOption);
-	tempHighlight(liSummary);
-	tempHighlight2(liSummary.parentElement);
-	tempHighlight(li2Summary);
-	tempHighlight2(li2Summary.parentElement);
-}
-function scrollIntoView02(liSummary, li2Summary) {
-	li2Summary.scrollIntoView(config.scrollIntoViewOption);
-	scrollIntoView01(liSummary, li2Summary);
-}
-async function tempHighlight(elem) {
-	return new Promise((resolve) => {
-		elem.style.backgroundColor = "rgba(255,255,0,0.5)";
-		setTimeout(() => {
-			elem.style.backgroundColor = "";
-			resolve();
-		}, 2000);
-	});
-}
-async function tempHighlight2(elem) {
-	return new Promise((resolve) => {
-		elem.style.backgroundColor = "rgba(255,255,0,0.1)";
-		setTimeout(() => {
-			elem.style.backgroundColor = "";
-			resolve();
-		}, 2000);
-	});
-}
-function turnPageArrIntoLinkArrStr(pages01) {
-	return "\\[" + pages01.map((p, i) => dv.fileLink(p.file.path, false, "" + (i + 1))).join(", ") + "\\]";
-}
-function tryGetPageArr(str) {
-	let page = dv.page(str);
-	const pages01 = [];
-	if (page) {
-		pages01.push(page);
+	static getKeywordsFromPage(page) {
+		return dv.array([
+			...(page.kws || []).map(kw => Util.tryTurnLinkIntoLinkText(kw)),
+			...page.file.tags.map(tag => tag.substring(1))
+		]).distinct();
 	}
-	const pages02 = dv.array(pages01).concat(allPages.filter(p => p.file.aliases.some(a => a.toLowerCase() === str.toLowerCase())));
-	return pages02;
-}
-function tryRenderWithLink(str) {
-	const pages02 = tryGetPageArr(str);
-	let firstPart;
-	let page;
-	if (pages02.length !== 0) {
-		page = pages02[0];
-		firstPart = dv.fileLink(page.file.path, false, str);
+	static getKeywords(pages) {
+		return pages.flatMap(p => Util.getKeywordsFromPage(p)).distinct();
 	}
-
-	let secondPart = "";
-	const pages03 = pages02.slice(1);
-	const pages04 = allPages.filter(p => p.file.aliases.some(a => str.toLowerCase().startsWith(a.toLowerCase())));
-	const pages05 = allPages.filter(p => p.file.aliases.some(a => str.toLowerCase().endsWith(a.toLowerCase())));
-	const pages06 = allPages.filter(p => p.file.aliases.some(a => {
-		const strL = str.toLowerCase();
-		const aL = a.toLowerCase();
-		return !strL.startsWith(aL) && !strL.endsWith(aL) && strL.includes(aL);
-	}));
-	const pages07 = pages04.concat(pages05).concat(pages06).distinct().filter(p => p.file.path !== page?.file?.path);
-
-	if (pages03.length !== 0) {
-		secondPart += " ";
-		secondPart += "&lt;";
-		secondPart += pages03.map((p, i) => dv.fileLink(p.file.path, false, "" + (i + 1))).join(", ");
-		secondPart += "&gt;";
+	static scrollIntoView01(liSummary, li2Summary) {
+		liSummary.scrollIntoView(Config.config.scrollIntoViewOption);
+		Util.tempHighlight(liSummary);
+		Util.tempHighlight2(liSummary.parentElement);
+		Util.tempHighlight(li2Summary);
+		Util.tempHighlight2(li2Summary.parentElement);
 	}
-	if (pages07.length !== 0) {
-		secondPart += " ";
-		secondPart += "\\[";
-		secondPart += pages07.map((p, i) => dv.fileLink(p.file.path, false, "" + (i + 1))).join(", ");
-		secondPart += "\\]";
+	static scrollIntoView02(liSummary, li2Summary) {
+		li2Summary.scrollIntoView(Config.config.scrollIntoViewOption);
+		Util.scrollIntoView01(liSummary, li2Summary);
 	}
-
-	let renderResult = firstPart || str;
-
-	if (secondPart) {
-		renderResult += secondPart;
+	static tempHighlight(elem) {
+		return new Promise((resolve) => {
+			elem.style.backgroundColor = "rgba(255,255,0,0.5)";
+			setTimeout(() => {
+				elem.style.backgroundColor = "";
+				resolve();
+			}, 2000);
+		});
 	}
+	static tempHighlight2(elem) {
+		return new Promise((resolve) => {
+			elem.style.backgroundColor = "rgba(255,255,0,0.1)";
+			setTimeout(() => {
+				elem.style.backgroundColor = "";
+				resolve();
+			}, 2000);
+		});
+	}
+	static turnPageArrIntoLinkArrStr(pages01) {
+		return "\\[" + pages01.map((p, i) => dv.fileLink(p.file.path, false, "" + (i + 1))).join(", ") + "\\]";
+	}
+	static tryGetPageArr(str) {
+		let page = dv.page(str);
+		const pages01 = [];
+		if (page) {
+			pages01.push(page);
+		}
+		const pages02 = dv.array(pages01).concat(allPages.filter(p => p.file.aliases.some(a => a.toLowerCase() === str.toLowerCase())));
+		return pages02;
+	}
+	static tryRenderWithLink(str) {
+		const pages02 = Util.tryGetPageArr(str);
+		let firstPart;
+		let page;
+		if (pages02.length !== 0) {
+			page = pages02[0];
+			firstPart = dv.fileLink(page.file.path, false, str);
+		}
 
-	return renderResult;
+		let secondPart = "";
+		const pages03 = pages02.slice(1);
+		const pages04 = allPages.filter(p => p.file.aliases.some(a => str.toLowerCase().startsWith(a.toLowerCase())));
+		const pages05 = allPages.filter(p => p.file.aliases.some(a => str.toLowerCase().endsWith(a.toLowerCase())));
+		const pages06 = allPages.filter(p => p.file.aliases.some(a => {
+			const strL = str.toLowerCase();
+			const aL = a.toLowerCase();
+			return !strL.startsWith(aL) && !strL.endsWith(aL) && strL.includes(aL);
+		}));
+		const pages07 = pages04.concat(pages05).concat(pages06).distinct().filter(p => p.file.path !== page?.file?.path);
+
+		if (pages03.length !== 0) {
+			secondPart += " ";
+			secondPart += "&lt;";
+			secondPart += pages03.map((p, i) => dv.fileLink(p.file.path, false, "" + (i + 1))).join(", ");
+			secondPart += "&gt;";
+		}
+		if (pages07.length !== 0) {
+			secondPart += " ";
+			secondPart += "\\[";
+			secondPart += pages07.map((p, i) => dv.fileLink(p.file.path, false, "" + (i + 1))).join(", ");
+			secondPart += "\\]";
+		}
+
+		let renderResult = firstPart || str;
+
+		if (secondPart) {
+			renderResult += secondPart;
+		}
+
+		return renderResult;
+	}
 }
 class Tree {
 	treeRootNode;
@@ -174,7 +179,7 @@ class Tree {
 		this.treeRootNode = new Node({
 			type: "folder",
 			path: "",
-			displayName: tryRenderWithLink(cwdDisplay),
+			displayName: Util.tryRenderWithLink(cwdDisplay),
 			children: [],
 			level: 0
 		});
@@ -259,19 +264,19 @@ class Tree {
 
 		tdata = [];
 		if (page.kws && dv.value.isArray(page.kws) && page.kws.length !== 0) {
-			tdata.push(["🟢", page.kws.join(" ")]);
+			tdata.push(["🟢", page.kws.join(", ")]);
 		}
 		if (page.file.tags.length !== 0) {
 			tdata.push(["🔴", page.file.tags.join(" ")]);
 		}
 		if (page.categories && dv.value.isArray(page.categories) && page.categories.length !== 0) {
-			tdata.push(["🟠", page.categories.join(" ")]);
+			tdata.push(["🟠", page.categories.join(", ")]);
 		}
 		if (page.status) {
 			tdata.push(["ℹ️", page.status]);
 		}
 		if (page.rating && typeof page.rating === "number") {
-			tdata.push(["⭐", rateBar(page.rating)]);
+			tdata.push(["⭐", Component.rateBar(page.rating)]);
 		}
 		if (tdata.length !== 0) {
 			fileNodeDisplayNameSpan.appendChild(document.createElement("br"));
@@ -332,7 +337,7 @@ class Tree {
 			folderNode = new Node({
 				type: "folder",
 				path: folderPath,
-				displayName: tryRenderWithLink(pathParts[i]),
+				displayName: Util.tryRenderWithLink(pathParts[i]),
 				children: children,
 				level: i + 1
 			});
@@ -354,6 +359,16 @@ class Tree {
 		return [li, liSummary];
 	}
 
+	static push(childNodes, ul, ul2, vID, folderViewFunc, { isMonthQueryFolder, isDayQueryFolder, mocLevel }) {
+		childNodes.forEach(childNode => {
+			const result = Tree.toResult(childNode, vID, { isMonthQueryFolder: isMonthQueryFolder, isDayQueryFolder: isDayQueryFolder, folderViewFunc: folderViewFunc, mocLevel: mocLevel });
+			ul.appendChild(result.resultContent);
+			if (result.resultMoc) {
+				ul2.appendChild(result.resultMoc);
+			}
+		});
+	}
+
 	static toResult(node, vID, { isMonthQueryFolder, isDayQueryFolder, folderViewFunc, mocLevel }) {
 		if (!node) {
 			throw Error("node is null");
@@ -367,7 +382,7 @@ class Tree {
 		if (node.type === "file") {
 			const page = dv.page(node.path);
 
-			const kws = getKeywordsFromPage(page);
+			const kws = Util.getKeywordsFromPage(page);
 			if (kws.length === 0) {
 				liSummary.classList.add("kw-withoutkeyword");
 			}
@@ -376,7 +391,7 @@ class Tree {
 				liSummary.classList.add(keywordClass);
 			});
 
-			Object.entries(config.indexedKeyFuncMap).forEach(([key, keyFunc]) => {
+			Object.entries(Config.config.indexedKeyFuncMap).forEach(([key, keyFunc]) => {
 				let indexItems = keyFunc(page);
 				if (!indexItems) {
 					indexItems = [];
@@ -388,7 +403,7 @@ class Tree {
 					liSummary.classList.add("index-" + key + "-withoutindex");
 				}
 				indexItems.forEach(indexItem => {
-					const indexItemKey = tryTurnLinkIntoLinkText(indexItem);
+					const indexItemKey = Util.tryTurnLinkIntoLinkText(indexItem);
 					let indexClass;
 					try {
 						indexClass = "index-" + key + "-" + (indexItemKey + "").replaceAll(/[\s\[\]\(\)\.]/g, "-");
@@ -457,16 +472,16 @@ class Tree {
 				a3.innerText = "🔎";
 				a3.onclick = () => {
 					setTimeout(() => { a3.innerText = "⬇️"; }, 2000);
-					tempHighlight(liSummary);
-					tempHighlight2(liSummary.parentElement);
+					Util.tempHighlight(liSummary);
+					Util.tempHighlight2(liSummary.parentElement);
 					folderViewFunc(curFolderNode.path);
 				};
 			}
-			a1.onclick = () => scrollIntoView02(liSummary, li2Summary);
+			a1.onclick = () => Util.scrollIntoView02(liSummary, li2Summary);
 
 			a2 = document.createElement("a");
 			a2.innerText = folderIcon;
-			a2.onclick = () => scrollIntoView01(liSummary, li2Summary);
+			a2.onclick = () => Util.scrollIntoView01(liSummary, li2Summary);
 
 			li2Summary.appendChild(a2);
 			dv.api.renderValue(
@@ -496,19 +511,9 @@ class Tree {
 			const childFolders = dataArr.filter(c => c.type === "folder").sort(c => c.path);
 			const childFiles = dataArr.filter(c => c.type === "file").sort(c => c.page.file.ctime, "desc");
 
-			function push(childNodes, ul, ul2, { isMonthQueryFolder, isDayQueryFolder, mocLevel }) {
-				childNodes.forEach(childNode => {
-					const result = Tree.toResult(childNode, vID, { isMonthQueryFolder: isMonthQueryFolder, isDayQueryFolder: isDayQueryFolder, folderViewFunc: folderViewFunc, mocLevel: mocLevel });
-					ul.appendChild(result.resultContent);
-					if (result.resultMoc) {
-						ul2.appendChild(result.resultMoc);
-					}
-				});
-
-			}
-			push(childFolders, childrenUL, childrenUL2, { isMonthQueryFolder: false, isDayQueryFolder: false, mocLevel: mocLevel });
+			Tree.push(childFolders, childrenUL, childrenUL2, vID, folderViewFunc, { isMonthQueryFolder: false, isDayQueryFolder: false, mocLevel: mocLevel });
 			if (childFiles.length < 10) {
-				push(childFiles, childrenUL, childrenUL2, { isMonthQueryFolder: false, isDayQueryFolder: false, mocLevel: mocLevel });
+				Tree.push(childFiles, childrenUL, childrenUL2, vID, folderViewFunc, { isMonthQueryFolder: false, isDayQueryFolder: false, mocLevel: mocLevel });
 			} else {
 				if (!isMonthQueryFolder && !isDayQueryFolder) {
 					const monthQueryFolders = childFiles.groupBy(c => dv.func.dateformat(c.page.file.ctime, "yyyy-MM"))
@@ -517,7 +522,7 @@ class Tree {
 							const monthQueryFolder = new Node({
 								type: "folder",
 								path: curFolderNode.path + "/" + g.key,
-								displayName: tryRenderWithLink(g.key),
+								displayName: Util.tryRenderWithLink(g.key),
 								children: g.rows.array(),
 								level: curFolderNode.level + 1,
 								pureLevel: curFolderNode.pureLevel + 1
@@ -526,9 +531,9 @@ class Tree {
 						});
 
 					if (monthQueryFolders.length !== 1) {
-						push(monthQueryFolders, childrenUL, childrenUL2, { isMonthQueryFolder: true, isDayQueryFolder: false, mocLevel: mocLevel });
+						Tree.push(monthQueryFolders, childrenUL, childrenUL2, vID, folderViewFunc, { isMonthQueryFolder: true, isDayQueryFolder: false, mocLevel: mocLevel });
 					} else {
-						push(childFiles, childrenUL, childrenUL2, { isMonthQueryFolder: false, isDayQueryFolder: false, mocLevel: mocLevel });
+						Tree.push(childFiles, childrenUL, childrenUL2, vID, folderViewFunc, { isMonthQueryFolder: false, isDayQueryFolder: false, mocLevel: mocLevel });
 					}
 
 				} else if (isMonthQueryFolder) {
@@ -538,7 +543,7 @@ class Tree {
 							const dayQueryFolder = new Node({
 								type: "folder",
 								path: curFolderNode.path + "/" + g.key,
-								displayName: tryRenderWithLink(g.key),
+								displayName: Util.tryRenderWithLink(g.key),
 								children: g.rows.array(),
 								level: curFolderNode.level + 1,
 								pureLevel: curFolderNode.pureLevel + 1
@@ -546,12 +551,12 @@ class Tree {
 							return dayQueryFolder;
 						});
 					if (dayQueryFolders.length !== 1) {
-						push(dayQueryFolders, childrenUL, childrenUL2, { isMonthQueryFolder: false, isDayQueryFolder: true, mocLevel: mocLevel });
+						Tree.push(dayQueryFolders, childrenUL, childrenUL2, vID, folderViewFunc, { isMonthQueryFolder: false, isDayQueryFolder: true, mocLevel: mocLevel });
 					} else {
-						push(childFiles, childrenUL, childrenUL2, { isMonthQueryFolder: false, isDayQueryFolder: false, mocLevel: mocLevel });
+						Tree.push(childFiles, childrenUL, childrenUL2, vID, folderViewFunc, { isMonthQueryFolder: false, isDayQueryFolder: false, mocLevel: mocLevel });
 					}
 				} else {
-					push(childFiles, childrenUL, childrenUL2, { isMonthQueryFolder: false, isDayQueryFolder: false, mocLevel: mocLevel });
+					Tree.push(childFiles, childrenUL, childrenUL2, vID, folderViewFunc, { isMonthQueryFolder: false, isDayQueryFolder: false, mocLevel: mocLevel });
 				}
 			}
 
@@ -571,9 +576,9 @@ class Main {
 		Main.con.appendChild(Main.viewNavCon);
 		Main.con.appendChild(Main.curViewCon);
 		dv.container.appendChild(Main.con);
-		console.time("call func displayRootFolderStructDepthN()");
-		this.displayRootFolderStructDepthN();
-		console.timeEnd("call func displayRootFolderStructDepthN()");
+		console.time("call func Main.displayRootFolderStructDepthN()");
+		Main.displayRootFolderStructDepthN();
+		console.timeEnd("call func Main.displayRootFolderStructDepthN()");
 	}
 	static con = document.createElement("div");
 	static viewNavCon = document.createElement("div");
@@ -609,9 +614,38 @@ class Main {
 			con.appendChild(document.createElement("br"));
 		}
 	}
+	static createH2OfViewNavCon() {
+		const h2 = document.createElement("h2");
+		const a = document.createElement("a");
+		a.innerText = "🔎";
+		a.onclick = () => {
+			if (Main.curViewConIsLoaded) {
+				Main.curViewCon.scrollIntoView(Config.config.scrollIntoViewOption);
+				Main.curViewCon.querySelectorAll("h2").forEach(h2 => Util.tempHighlight(h2));
+				Util.tempHighlight2(Main.curViewCon);
+			}
+		};
+		h2.appendChild(a);
+		h2.appendChild(document.createTextNode("Folders"));
+		return h2;
+	}
+	static createH2OfViewCon(cwd) {
+		const h2 = document.createElement("h2");
+		const a = document.createElement("a");
+		a.innerText = "🔎";
+		a.onclick = () => {
+			Main.curViewCon.querySelectorAll("h2").forEach(h2 => Util.tempHighlight(h2));
+			Util.tempHighlight2(Main.curViewCon);
+			Main.displayRootFolderStructDepthN(cwd);
+		};
+		h2.appendChild(a);
+		const headerText = cwd.length === 0 ? "Root" : cwd.split("/").at(-1);
+		dv.span(headerText, { container: h2 });
+		return h2;
+	}
 	static displayRootFolderStructDepthN(callerCWD) {
-		const mocLevel = config.rootFolderView.mocLevel;
-		const folderLevel = config.rootFolderView.folderLevel;
+		const mocLevel = Config.config.rootFolderView.mocLevel;
+		const folderLevel = Config.config.rootFolderView.folderLevel;
 		if (!Main.viewNavConIsLoaded) {
 			const oldViewNavCon = Main.viewNavCon;
 
@@ -626,9 +660,9 @@ class Main {
 
 			const pagePaths = allPages
 				.map(page => page.file.folder)
-				.map(folder=>folder.split("/").slice(0,folderLevel).join("/"))
+				.map(folder => folder.split("/").slice(0, folderLevel).join("/"))
 				.distinct()
-				.filter(folder=>folder.length!==0)
+				.filter(folder => folder.length !== 0)
 				.sort(pagePath => pagePath);
 			const cwdDisplay = "Root";
 			console.time("call func new Tree(pagePaths, cwdDisplay)");
@@ -641,30 +675,15 @@ class Main {
 
 				}
 			});
-			function createH2() {
-				const h2 = document.createElement("h2");
-				const a = document.createElement("a");
-				a.innerText = "🔎";
-				a.onclick = () => {
-					if (Main.curViewConIsLoaded) {
-						Main.curViewCon.scrollIntoView(config.scrollIntoViewOption);
-						Main.curViewCon.querySelectorAll("h2").forEach(h2 => tempHighlight(h2));
-						tempHighlight2(Main.curViewCon);
-					}
-				};
-				h2.appendChild(a);
-				h2.appendChild(document.createTextNode("Folders"));
-				return h2;
-			}
 			const ul = document.createElement("ul");
 			ul.appendChild(resultContent);
-			viewNavConResult.appendChild(createH2());
+			viewNavConResult.appendChild(Main.createH2OfViewNavCon());
 			viewNavConResult.appendChild(ul);
 			Main.appendRowsTo(viewNavConResult);
 
 			const ul2 = document.createElement("ul");
 			ul2.appendChild(resultMoc);
-			viewNavConMoc.appendChild(createH2());
+			viewNavConMoc.appendChild(Main.createH2OfViewNavCon());
 			viewNavConMoc.appendChild(ul2);
 			Main.appendRowsTo(viewNavConMoc);
 			oldViewNavCon.replaceWith(Main.viewNavCon);
@@ -674,15 +693,14 @@ class Main {
 		const callerElemID = "view(" + Main.viewNavCon.id + ")" + "-(result-content)-li(" + callerCWD + ")";
 		const elem = document.getElementById(callerElemID);
 		if (elem) {
-			elem.scrollIntoView(config.scrollIntoViewOption);
-			tempHighlight(elem);
-			tempHighlight2(elem.parentElement);
+			elem.scrollIntoView(Config.config.scrollIntoViewOption);
+			Util.tempHighlight(elem);
+			Util.tempHighlight2(elem.parentElement);
 		}
 	}
-
 	static displayFolderStruct(cwd, { isCache }) {
 		const vID = "viewresultcontent-" + Main.now + "-" + cwd;
-		const mocLevel = config.specFolderView.mocLevel;
+		const mocLevel = Config.config.specFolderView.mocLevel;
 
 		let cachedViewCon = Main.viewConMap[vID];
 		let newViewCon;
@@ -690,30 +708,12 @@ class Main {
 			newViewCon = this.getViewCon();
 			newViewCon.id = vID;
 
-			function createA() {
-				const a = document.createElement("a");
-				a.innerText = "🔎";
-				a.onclick = () => {
-					Main.curViewCon.querySelectorAll("h2").forEach(h2 => tempHighlight(h2));
-					tempHighlight2(Main.curViewCon);
-					Main.displayRootFolderStructDepthN(cwd);
-				};
-				return a;
-			}
-			function createH2() {
-				const h2 = document.createElement("h2");
-				h2.appendChild(createA());
-				const headerText = cwd.length === 0 ? "Root" : cwdParts.at(-1);
-				dv.span(headerText, { container: h2 });
-				return h2;
-			}
-
 			const cwdParts = cwd.split("/");
 
 
 			const divMoc = this.getMocCon();
 
-			divMoc.appendChild(createH2());
+			divMoc.appendChild(Main.createH2OfViewCon(cwd));
 
 			const blockQuote = cwd.length === 0
 				? "> Root"
@@ -723,7 +723,7 @@ class Main {
 
 			const divResultContent = this.getResultContentCon();
 
-			divResultContent.appendChild(createH2());
+			divResultContent.appendChild(Main.createH2OfViewCon(cwd));
 
 			newViewCon.appendChild(divMoc);
 			newViewCon.appendChild(divResultContent);
@@ -734,351 +734,15 @@ class Main {
 				.map(page => page.file.path.slice(folderMarkerPos))
 				.sort(pagePath => pagePath);
 
-			function appendResult() {
-				let cwdDisplay = cwd.split("/").at(-1);
-				if (cwdDisplay.length === 0) {
-					cwdDisplay = "Root";
-				}
-				const tree = new Tree(pagePaths, cwdDisplay);
-
-				const ul = document.createElement("ul");
-				const ul2 = document.createElement("ul");
-				const { resultContent, resultMoc } = Tree.toResult(tree.treeRootNode, vID, { isMonthQueryFolder: false, isDayQueryFolder: false, mocLevel: mocLevel });
-				ul.appendChild(resultContent);
-				ul2.appendChild(resultMoc);
-				divResultContent.appendChild(ul);
-				divMoc.appendChild(ul2);
-
-				const links = tryGetPageArr(cwdDisplay).map(p => p.file.link);
-				if (links.length !== 0) {
-					const resultInfoH = document.createElement("h3");
-					const resultInfoSummarySpan = document.createElement("span");
-					resultInfoSummarySpan.id = "view(" + vID + ")-info-" + "(result-content)";
-					resultInfoH.appendChild(resultInfoSummarySpan);
-					divResultContent.appendChild(resultInfoH);
-
-					const resultInfoContentDiv = document.createElement("div");
-					divResultContent.appendChild(resultInfoContentDiv);
-
-					const resultInfoMocLI = document.createElement("li");
-					resultInfoMocLI.style.listStyleType = "none";
-					const resultInfoMocLISummarySpan = document.createElement("span");
-					resultInfoMocLISummarySpan.id = "view(" + vID + ")-info-" + "(result-moc)";
-					resultInfoMocLI.appendChild(resultInfoMocLISummarySpan);
-					ul2.appendChild(resultInfoMocLI);
-
-					const a = document.createElement("a");
-					const a2 = document.createElement("a");
-					a.innerText = "📜";
-					a2.innerText = "📜";
-					a.onclick = () => scrollIntoView01(resultInfoSummarySpan, resultInfoMocLISummarySpan);
-					a2.onclick = () => scrollIntoView02(resultInfoSummarySpan, resultInfoMocLISummarySpan);
-					resultInfoSummarySpan.appendChild(a2);
-					resultInfoMocLISummarySpan.appendChild(a);
-
-
-					dv.span(links.join(", "), { container: resultInfoSummarySpan });
-					dv.span(links.join(", "), { container: resultInfoMocLISummarySpan });
-
-					links.forEach(link => {
-						dv.paragraph(dv.func.embed(link), { container: resultInfoContentDiv });
-					});
-				}
-
-				function buttonOnclick(button) {
-					ul.querySelectorAll("li").forEach(li => li.style.display = "");
-
-					resultContent.scrollIntoView(config.scrollIntoViewOption);
-					tempHighlight(resultContent.querySelector("&>span.li-summary"));
-					tempHighlight2(resultContent);
-
-					const allRadioButtons = divMoc.querySelectorAll("input[type=\"radio\"]");
-
-					allRadioButtons.forEach(btn => {
-						if (btn !== button) {
-							btn.checked = null;
-						}
-					});
-
-					const targetClass = button.value;
-					if (targetClass !== "on") {
-						const cssSelector = "li:not(:has(." + targetClass + "))";
-						ul.querySelectorAll(cssSelector).forEach(li => li.style.display = "none");
-					}
-					const buttonSpan = button.parentElement;
-					allRadioButtons.forEach(btn => btn.parentElement.style.backgroundColor = "");
-					tempHighlight(buttonSpan).then(() => {
-						if (button.checked) {
-							buttonSpan.style.backgroundColor = "rgba(255,0,0,0.3)";
-						}
-					});
-				}
-
-				function createLabel(forAttr, labelText, countInfo) {
-					const label = document.createElement("label");
-					label.setAttribute('for', forAttr);
-
-					const b = document.createElement("b");
-					b.innerText = labelText;
-					label.appendChild(b);
-
-					label.appendChild(document.createTextNode(" "));
-
-					const span = document.createElement("span");
-					span.innerText = "(" + countInfo + ")";
-					span.style.opacity = "0.8";
-					label.appendChild(span);
-
-
-					return label;
-				}
-
-				const kws = getKeywords(pages);
-				if (kws.length !== 0) {
-					const headerText = "🏷️Keywords";
-
-					dv.header(3, headerText, { container: divMoc });
-
-					const form = document.createElement("form");
-					divMoc.appendChild(form);
-
-					const fieldset = document.createElement("fieldset");
-					form.appendChild(fieldset);
-
-					const radioButtonCon = document.createElement("div");
-					radioButtonCon.style.width = "400px";
-					fieldset.appendChild(radioButtonCon);
-
-					const buttonSpan01 = document.createElement("span");
-					buttonSpan01.style.color = "darkcyan";
-					radioButtonCon.appendChild(buttonSpan01);
-					const showAllButton = document.createElement("input");
-					showAllButton.type = "radio";
-					showAllButton.id = "radio-bn-keywords-showall";
-					showAllButton.name = "radiobuttonname01";
-					showAllButton.onclick = () => buttonOnclick(showAllButton);
-					buttonSpan01.appendChild(showAllButton);
-					buttonSpan01.appendChild(createLabel(
-						showAllButton.id,
-						"[All]",
-						pages.length
-					));
-
-					const kwInfos = kws.map(kw => [kw, pages.filter(p => getKeywordsFromPage(p).includes(kw))])
-						.sort(([_, relatedPages]) => relatedPages.length, "desc");
-
-					kwInfos.forEach(([kw, relatedPages]) => {
-						const buttonSpan03 = document.createElement("span");
-						radioButtonCon.appendChild(buttonSpan03);
-						const kwButton = document.createElement("input");
-						kwButton.type = "radio";
-						kwButton.value = "kw-" + kw.replaceAll(/[\s\[\]\(\)\.]/g, "-");
-						kwButton.id = "radio-bn-keywords-to-" + kwButton.value;
-						kwButton.name = "radiobuttonname01";
-						kwButton.onclick = () => buttonOnclick(kwButton);
-						buttonSpan03.appendChild(kwButton);
-						buttonSpan03.appendChild(createLabel(
-							kwButton.id,
-							kw,
-							relatedPages.length
-						));
-					});
-
-					const pagesUntagged = pages.filter(p => getKeywordsFromPage(p).length === 0);
-					if (pagesUntagged.length !== 0) {
-						const buttonSpan02 = document.createElement("span");
-						buttonSpan02.style.color = "pink";
-						radioButtonCon.appendChild(buttonSpan02);
-						const showAllUntaggedButton = document.createElement("input");
-						showAllUntaggedButton.type = "radio";
-						showAllUntaggedButton.id = "radio-bn-keywords-showalluntagged";
-						showAllUntaggedButton.value = "kw-withoutkeyword";
-						showAllUntaggedButton.name = "radiobuttonname01";
-						showAllUntaggedButton.onclick = () => buttonOnclick(showAllUntaggedButton);
-						buttonSpan02.appendChild(showAllUntaggedButton);
-						buttonSpan02.appendChild(createLabel(
-							showAllUntaggedButton.id,
-							"[Untagged]",
-							pagesUntagged.length
-						));
-					}
-				}
-
-
-				const formArr = dv.array(Object.entries(config.indexedKeyFuncMap)).map(([key, keyFunc]) => {
-					const indexMap = {};
-					pages.forEach(p => {
-						let indexItems = keyFunc(p);
-						if (!indexItems) {
-							return null;
-						}
-						if (!dv.value.isArray(indexItems)) {
-							indexItems = [indexItems];
-						}
-						indexItems.forEach(indexItem => {
-							const indexItemKey = tryTurnLinkIntoLinkText(indexItem);
-							if (!indexMap[indexItemKey]) {
-								indexMap[indexItemKey] = [p];
-							} else {
-								indexMap[indexItemKey].push(p);
-							}
-						});
-					});
-					const indexMapEntries = dv.array(Object.entries(indexMap)).sort(([_, relatedPages]) => relatedPages.length, "desc");
-					console.log(indexMapEntries);
-					if (indexMapEntries.length === 0) {
-						return null;
-					}
-
-					const form = document.createElement("form");
-
-					const fieldset = document.createElement("fieldset");
-					form.appendChild(fieldset);
-
-
-					const legend = document.createElement("legend");
-					legend.innerText = "✅" + key;
-					fieldset.appendChild(legend);
-
-
-					const radioButtonCon = document.createElement("div");
-					radioButtonCon.style.width = "400px";
-					fieldset.appendChild(radioButtonCon);
-
-
-					const buttonSpan01 = document.createElement("span");
-					buttonSpan01.style.color = "darkcyan";
-					radioButtonCon.appendChild(buttonSpan01);
-					const showAllButton = document.createElement("input");
-					showAllButton.type = "radio";
-					showAllButton.id = "radio-btn-index-" + key + "-" + "showall";
-					showAllButton.name = "radiobuttonname01";
-					showAllButton.onclick = () => buttonOnclick(showAllButton);
-					buttonSpan01.appendChild(showAllButton);
-					buttonSpan01.appendChild(createLabel(
-						showAllButton.id,
-						"[All]",
-						pages.length
-					));
-					indexMapEntries.forEach(([indexItemKey, relatedPages]) => {
-						const buttonSpan03 = document.createElement("span");
-						radioButtonCon.appendChild(buttonSpan03);
-						const indexItemKeyButton = document.createElement("input");
-						indexItemKeyButton.type = "radio";
-						indexItemKeyButton.value = "index-" + key + "-" + (indexItemKey + "").replaceAll(/[\s\[\]\(\)\.]/g, "-");
-						indexItemKeyButton.id = "radio-btn-index-" + key + "-to-" + indexItemKeyButton.value;
-						indexItemKeyButton.name = "radiobuttonname01";
-						indexItemKeyButton.onclick = () => buttonOnclick(indexItemKeyButton);
-						buttonSpan03.appendChild(indexItemKeyButton);
-						buttonSpan03.appendChild(createLabel(
-							indexItemKeyButton.id,
-							indexItemKey,
-							relatedPages.length
-						));
-					});
-
-					const pagesUnindexed = pages.filter(p => indexMapEntries.every(([_, relatedPages]) => relatedPages.every(p2 => p2.file.path !== p.file.path)));
-					if (pagesUnindexed.length !== 0) {
-						const buttonSpan02 = document.createElement("span");
-						buttonSpan02.style.color = "pink";
-						radioButtonCon.appendChild(buttonSpan02);
-						const showAllUnindexedButton = document.createElement("input");
-						showAllUnindexedButton.type = "radio";
-						showAllUnindexedButton.id = "radio-btn-index-" + key + "-" + "showallunindexed";
-						showAllUnindexedButton.value = "index-" + key + "-withoutindex";
-						showAllUnindexedButton.name = "radiobuttonname01";
-						showAllUnindexedButton.onclick = () => buttonOnclick(showAllUnindexedButton);
-						buttonSpan02.appendChild(showAllUnindexedButton);
-						buttonSpan02.appendChild(createLabel(
-							showAllUnindexedButton.id,
-							"[Unindexed]",
-							pagesUnindexed.length
-						));
-					}
-
-					return form;
-				}).filter(form => form);
-
-
-				if (formArr.length !== 0) {
-					dv.header(3, "🔖Indexes", { container: divMoc });
-					formArr.forEach(form => {
-						divMoc.appendChild(form);
-					});
-				}
-
-				[
-					["➕[C]", "ctime"],
-					["❇️[M]", "mtime"]
-				].forEach(([timePropertyIcon, timePropertyName]) => {
-					const months = pages.map(p => p.file[timePropertyName].toFormat("yyyy-MM"))
-						.distinct()
-						.sort(monthStr => monthStr, "desc");
-					if (months.length !== 0) { /** separate variables */
-
-						const headerText = timePropertyIcon + "Months";
-
-						dv.header(3, headerText, { container: divMoc });
-
-						const form = document.createElement("form");
-						divMoc.appendChild(form);
-
-						const fieldset = document.createElement("fieldset");
-						form.appendChild(fieldset);
-
-						const radioButtonCon = document.createElement("div");
-						radioButtonCon.style.width = "400px";
-						fieldset.appendChild(radioButtonCon);
-
-						const buttonSpan01 = document.createElement("span");
-						buttonSpan01.style.color = "darkcyan";
-						radioButtonCon.appendChild(buttonSpan01);
-						const showAllButton = document.createElement("input");
-						showAllButton.type = "radio";
-						showAllButton.id = "radio-btn-month-" + timePropertyName + "-showall";
-						showAllButton.name = "radiobuttonname01";
-						showAllButton.onclick = () => buttonOnclick(showAllButton);
-						buttonSpan01.appendChild(showAllButton);
-						buttonSpan01.appendChild(createLabel(
-							showAllButton.id,
-							"[All]",
-							pages.length
-						));
-
-						months.map(monthStr => [monthStr, pages.filter(p => p.file[timePropertyName].toFormat("yyyy-MM") === monthStr)])
-							.sort(([monthStr, _]) => monthStr, "desc")
-							.forEach(([monthStr, relatedPages]) => {
-								const buttonSpan02 = document.createElement("span");
-								radioButtonCon.appendChild(buttonSpan02);
-								const monthButton = document.createElement("input");
-								monthButton.type = "radio";
-								monthButton.value = timePropertyName + "-" + monthStr;
-								monthButton.id = "radio-btn-month-" + timePropertyName + "-to-" + monthButton.value;
-								monthButton.name = "radiobuttonname01";
-								monthButton.onclick = () => buttonOnclick(monthButton);
-								buttonSpan02.appendChild(monthButton);
-								buttonSpan02.appendChild(createLabel(
-									monthButton.id,
-									monthStr,
-									relatedPages.length
-								));
-							});
-					}
-				});
-
-
-				Main.appendRowsTo(divResultContent);
-				Main.appendRowsTo(divMoc);
-			}
 			const itemDefaultCountMax = 300;
 			if (pagePaths.length < itemDefaultCountMax) {
-				appendResult();
+				Main.appendResult(cwd, vID, mocLevel, pages, pagePaths, divMoc, divResultContent);
 			} else {
 				const button = document.createElement("button");
 				button.innerText = "Show the hidden " + pagePaths.length + " items (itemDefaultCountMax=" + itemDefaultCountMax + ")";
 				button.onclick = () => {
 					button.remove();
-					appendResult();
+					Main.appendResult(cwd, vID, mocLevel, pages, pagePaths, divMoc, divResultContent);
 				};
 				divMoc.appendChild(button);
 			}
@@ -1106,11 +770,348 @@ class Main {
 				}
 			}
 
-			Main.curViewCon.querySelectorAll("h2").forEach(h2 => tempHighlight(h2));
-			tempHighlight2(Main.curViewCon);
+			Main.curViewCon.querySelectorAll("h2").forEach(h2 => Util.tempHighlight(h2));
+			Util.tempHighlight2(Main.curViewCon);
 
-			Main.curViewCon.scrollIntoView(config.scrollIntoViewOption);
+			Main.curViewCon.scrollIntoView(Config.config.scrollIntoViewOption);
 		}
+	}
+	static appendResult(cwd, vID, mocLevel, pages, pagePaths, divMoc, divResultContent) {
+		let cwdDisplay = cwd.split("/").at(-1);
+		if (cwdDisplay.length === 0) {
+			cwdDisplay = "Root";
+		}
+		const tree = new Tree(pagePaths, cwdDisplay);
+
+		const ul = document.createElement("ul");
+		const ul2 = document.createElement("ul");
+		const { resultContent, resultMoc } = Tree.toResult(tree.treeRootNode, vID, { isMonthQueryFolder: false, isDayQueryFolder: false, mocLevel: mocLevel });
+		ul.appendChild(resultContent);
+		ul2.appendChild(resultMoc);
+		divResultContent.appendChild(ul);
+		divMoc.appendChild(ul2);
+
+		const links = Util.tryGetPageArr(cwdDisplay).map(p => p.file.link);
+		if (links.length !== 0) {
+			const resultInfoH = document.createElement("h3");
+			const resultInfoSummarySpan = document.createElement("span");
+			resultInfoSummarySpan.id = "view(" + vID + ")-info-" + "(result-content)";
+			resultInfoH.appendChild(resultInfoSummarySpan);
+			divResultContent.appendChild(resultInfoH);
+
+			const resultInfoContentDiv = document.createElement("div");
+			divResultContent.appendChild(resultInfoContentDiv);
+
+			const resultInfoMocLI = document.createElement("li");
+			resultInfoMocLI.style.listStyleType = "none";
+			const resultInfoMocLISummarySpan = document.createElement("span");
+			resultInfoMocLISummarySpan.id = "view(" + vID + ")-info-" + "(result-moc)";
+			resultInfoMocLI.appendChild(resultInfoMocLISummarySpan);
+			ul2.appendChild(resultInfoMocLI);
+
+			const a = document.createElement("a");
+			const a2 = document.createElement("a");
+			a.innerText = "📜";
+			a2.innerText = "📜";
+			a.onclick = () => Util.scrollIntoView01(resultInfoSummarySpan, resultInfoMocLISummarySpan);
+			a2.onclick = () => Util.scrollIntoView02(resultInfoSummarySpan, resultInfoMocLISummarySpan);
+			resultInfoSummarySpan.appendChild(a2);
+			resultInfoMocLISummarySpan.appendChild(a);
+
+
+			dv.span(links.join(", "), { container: resultInfoSummarySpan });
+			dv.span(links.join(", "), { container: resultInfoMocLISummarySpan });
+
+			links.forEach(link => {
+				dv.paragraph(dv.func.embed(link), { container: resultInfoContentDiv });
+			});
+		}
+
+
+
+		const kws = Util.getKeywords(pages);
+		if (kws.length !== 0) {
+			const headerText = "🏷️Keywords";
+
+			dv.header(3, headerText, { container: divMoc });
+
+			const form = document.createElement("form");
+			divMoc.appendChild(form);
+
+			const fieldset = document.createElement("fieldset");
+			form.appendChild(fieldset);
+
+			const radioButtonCon = document.createElement("div");
+			radioButtonCon.style.width = "400px";
+			fieldset.appendChild(radioButtonCon);
+
+			const buttonSpan01 = document.createElement("span");
+			buttonSpan01.style.color = "darkcyan";
+			radioButtonCon.appendChild(buttonSpan01);
+			const showAllButton = document.createElement("input");
+			showAllButton.type = "radio";
+			showAllButton.id = "radio-bn-keywords-showall";
+			showAllButton.name = "radiobuttonname01";
+			showAllButton.onclick = () => Main.buttonOnclick(ul, divMoc, showAllButton);
+			buttonSpan01.appendChild(showAllButton);
+			buttonSpan01.appendChild(Main.createLabel(
+				showAllButton.id,
+				"[All]",
+				pages.length
+			));
+
+			const kwInfos = kws.map(kw => [kw, pages.filter(p => Util.getKeywordsFromPage(p).includes(kw))])
+				.sort(([_, relatedPages]) => relatedPages.length, "desc");
+
+			kwInfos.forEach(([kw, relatedPages]) => {
+				const buttonSpan03 = document.createElement("span");
+				radioButtonCon.appendChild(buttonSpan03);
+				const kwButton = document.createElement("input");
+				kwButton.type = "radio";
+				kwButton.value = "kw-" + kw.replaceAll(/[\s\[\]\(\)\.]/g, "-");
+				kwButton.id = "radio-bn-keywords-to-" + kwButton.value;
+				kwButton.name = "radiobuttonname01";
+				kwButton.onclick = () => Main.buttonOnclick(ul, divMoc, kwButton);
+				buttonSpan03.appendChild(kwButton);
+				buttonSpan03.appendChild(Main.createLabel(
+					kwButton.id,
+					kw,
+					relatedPages.length
+				));
+			});
+
+			const pagesUntagged = pages.filter(p => Util.getKeywordsFromPage(p).length === 0);
+			if (pagesUntagged.length !== 0) {
+				const buttonSpan02 = document.createElement("span");
+				buttonSpan02.style.color = "pink";
+				radioButtonCon.appendChild(buttonSpan02);
+				const showAllUntaggedButton = document.createElement("input");
+				showAllUntaggedButton.type = "radio";
+				showAllUntaggedButton.id = "radio-bn-keywords-showalluntagged";
+				showAllUntaggedButton.value = "kw-withoutkeyword";
+				showAllUntaggedButton.name = "radiobuttonname01";
+				showAllUntaggedButton.onclick = () => Main.buttonOnclick(ul, divMoc, showAllUntaggedButton);
+				buttonSpan02.appendChild(showAllUntaggedButton);
+				buttonSpan02.appendChild(Main.createLabel(
+					showAllUntaggedButton.id,
+					"[Untagged]",
+					pagesUntagged.length
+				));
+			}
+		}
+
+
+		const formArr = dv.array(Object.entries(Config.config.indexedKeyFuncMap)).map(([key, keyFunc]) => {
+			const indexMap = {};
+			pages.forEach(p => {
+				let indexItems = keyFunc(p);
+				if (!indexItems) {
+					return null;
+				}
+				if (!dv.value.isArray(indexItems)) {
+					indexItems = [indexItems];
+				}
+				indexItems.forEach(indexItem => {
+					const indexItemKey = Util.tryTurnLinkIntoLinkText(indexItem);
+					if (!indexMap[indexItemKey]) {
+						indexMap[indexItemKey] = [p];
+					} else {
+						indexMap[indexItemKey].push(p);
+					}
+				});
+			});
+			const indexMapEntries = dv.array(Object.entries(indexMap)).sort(([_, relatedPages]) => relatedPages.length, "desc");
+			console.log(indexMapEntries);
+			if (indexMapEntries.length === 0) {
+				return null;
+			}
+
+			const form = document.createElement("form");
+
+			const fieldset = document.createElement("fieldset");
+			form.appendChild(fieldset);
+
+
+			const legend = document.createElement("legend");
+			legend.innerText = "✅" + key;
+			fieldset.appendChild(legend);
+
+
+			const radioButtonCon = document.createElement("div");
+			radioButtonCon.style.width = "400px";
+			fieldset.appendChild(radioButtonCon);
+
+
+			const buttonSpan01 = document.createElement("span");
+			buttonSpan01.style.color = "darkcyan";
+			radioButtonCon.appendChild(buttonSpan01);
+			const showAllButton = document.createElement("input");
+			showAllButton.type = "radio";
+			showAllButton.id = "radio-btn-index-" + key + "-" + "showall";
+			showAllButton.name = "radiobuttonname01";
+			showAllButton.onclick = () => Main.buttonOnclick(ul, divMoc, showAllButton);
+			buttonSpan01.appendChild(showAllButton);
+			buttonSpan01.appendChild(Main.createLabel(
+				showAllButton.id,
+				"[All]",
+				pages.length
+			));
+			indexMapEntries.forEach(([indexItemKey, relatedPages]) => {
+				const buttonSpan03 = document.createElement("span");
+				radioButtonCon.appendChild(buttonSpan03);
+				const indexItemKeyButton = document.createElement("input");
+				indexItemKeyButton.type = "radio";
+				indexItemKeyButton.value = "index-" + key + "-" + (indexItemKey + "").replaceAll(/[\s\[\]\(\)\.]/g, "-");
+				indexItemKeyButton.id = "radio-btn-index-" + key + "-to-" + indexItemKeyButton.value;
+				indexItemKeyButton.name = "radiobuttonname01";
+				indexItemKeyButton.onclick = () => Main.buttonOnclick(ul, divMoc, indexItemKeyButton);
+				buttonSpan03.appendChild(indexItemKeyButton);
+				buttonSpan03.appendChild(Main.createLabel(
+					indexItemKeyButton.id,
+					indexItemKey,
+					relatedPages.length
+				));
+			});
+
+			const pagesUnindexed = pages.filter(p => indexMapEntries.every(([_, relatedPages]) => relatedPages.every(p2 => p2.file.path !== p.file.path)));
+			if (pagesUnindexed.length !== 0) {
+				const buttonSpan02 = document.createElement("span");
+				buttonSpan02.style.color = "pink";
+				radioButtonCon.appendChild(buttonSpan02);
+				const showAllUnindexedButton = document.createElement("input");
+				showAllUnindexedButton.type = "radio";
+				showAllUnindexedButton.id = "radio-btn-index-" + key + "-" + "showallunindexed";
+				showAllUnindexedButton.value = "index-" + key + "-withoutindex";
+				showAllUnindexedButton.name = "radiobuttonname01";
+				showAllUnindexedButton.onclick = () => Main.buttonOnclick(ul, divMoc, showAllUnindexedButton);
+				buttonSpan02.appendChild(showAllUnindexedButton);
+				buttonSpan02.appendChild(Main.createLabel(
+					showAllUnindexedButton.id,
+					"[Unindexed]",
+					pagesUnindexed.length
+				));
+			}
+
+			return form;
+		}).filter(form => form);
+
+
+		if (formArr.length !== 0) {
+			dv.header(3, "🔖Indexes", { container: divMoc });
+			formArr.forEach(form => {
+				divMoc.appendChild(form);
+			});
+		}
+
+		[
+			["➕[C]", "ctime"],
+			["❇️[M]", "mtime"]
+		].forEach(([timePropertyIcon, timePropertyName]) => {
+			const months = pages.map(p => p.file[timePropertyName].toFormat("yyyy-MM"))
+				.distinct()
+				.sort(monthStr => monthStr, "desc");
+			if (months.length !== 0) { /** separate variables */
+
+				const headerText = timePropertyIcon + "Months";
+
+				dv.header(3, headerText, { container: divMoc });
+
+				const form = document.createElement("form");
+				divMoc.appendChild(form);
+
+				const fieldset = document.createElement("fieldset");
+				form.appendChild(fieldset);
+
+				const radioButtonCon = document.createElement("div");
+				radioButtonCon.style.width = "400px";
+				fieldset.appendChild(radioButtonCon);
+
+				const buttonSpan01 = document.createElement("span");
+				buttonSpan01.style.color = "darkcyan";
+				radioButtonCon.appendChild(buttonSpan01);
+				const showAllButton = document.createElement("input");
+				showAllButton.type = "radio";
+				showAllButton.id = "radio-btn-month-" + timePropertyName + "-showall";
+				showAllButton.name = "radiobuttonname01";
+				showAllButton.onclick = () => Main.buttonOnclick(ul, divMoc, showAllButton);
+				buttonSpan01.appendChild(showAllButton);
+				buttonSpan01.appendChild(Main.createLabel(
+					showAllButton.id,
+					"[All]",
+					pages.length
+				));
+
+				months.map(monthStr => [monthStr, pages.filter(p => p.file[timePropertyName].toFormat("yyyy-MM") === monthStr)])
+					.sort(([monthStr, _]) => monthStr, "desc")
+					.forEach(([monthStr, relatedPages]) => {
+						const buttonSpan02 = document.createElement("span");
+						radioButtonCon.appendChild(buttonSpan02);
+						const monthButton = document.createElement("input");
+						monthButton.type = "radio";
+						monthButton.value = timePropertyName + "-" + monthStr;
+						monthButton.id = "radio-btn-month-" + timePropertyName + "-to-" + monthButton.value;
+						monthButton.name = "radiobuttonname01";
+						monthButton.onclick = () => Main.buttonOnclick(ul, divMoc, monthButton);
+						buttonSpan02.appendChild(monthButton);
+						buttonSpan02.appendChild(Main.createLabel(
+							monthButton.id,
+							monthStr,
+							relatedPages.length
+						));
+					});
+			}
+		});
+
+
+		Main.appendRowsTo(divResultContent);
+		Main.appendRowsTo(divMoc);
+	}
+	static createLabel(forAttr, labelText, countInfo) {
+		const label = document.createElement("label");
+		label.setAttribute('for', forAttr);
+
+		const b = document.createElement("b");
+		b.innerText = labelText;
+		label.appendChild(b);
+
+		label.appendChild(document.createTextNode(" "));
+
+		const span = document.createElement("span");
+		span.innerText = "(" + countInfo + ")";
+		span.style.opacity = "0.8";
+		label.appendChild(span);
+
+
+		return label;
+	}
+	static buttonOnclick(ul, divMoc, button) {
+		ul.querySelectorAll("li").forEach(li => li.style.display = "");
+
+		const resultContent = ul.firstChild;
+		resultContent.scrollIntoView(Config.config.scrollIntoViewOption);
+		Util.tempHighlight(resultContent.querySelector("&>span.li-summary"));
+		Util.tempHighlight2(resultContent);
+
+		const allRadioButtons = divMoc.querySelectorAll("input[type=\"radio\"]");
+
+		allRadioButtons.forEach(btn => {
+			if (btn !== button) {
+				btn.checked = null;
+			}
+		});
+
+		const targetClass = button.value;
+		if (targetClass !== "on") {
+			const cssSelector = "li:not(:has(." + targetClass + "))";
+			ul.querySelectorAll(cssSelector).forEach(li => li.style.display = "none");
+		}
+		const buttonSpan = button.parentElement;
+		allRadioButtons.forEach(btn => btn.parentElement.style.backgroundColor = "");
+		Util.tempHighlight(buttonSpan).then(() => {
+			if (button.checked) {
+				buttonSpan.style.backgroundColor = "rgba(255,0,0,0.3)";
+			}
+		});
 	}
 }
 
