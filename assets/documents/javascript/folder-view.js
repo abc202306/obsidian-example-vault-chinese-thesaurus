@@ -183,10 +183,17 @@ class Tree {
 			children: [],
 			level: 0
 		});
-		this.nodes = [this.treeRootNode];
+		this.nodes = {"": this.treeRootNode};
+		
+		const timeTable = [];
 		pagePaths.forEach(pagePath => {
+			const startTime = performance.now()
 			this.pushPagePath(pagePath);
+			const endTime = performance.now();
+			timeTable.push([pagePath,endTime-startTime])
 		});
+		console.log(timeTable)
+		console.log(timeTable.map(r=>r[1]).reduce((prev,curr)=>prev+curr));
 	}
 	static getFileNode(pagePath) {
 		let pathParts;
@@ -313,7 +320,8 @@ class Tree {
 		let iInit = pathParts.length - 1;
 		if (pagePath.endsWith(".md")) {
 			fileNode = Tree.getFileNode(pagePath);
-			this.nodes.push(fileNode);
+
+			this.nodes[fileNode.path] = fileNode;
 			iInit = pathParts.length - 2;
 		}
 
@@ -324,7 +332,7 @@ class Tree {
 
 			const folderPath = pathParts.slice(0, i + 1).join("/");
 
-			const folderNodeInList = this.nodes.find(node => node.path === folderPath);
+			const folderNodeInList = this.nodes[folderPath];
 			const node = folderNode || fileNode;
 			if (folderNodeInList && node) {
 				folderNodeInList.children.push(node);
@@ -342,7 +350,7 @@ class Tree {
 				level: i + 1
 			});
 
-			this.nodes.push(folderNode);
+			this.nodes[folderPath] = folderNode;
 		}
 
 		if (i === -1) {
