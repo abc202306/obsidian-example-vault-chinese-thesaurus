@@ -11,6 +11,8 @@ views:
       - english
       - ctime
     sort:
+      - property: file.name
+        direction: ASC
       - property: english
         direction: ASC
     columnSize:
