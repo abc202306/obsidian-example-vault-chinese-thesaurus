@@ -1,12 +1,11 @@
 ---
-up: 
-date: <% tp.file.creation_date("YYYY-MM-DD") %>
+up:
 ctime: <% tp.file.creation_date("YYYY-MM-DDTHH:mm:ss") %>
-sources: 
-categories: 
-english: 
-synonyms: 
-broadterms: 
-narrowerterms: 
+sources:
+categories:
+english:
+synonyms:
+broadterms:
+narrowerterms:
 relatedterms:
 ---

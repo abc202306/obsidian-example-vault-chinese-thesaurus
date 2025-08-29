@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/info/汉语主题词表.md",
-                "mode": "preview",
-                "source": true
+                "file": "docs/help/obsidian-example-vault-chinese-thesaurus/4. 【参考文档】论如何使用笔记库.md",
+                "mode": "source",
+                "source": false
               },
               "icon": "lucide-file",
-              "title": "汉语主题词表"
+              "title": "4. 【参考文档】论如何使用笔记库"
             }
           }
         ]
@@ -53,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "[\"主题词-分类\"]",
+                "query": "[\"date\"]",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "docs/info/汉语主题词表.md",
+                "file": "docs/help/obsidian-example-vault-chinese-thesaurus/4. 【参考文档】论如何使用笔记库.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for 汉语主题词表"
+              "title": "Backlinks for 4. 【参考文档】论如何使用笔记库"
             }
           },
           {
@@ -171,18 +171,18 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "docs/info/汉语主题词表.md"
+                "file": "docs/help/obsidian-example-vault-chinese-thesaurus/4. 【参考文档】论如何使用笔记库.md"
               },
               "icon": "lucide-info",
-              "title": "File properties for 汉语主题词表"
+              "title": "File properties for 4. 【参考文档】论如何使用笔记库"
             }
           }
-        ]
+        ],
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 740.5,
-    "collapsed": true
+    "width": 740.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -198,14 +198,30 @@
   },
   "active": "7cfa9fb091206cf1",
   "lastOpenFiles": [
+    "docs/help/obsidian-example-vault-chinese-thesaurus/3. 【参考文档】如何剪藏《汉表服务系统》的主题词.md",
+    "docs/help/obsidian-example-vault-chinese-thesaurus/4. 【参考文档】论如何使用笔记库.md",
+    "docs/help/obsidian-example-vault-chinese-thesaurus/2. 【设计文档】汉语主题词表笔记的相关标准.md",
     "docs/info/中国图书馆分类法.md",
     "docs/info/汉语主题词表.md",
-    "views/bases/Chinese Library Classification Base.base",
+    "templates/obsidian-example-vault-chinese-thesaurus/TP - 主题词.md",
+    "templates/obsidian-example-vault-chinese-thesaurus/TP - Base.md",
+    "docs/help/obsidian-example-vault-chinese-thesaurus/1. 【设计文档】笔记库的结构和依赖.md",
     "views/bases/Chinese Thesaurus Source Base.base",
-    "views/bases/Chinese Thesaurus Classification Base.base",
     "views/bases/Chinese Thesaurus Classification Assembly Base.base",
+    "views/bases/Chinese Library Classification Base.base",
+    "views/bases/Chinese Thesaurus Classification Base.base",
     "views/bases/Chinese Thesaurus Base.base",
     "views/dataview/汉语主题词表的视图.md",
+    "views/dataview/Folder View.md",
+    "data/chinesethesaurusdb/chineselibraryclassification/E 军事/E8 战略学、战役学、战术学.md",
+    "data/chinesethesaurusdb/chineselibraryclassification/E 军事/E8 战略学、战役学、战术学/E89 古代兵法、战法.md",
+    "data/chinesethesaurusdb/chineselibraryclassification/E 军事.md",
+    "data/chinesethesaurusdb/chineselibraryclassification/E 军事/E2 中国军事.md",
+    "data/chinesethesaurusdb/chineselibraryclassification/E 军事/E0 军事理论.md",
+    "data/chinesethesaurusdb/chineselibraryclassification/E 军事/E1 世界军事.md",
+    "data/chinesethesaurusdb/chineselibraryclassification/E 军事/E3~7 各国军事.md",
+    "data/chinesethesaurusdb/chineselibraryclassification/E 军事/E9 军事技术.md",
+    "data/chinesethesaurusdb/chineselibraryclassification/E 军事/E99 军事地形学、军事地理学.md",
     "views/bases",
     "views/dataview",
     "docs/中国图书馆分类法.md",
@@ -216,22 +232,7 @@
     "data/chinesethesaurusdb/chinesethesaurussources",
     "data/chinesethesaurusdb/chinesethesaurusclassificationassembly/TP319 TP393.09 主题词组配分类.md",
     "data/chinesethesaurusdb/chinesethesaurusclassificationassembly/TP317 TP393.09 主题词组配分类.md",
-    "data/chinesethesaurusdb/chinesethesaurusclassificationassembly/TP317 TP319 主题词组配分类.md",
-    "data/chinesethesaurusdb/chinesethesaurusclassificationassembly/TP1 TP391.7 主题词组配分类.md",
-    "data/chinesethesaurusdb/chinesethesaurusclassificationassembly/TP309.7 TP319 主题词组配分类.md",
-    "data/chinesethesaurusdb/chinesethesaurusclassificationassembly/TN943 TP309.7 主题词组配分类.md",
-    "data/chinesethesaurusdb/chinesethesaurusclassificationassembly/TN918 TP393.084 主题词组配分类.md",
-    "data/chinesethesaurusdb/chinesethesaurusclassificationassembly/TN918 TP309.7 主题词组配分类.md",
-    "data/chinesethesaurusdb/chinesethesaurusclassificationassembly/TN915 TP33 主题词组配分类.md",
-    "data/chinesethesaurusdb/chinesethesaurusclassificationassembly/G25 G252 主题词组配分类.md",
-    "data/chinesethesaurusdb/chinesethesaurusclassificationassembly/P19 ZT73_ 主题词组配分类.md",
     "data/chinesethesaurusdb/chinesethesaurusclassificationassembly",
-    "data/chinesethesaurusdb/chinesethesaurusclassification/ZT73_ 时间、时期 主题词分类.md",
-    "data/chinesethesaurusdb/chinesethesaurusclassification/ZT71_ 方式、形式、类型 主题词分类.md",
-    "data/chinesethesaurusdb/chinesethesaurusclassification/ZT5_ 状态、形态、现象、过程 主题词分类.md",
-    "data/chinesethesaurusdb/chinesethesaurusclassification/Z 综合性图书 主题词分类.md",
-    "data/chinesethesaurusdb/chinesethesaurusclassification/TP393.096 网络辅助工具 主题词分类.md",
-    "data/chinesethesaurusdb/chinesethesaurusclassification/TP393.092.4 网络浏览器 主题词分类.md",
     "data/chinesethesaurusdb/chinesethesaurusclassification",
     "assets/pictures/obsidian-example-vault-chinese-thesaurus/preview-01-06.png",
     "assets/pictures/obsidian-example-vault-chinese-thesaurus/preview-01-05.png",
