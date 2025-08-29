@@ -1,0 +1,20 @@
+filters:
+  and:
+    - file.inFolder("data/chinesethesaurusdb/chinesethesaurusclassificationassembly")
+views:
+  - type: table
+    name: Table
+    order:
+      - file.name
+      - subpages
+      - broadtermclassifications
+      - up
+    columnSize:
+      note.broadtermclassifications: 602
+  - type: cards
+    name: Cards
+    order:
+      - file.name
+      - subpages
+      - broadtermclassifications
+      - up

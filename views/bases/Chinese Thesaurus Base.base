@@ -1,0 +1,38 @@
+filters:
+  and:
+    - file.inFolder("data/chinesethesaurusdb/chinesethesaurus")
+views:
+  - type: table
+    name: Table
+    order:
+      - file.name
+      - narrowerterms
+      - broadterms
+      - english
+      - relatedterms
+      - categories
+      - synonyms
+      - sources
+      - ctime
+      - up
+    columnSize:
+      note.broadterms: 130
+      note.english: 195
+      note.ctime: 189
+  - type: cards
+    name: Cards
+    order:
+      - file.name
+      - broadterms
+      - english
+      - narrowerterms
+      - relatedterms
+      - categories
+      - synonyms
+      - sources
+      - ctime
+      - up
+    columnSize:
+      note.broadterms: 130
+      note.english: 195
+      note.ctime: 189

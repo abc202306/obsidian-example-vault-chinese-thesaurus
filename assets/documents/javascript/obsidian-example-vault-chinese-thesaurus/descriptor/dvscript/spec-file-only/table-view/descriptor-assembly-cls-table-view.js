@@ -40,7 +40,7 @@ const headers = [
 ]
 
 const fieldMap = {
-	broadClses: "broadtermtables"
+	broadClses: "broadtermclassifications"
 }
 
 const regexMap = {

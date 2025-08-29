@@ -40,7 +40,7 @@ const headers = [
 ]
 
 const fieldMap = {
-	narrowerClses: "narrowertermtables"
+	narrowerClses: "narrowertermclassifications"
 }
 
 const regexMap = {

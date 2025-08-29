@@ -1,0 +1,20 @@
+filters:
+  and:
+    - file.inFolder("data/chinesethesaurusdb/chinesethesaurusclassification")
+views:
+  - type: table
+    name: Table
+    order:
+      - file.name
+      - subpages
+      - narrowertermclassifications
+      - categories
+      - up
+  - type: cards
+    name: Cards
+    order:
+      - file.name
+      - subpages
+      - categories
+      - narrowertermclassifications
+      - up
