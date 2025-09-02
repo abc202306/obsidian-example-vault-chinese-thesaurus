@@ -16,9 +16,14 @@ views:
       - ctime
       - up
     columnSize:
+      note.narrowerterms: 169
       note.broadterms: 130
-      note.english: 195
-      note.ctime: 189
+      note.english: 131
+      note.relatedterms: 167
+      note.categories: 286
+      note.synonyms: 300
+      note.sources: 128
+      note.ctime: 174
   - type: cards
     name: Cards
     order:

@@ -16,7 +16,10 @@ views:
       - property: english
         direction: ASC
     columnSize:
-      note.english: 281
+      file.name: 198
+      note.up: 198
+      note.down: 1046
+      note.english: 172
       note.ctime: 184
   - type: cards
     name: Cards
