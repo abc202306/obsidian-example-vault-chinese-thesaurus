@@ -1,7 +1,7 @@
 ---
 up:
   - "[[D 政治、法律]]"
-ctime: 2025-01-25T14:54:41
+ctime: 2025-01-25T14:54:41+08:00
 english: Law
 aliases:
   - DF - Law

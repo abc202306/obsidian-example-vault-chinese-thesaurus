@@ -1,7 +1,7 @@
 ---
 up:
   - "[[中国图书馆分类法]]"
-ctime: 2025-03-01T23:26:10
+ctime: 2025-03-01T23:26:10+08:00
 english: Environmental science, safety science
 aliases:
   - X - Environmental science, safety science

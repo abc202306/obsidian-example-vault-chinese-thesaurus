@@ -1,7 +1,7 @@
 ---
 up:
   - "[[T 工业技术]]"
-ctime: 2024-12-06T17:20:09
+ctime: 2024-12-06T17:20:09+08:00
 english: Electrotechnics
 aliases:
   - TM - Electrotechnics

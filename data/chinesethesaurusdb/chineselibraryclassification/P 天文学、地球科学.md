@@ -1,7 +1,7 @@
 ---
 up:
   - "[[中国图书馆分类法]]"
-ctime: 2025-03-01T23:22:47
+ctime: 2025-03-01T23:22:47+08:00
 english: Astronomy, earth science
 aliases:
   - P - Astronomy, earth science

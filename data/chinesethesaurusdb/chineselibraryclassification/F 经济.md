@@ -1,7 +1,7 @@
 ---
 up:
   - "[[中国图书馆分类法]]"
-ctime: 2025-03-01T23:20:12
+ctime: 2025-03-01T23:20:12+08:00
 english: Economy
 aliases:
   - F - Economy

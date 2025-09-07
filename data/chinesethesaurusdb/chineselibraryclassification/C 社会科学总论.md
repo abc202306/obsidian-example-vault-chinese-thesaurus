@@ -1,7 +1,7 @@
 ---
 up:
   - "[[中国图书馆分类法]]"
-ctime: 2025-03-01T23:16:15
+ctime: 2025-03-01T23:16:15+08:00
 english: Social science (General)
 aliases:
   - C - Social science (General)

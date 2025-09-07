@@ -1,7 +1,7 @@
 ---
 up:
   - "[[中国图书馆分类法]]"
-ctime: 2025-03-01T23:23:54
+ctime: 2025-03-01T23:23:54+08:00
 english: Medicine,health
 aliases:
   - R - Medicine,health

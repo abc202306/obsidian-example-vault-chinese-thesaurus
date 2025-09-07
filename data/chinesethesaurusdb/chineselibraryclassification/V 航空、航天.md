@@ -1,7 +1,7 @@
 ---
 up:
   - "[[中国图书馆分类法]]"
-ctime: 2025-03-01T23:25:51
+ctime: 2025-03-01T23:25:51+08:00
 english: Aviation,spaceflight
 aliases:
   - V - Aviation,spaceflight

@@ -1,7 +1,7 @@
 ---
 up:
   - "[[汉语主题词 Collection]]"
-ctime: 2025-06-07T21:01:14
+ctime: 2025-06-07T21:01:14+08:00
 sources:
   - "[[工程技术卷]]"
 categories:
@@ -11,8 +11,8 @@ synonyms:
   - LILO
 broadterms:
   - "[[工具软件]]"
-narrowerterms: 
-relatedterms: 
+narrowerterms:
+relatedterms:
 aliases:
   - LILO
   - Linux loader

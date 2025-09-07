@@ -1,7 +1,7 @@
 ---
 up:
   - "[[T 工业技术]]"
-ctime: 2024-12-06T17:21:07
+ctime: 2024-12-06T17:21:07+08:00
 english: Electronic technique, communication technique
 aliases:
   - TN - Electronic technique, communication technique

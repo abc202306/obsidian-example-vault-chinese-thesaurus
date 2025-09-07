@@ -1,7 +1,7 @@
 ---
 up:
   - "[[T 工业技术]]"
-ctime: 2024-12-06T17:13:48
+ctime: 2024-12-06T17:13:48+08:00
 english: Mining engineering
 aliases:
   - TD - Mining engineering

@@ -1,7 +1,7 @@
 ---
 up:
   - "[[中国图书馆分类法]]"
-ctime: 2024-12-06T17:38:40
+ctime: 2024-12-06T17:38:40+08:00
 english: Politics,law
 aliases:
   - D - Politics,law

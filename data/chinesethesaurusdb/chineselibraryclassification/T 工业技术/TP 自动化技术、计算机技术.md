@@ -1,7 +1,7 @@
 ---
 up:
   - "[[T 工业技术]]"
-ctime: 2024-12-06T17:22:03
+ctime: 2024-12-06T17:22:03+08:00
 english: Automation technology, computer technology
 aliases:
   - TP - Automation technology, computer technology

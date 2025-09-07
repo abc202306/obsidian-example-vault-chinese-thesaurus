@@ -21,10 +21,9 @@ Get-ChildItem -Path "C:\Users\mmsac\OneDrive\Documents\obsidian\obnote\" -Filter
                 $item = Get-Item -LiteralPath $file.FullName
 
                 $timeDiff = $dto.LocalDateTime - $item.CreationTime;
-                if ($timeDiff.Ticks -ne 0) {
+                if ([Math]::Abs($timeDiff.TotalMilliseconds) -gt 1000) {
                     $item.CreationTime = $dto.LocalDateTime;
-                    Write-Host "⏲️🔴 已更新 '$($file.Name)' CreationTime 为 $($dto.LocalDateTime.toString("o"))，之前的值为 $($item.CreationTime.toString("o"))，时间差异 $($timeDiff.TotalMilliseconds) Milliseconds"
-                    
+                    Write-Host "⏲️🔴 已更新 '$($file.Name)' CreationTime 为 $($dto.LocalDateTime.toString("o"))，之前的值为 $($item.CreationTime.toString("o"))，时间差异 $($timeDiff.TotalMilliseconds) Milliseconds"   
                 }
                 else {
                     if ($flagShowCTimeNotUpdated) {

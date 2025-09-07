@@ -1,7 +1,7 @@
 ---
 up:
   - "[[中国图书馆分类法]]"
-ctime: 2025-03-01T23:25:04
+ctime: 2025-03-01T23:25:04+08:00
 english: Technology
 aliases:
   - T - Technology

@@ -1,7 +1,7 @@
 ---
 up:
   - "[[T 工业技术]]"
-ctime: 2024-12-06T17:25:25
+ctime: 2024-12-06T17:25:25+08:00
 english: Building science
 aliases:
   - TU - Building science

@@ -1,7 +1,7 @@
 ---
 up:
   - "[[中国图书馆分类法]]"
-ctime: 2025-03-01T23:18:48
+ctime: 2025-03-01T23:18:48+08:00
 english: Military affairs
 aliases:
   - E - Military affairs

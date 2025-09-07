@@ -1,7 +1,7 @@
 ---
 up:
   - "[[中国图书馆分类法]]"
-ctime: 2025-03-01T23:21:40
+ctime: 2025-03-01T23:21:40+08:00
 english: History, geography
 aliases:
   - K - History, geography

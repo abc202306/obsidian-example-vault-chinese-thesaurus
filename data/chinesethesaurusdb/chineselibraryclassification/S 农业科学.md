@@ -1,7 +1,7 @@
 ---
 up:
   - "[[中国图书馆分类法]]"
-ctime: 2025-03-01T23:24:27
+ctime: 2025-03-01T23:24:27+08:00
 english: Agriculture science
 aliases:
   - S - Agriculture science

@@ -1,7 +1,7 @@
 ---
 up:
   - "[[中国图书馆分类法]]"
-ctime: 2025-03-01T23:26:49
+ctime: 2025-03-01T23:26:49+08:00
 english: Comprehensive books
 aliases:
   - Z - Comprehensive books

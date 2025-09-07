@@ -1,7 +1,7 @@
 ---
 up:
   - "[[中国图书馆分类法]]"
-ctime: 2025-03-01T23:15:08
+ctime: 2025-03-01T23:15:08+08:00
 english: Philosophy and religion
 aliases:
   - B - Philosophy and religion

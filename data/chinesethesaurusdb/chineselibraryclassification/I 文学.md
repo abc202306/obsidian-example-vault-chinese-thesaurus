@@ -1,7 +1,7 @@
 ---
 up:
   - "[[中国图书馆分类法]]"
-ctime: 2025-03-01T23:20:50
+ctime: 2025-03-01T23:20:50+08:00
 english: Literature
 aliases:
   - I - Literature

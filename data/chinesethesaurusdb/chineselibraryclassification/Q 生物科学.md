@@ -1,7 +1,7 @@
 ---
 up:
   - "[[中国图书馆分类法]]"
-ctime: 2025-03-01T23:23:28
+ctime: 2025-03-01T23:23:28+08:00
 english: Biology
 aliases:
   - Q - Biology

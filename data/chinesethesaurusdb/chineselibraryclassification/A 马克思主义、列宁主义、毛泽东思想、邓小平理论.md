@@ -1,7 +1,7 @@
 ---
 up:
   - "[[中国图书馆分类法]]"
-ctime: 2025-03-20T18:13:08
+ctime: 2025-03-20T18:13:08+08:00
 english: Marxism, Leninism, Mao Zedong Thought and Deng Xiaoping Theory
 aliases:
   - A - Marxism, Leninism, Mao Zedong Thought and Deng Xiaoping Theory
