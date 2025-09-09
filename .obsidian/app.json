@@ -4,5 +4,6 @@
   "showUnsupportedFiles": true,
   "propertiesInDocument": "hidden",
   "newLinkFormat": "shortest",
-  "useMarkdownLinks": false
+  "useMarkdownLinks": false,
+  "promptDelete": false
 }

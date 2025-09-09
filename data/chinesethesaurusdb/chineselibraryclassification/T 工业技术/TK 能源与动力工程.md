@@ -7,6 +7,7 @@ aliases:
   - TK - Energy and power engineering
   - Energy and power engineering
   - 能源与动力工程
+mtime: 2025-09-09T12:37:14+08:00
 ---
 
 # TK 能源与动力工程

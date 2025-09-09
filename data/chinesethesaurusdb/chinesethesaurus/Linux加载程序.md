@@ -16,6 +16,7 @@ relatedterms:
 aliases:
   - LILO
   - Linux loader
+mtime: 2025-09-09T12:37:04+08:00
 ---
 
 # Linux 加载程序

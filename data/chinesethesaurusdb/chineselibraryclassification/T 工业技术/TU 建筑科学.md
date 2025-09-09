@@ -7,6 +7,7 @@ aliases:
   - TU - Building science
   - Building science
   - 建筑科学
+mtime: 2025-09-09T12:37:11+08:00
 ---
 
 # TU 建筑科学

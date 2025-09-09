@@ -7,6 +7,7 @@ aliases:
   - TE - Oil industry,natural gas industry
   - Oil industry,natural gas industry
   - 石油、天然气工业
+mtime: 2025-09-09T12:37:15+08:00
 ---
 
 # TE 石油、天然气工业

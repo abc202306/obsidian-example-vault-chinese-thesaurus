@@ -7,6 +7,7 @@ aliases:
   - TD - Mining engineering
   - Mining engineering
   - 矿业工程
+mtime: 2025-09-09T12:37:15+08:00
 ---
 
 # TD 矿业工程

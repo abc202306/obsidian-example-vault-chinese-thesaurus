@@ -7,6 +7,7 @@ aliases:
   - TQ - Chemical industries
   - Chemical industries
   - 化学工业
+mtime: 2025-09-09T12:37:12+08:00
 ---
 
 # TQ 化学工业

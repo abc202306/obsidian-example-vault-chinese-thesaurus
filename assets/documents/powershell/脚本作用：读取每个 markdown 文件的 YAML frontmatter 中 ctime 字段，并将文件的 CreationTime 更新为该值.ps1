@@ -19,15 +19,17 @@ Get-ChildItem -Path "C:\Users\mmsac\OneDrive\Documents\obsidian\obnote\" -Filter
 
                 # 同样用 -LiteralPath 获取文件对象
                 $item = Get-Item -LiteralPath $file.FullName
-
-                $timeDiff = $dto.LocalDateTime - $item.CreationTime;
-                if ([Math]::Abs($timeDiff.TotalMilliseconds) -gt 1000) {
-                    $item.CreationTime = $dto.LocalDateTime;
-                    Write-Host "⏲️🔴 已更新 '$($file.Name)' CreationTime 为 $($dto.LocalDateTime.toString("o"))，之前的值为 $($item.CreationTime.toString("o"))，时间差异 $($timeDiff.TotalMilliseconds) Milliseconds"   
+                $tOld = $item.CreationTime;
+                $tNew = $dto.LocalDateTime;
+                $tNew = Get-Date -Year $tNew.Year -Month $tNew.Month -Day $tNew.Day -Hour $tNew.Hour -Minute $tNew.Minute -Second $tNew.Second -Millisecond $tOld.Millisecond;
+                $timeDiff = $tNew - $tOld;
+                if ([Math]::Abs($timeDiff.TotalMilliseconds) -ge 1000) {
+                    Write-Host "⏲️🔴 已更新 '$($file.Name)' CreationTime 为 $($tNew.toString("o"))，之前的值为 $($tOld.toString("o"))，时间差异 $($timeDiff.TotalMilliseconds) Milliseconds";
+                    $item.CreationTime = $tNew;
                 }
                 else {
                     if ($flagShowCTimeNotUpdated) {
-                        Write-Host "⏲️🟢 未更新 '$($file.Name)' CreationTime 已是 $($item.CreationTime.toString("o"))，无需更新"
+                        Write-Host "⏲️🟢 未更新 '$($file.Name)' CreationTime 已是 $($tOld.toString("o"))，无需更新"
                     }   
                 }
             }

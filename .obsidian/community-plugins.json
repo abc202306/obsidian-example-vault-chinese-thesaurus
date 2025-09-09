@@ -1,4 +1,5 @@
 [
   "dataview",
-  "templater-obsidian"
+  "templater-obsidian",
+  "webpage-html-export"
 ]

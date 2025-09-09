@@ -7,6 +7,7 @@ aliases:
   - TM - Electrotechnics
   - Electrotechnics
   - 电工技术
+mtime: 2025-09-09T12:37:13+08:00
 ---
 
 # TM 电工技术

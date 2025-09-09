@@ -7,6 +7,7 @@ aliases:
   - TH - Mechanical industries,instrument industries
   - Mechanical industries,instrument industries
   - 机械、仪表工业
+mtime: 2025-09-09T12:37:14+08:00
 ---
 
 # TH 机械、仪表工业
