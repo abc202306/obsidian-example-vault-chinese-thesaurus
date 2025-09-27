@@ -1,0 +1,94 @@
+---
+up:
+  - "[[Collection]]"
+english: Chinese Library Classification
+aliases:
+  - 中图法
+  - Chinese Library Classification
+  - CLC
+  - http://www.ztflh.com
+down:
+  - "[[A 马克思主义、列宁主义、毛泽东思想、邓小平理论]]"
+  - "[[B 哲学、宗教]]"
+  - "[[C 社会科学总论]]"
+  - "[[D 政治、法律]]"
+  - "[[E 军事]]"
+  - "[[F 经济]]"
+  - "[[G 文化、科学、教育、体育]]"
+  - "[[H 语言、文字]]"
+  - "[[I 文学]]"
+  - "[[J 艺术]]"
+  - "[[K 历史、地理]]"
+  - "[[N 自然科学总论]]"
+  - "[[O 数理科学和化学]]"
+  - "[[P 天文学、地球科学]]"
+  - "[[Q 生物科学]]"
+  - "[[R 医药、卫生]]"
+  - "[[S 农业科学]]"
+  - "[[T 工业技术]]"
+  - "[[U 交通运输]]"
+  - "[[V 航空、航天]]"
+  - "[[X 环境科学、安全科学]]"
+  - "[[Z 综合性图书]]"
+url: http://www.ztflh.com
+bases:
+  - "[[Chinese Library Classification Base.base]]"
+ctime: 2024-12-06T16:38:05+08:00
+mtime: 2025-09-27T17:26:38+08:00
+---
+
+# 中国图书馆分类法 Collection
+
+- see also: 中国图书馆分类法网站 | [《中图法》网站](http://clc.nlc.cn/)
+
+## 中国图书馆分类法的大类
+
+- down:
+	- [[A 马克思主义、列宁主义、毛泽东思想、邓小平理论]]
+		- [[A 马克思主义、列宁主义、毛泽东思想、邓小平理论|Marxism, Leninism, Mao Zedong Thought and Deng Xiaoping Theory]]
+	- [[B 哲学、宗教]]
+		- [[B 哲学、宗教|Philosophy and religion]]
+	- [[C 社会科学总论]]
+		- [[C 社会科学总论|Social science (General)]]
+	- [[D 政治、法律]]
+		- [[D 政治、法律|Politics,law]]
+	- [[E 军事]]
+		- [[E 军事|Military affairs]]
+	- [[F 经济]]
+		- [[F 经济|Economy]]
+	- [[G 文化、科学、教育、体育]]
+		- [[G 文化、科学、教育、体育|Culture, science, education and sport]]
+	- [[H 语言、文字]]
+		- [[H 语言、文字|Language,written language]]
+	- [[I 文学]]
+		- [[I 文学|Literature]]
+	- [[J 艺术]]
+		- [[J 艺术|Art]]
+	- [[K 历史、地理]]
+		- [[K 历史、地理|History, geography]]
+	- [[N 自然科学总论]]
+		- [[N 自然科学总论|Natural science (General)]]
+	- [[O 数理科学和化学]]
+		- [[O 数理科学和化学|Mathematical science and chemistry]]
+	- [[P 天文学、地球科学]]
+		- [[P 天文学、地球科学|Astronomy, earth science]]
+	- [[Q 生物科学]]
+		- [[Q 生物科学|Biology]]
+	- [[R 医药、卫生]]
+		- [[R 医药、卫生|Medicine,health]]
+	- [[S 农业科学]]
+		- [[S 农业科学|Agriculture science]]
+	- [[T 工业技术]]
+		- [[T 工业技术|Technology]]
+	- [[U 交通运输]]
+		- [[U 交通运输|Transportation]]
+	- [[V 航空、航天]]
+		- [[V 航空、航天|Aviation,spaceflight]]
+	- [[X 环境科学、安全科学]]
+		- [[X 环境科学、安全科学|Environmental science, safety science]]
+	- [[Z 综合性图书]]
+		- [[Z 综合性图书|Comprehensive books]]
+
+## Screenshots
+
+![[screencapture-clc-nlc-cn-ztfdsb-jsp-2025-06-05-13_18_53.png]]

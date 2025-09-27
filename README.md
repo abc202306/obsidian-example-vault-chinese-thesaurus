@@ -1,20 +1,34 @@
+
 这是一个 Obisidian 示例库，用于存储和可视化显示 《汉语主题词表》 的主题词
 
 This is an Obisidian Example Vault for storing and visualizing the subject terms of the "Chinese Thesaurus".
 
-## 可视化页面效果
+> [!NOTE]
+> 
+> 1. [截图（pictures）](<#截图（pictures）>)
+> 2. [笔记数据的来源](<#笔记数据的来源>)
+> 3. [项目文档 (docs)](<#项目文档 (docs)>)
+> 4. [集锦笔记 (collection)](<#集锦笔记 (collection)>)
+> 5. [数据记录文件夹](<#数据记录文件夹>)
+> 6. [窗体笔记 (base)](<#窗体笔记 (base)>)
+> 7. [报表笔记 (report)](<#报表笔记 (report)>)
+> 8. [白板笔记 (canvas)](<#白板笔记 (canvas)>)
+> 9. [JavaScript 脚本文件 (javascript)](<#JavaScript 脚本文件 (javascript)>)
+> 10. [中国图书馆分类法简表截图](<#中国图书馆分类法简表截图>)
+
+## 截图（pictures）
 
 > （打开笔记 `view/汉语主题词表的视图.md` 的效果）
 
-![](assets/pictures/obsidian-example-vault-chinese-thesaurus/preview-01-05.png)
+![](/pictures/示例库预览/ct-preview-01-05.png)
 
-![](assets/pictures/obsidian-example-vault-chinese-thesaurus/preview-01-06.png)
+![](/pictures/示例库预览/ct-preview-01-06.png)
 
-![](assets/pictures/obsidian-example-vault-chinese-thesaurus/preview-02-03.png)
+![](/pictures/示例库预览/ct-preview-02-03.png)
 
-![](assets/pictures/obsidian-example-vault-chinese-thesaurus/preview-03-01.png)
+![](/pictures/示例库预览/ct-preview-03-01.png)
 
-![](assets/pictures/obsidian-example-vault-chinese-thesaurus/preview-04-01.png)
+![](/pictures/示例库预览/ct-preview-04-01.png)
 
 ## 笔记数据的来源
 
@@ -24,9 +38,61 @@ This is an Obisidian Example Vault for storing and visualizing the subject terms
 - 主题词笔记数据的来源
 	- 《汉语主题词表》数据来源于网站 [汉语主题词表服务系统](https://ct.istic.ac.cn/site/organize/index)
 
-## 更多信息，参见如下的文档
+## 项目文档 (docs)
 
-- [1. 【设计文档】笔记库的结构和依赖](docs/help/obsidian-example-vault-chinese-thesaurus/1.%20【设计文档】笔记库的结构和依赖.md)
-- [2. 【设计文档】汉语主题词表笔记的相关标准](docs/help/obsidian-example-vault-chinese-thesaurus/2.%20【设计文档】汉语主题词表笔记的相关标准.md)
-- [3. 【参考文档】如何剪藏《汉表服务系统》的主题词](docs/help/obsidian-example-vault-chinese-thesaurus/3.%20【参考文档】如何剪藏《汉表服务系统》的主题词.md)
-- [4. 【参考文档】论如何使用笔记库](docs/help/obsidian-example-vault-chinese-thesaurus/4.%20【参考文档】论如何使用笔记库.md)
+- [1. 【设计文档】笔记库的结构和依赖](</docs/1. 【设计文档】笔记库的结构和依赖.md>)
+- [2. 【设计文档】汉语主题词表笔记的相关标准](</docs/2. 【设计文档】汉语主题词表笔记的相关标准.md>)
+- [3. 【参考文档】如何剪藏《汉表服务系统》的主题词](</docs/3. 【参考文档】如何剪藏《汉表服务系统》的主题词.md>)
+- [4. 【参考文档】论如何使用笔记库](</docs/4. 【参考文档】论如何使用笔记库.md>)
+
+## 集锦笔记 (collection)
+
+- [中国图书馆分类法 Collection](</collection/中国图书馆分类法 Collection.md>)
+- [汉语主题词 Collection](</collection/汉语主题词 Collection.md>)
+- [汉语主题词来源 Collection](</collection/汉语主题词来源 Collection.md>)
+- [汉语主题词组配分类 Collection](</collection/汉语主题词组配分类 Collection.md>)
+- [汉语主题词分类 Collection](</collection/汉语主题词分类 Collection.md>)
+
+## 数据记录文件夹
+
+- `chineselibrayclassification/`
+- `chinesethesaurus/`
+- `chinesethesaurusclassification/`
+- `chinesethesaurusclassificationassembly/`
+- `chinesethesaurussources/`
+
+## 窗体笔记 (base)
+
+- [Chinese Thesaurus Source Base.base](</base/Chinese Thesaurus Source Base.base>)
+- [Chinese Library Classification Base.base](</base/Chinese Library Classification Base.base>)
+- [Chinese Thesaurus DB Record Base.base](</base/Chinese Thesaurus DB Record Base.base>)
+- [Chinese Thesaurus Classification Base.base](</base/Chinese Thesaurus Classification Base.base>)
+- [Chinese Thesaurus Classification Assembly Base.base](</base/Chinese Thesaurus Classification Assembly Base.base>)
+- [Chinese Thesaurus Base.base](</base/Chinese Thesaurus Base.base>)
+
+## 报表笔记 (report)
+
+- [汉语主题词数据库 Report](</report/汉语主题词数据库 Report.md>)
+- [汉语主题词数据库 Report Config](</report/汉语主题词数据库 Report Config.md>)
+- [汉语主题词数据库 Report Flow All Record](</report/汉语主题词数据库 Report Flow All Record.md>)
+- [汉语主题词数据库 Report Table Classification Assembly](</report/汉语主题词数据库 Report Table Classification Assembly.md>)
+- [汉语主题词数据库 Report Table Classification](</report/汉语主题词数据库 Report Table Classification.md>)
+- [汉语主题词数据库 Report Table Term](</report/汉语主题词数据库 Report Table Term.md>)
+
+## 白板笔记 (canvas)
+
+- [中国图书馆分类法 Canvas](</canvas/中国图书馆分类法 Canvas.canvas>)
+- [D 政治、法律 Canvas](</canvas/D 政治、法律 Canvas.canvas>)
+- [H 语言、文字 Canvas](</canvas/H 语言、文字 Canvas.canvas>)
+- [J2 绘画 Canvas](</canvas/J2 绘画 Canvas.canvas>)
+- [O 数理科学和化学 Canvas](</canvas/O 数理科学和化学 Canvas.canvas>)
+
+## JavaScript 脚本文件 (javascript)
+
+- `get-config.js`
+- `get-group-key.js`
+- `get-dc-descriptors.js`
+
+## 中国图书馆分类法简表截图
+
+![](/pictures/中国图书馆分类法服务系统/preview/screencapture-clc-nlc-cn-ztfdsb-jsp-2025-06-05-13_18_53.png)

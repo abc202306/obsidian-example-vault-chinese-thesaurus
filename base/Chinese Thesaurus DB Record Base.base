@@ -1,0 +1,24 @@
+filters:
+  and:
+    - file.inFolder("chinesethesaurusdb")
+formulas:
+  uniquefilelinks: file.links.unique()
+properties:
+  formula.uniquefilelinks:
+    displayName: uniquefilelinks
+views:
+  - type: table
+    name: Table
+    order:
+      - ctime
+      - mtime
+      - file.name
+      - formula.uniquefilelinks
+    sort:
+      - property: ctime
+        direction: DESC
+    limit: 100
+    columnSize:
+      file.name: 268
+      note.ctime: 191
+      note.mtime: 182

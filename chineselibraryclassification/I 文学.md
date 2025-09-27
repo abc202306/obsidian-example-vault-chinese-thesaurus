@@ -1,0 +1,31 @@
+---
+up:
+  - "[[中国图书馆分类法 Collection]]"
+ctime: 2025-03-01T23:20:50+08:00
+english: Literature
+aliases:
+  - I - Literature
+  - Literature
+  - 文学
+down:
+  - "[[I0 文学理论]]"
+  - "[[I1 世界文学]]"
+  - "[[I2 中国文学]]"
+  - "[[I3~7 各国文学|I3/7 各国文学]]"
+mtime: 2025-09-09T12:37:18+08:00
+---
+
+# I 文学
+
+- up: [[中国图书馆分类法 Collection]]
+- down:
+	- [[I0 文学理论]]
+		- [[I0 文学理论|Theories of literature]]
+	- [[I1 世界文学]]
+		- [[I1 世界文学|World literature]]
+	- [[I2 中国文学]]
+		- [[I2 中国文学|Chinese literature]]
+	- [[I3~7 各国文学|I3/7 各国文学]]
+		- [[I3~7 各国文学|Literature of other geographic areas except China]]
+- english:
+	- Literature

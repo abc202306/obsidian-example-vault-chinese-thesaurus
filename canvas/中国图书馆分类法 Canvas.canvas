@@ -1,0 +1,12 @@
+{
+	"nodes":[
+		{"id":"b508600648fd25b7","type":"file","file":"collection/中国图书馆分类法 Collection.md","subpath":"#中国图书馆分类法的大类","x":-320,"y":-1039,"width":520,"height":1380,"color":"4"},
+		{"id":"468228a18b872373","type":"file","file":"canvas/D 政治、法律 Canvas.canvas","x":269,"y":-80,"width":249,"height":259},
+		{"id":"d1efda56ad4b81b5","type":"file","file":"canvas/H 语言、文字 Canvas.canvas","x":546,"y":-80,"width":249,"height":259},
+		{"id":"cabde005800a80c9","type":"file","file":"canvas/J2 绘画 Canvas.canvas","x":823,"y":-80,"width":249,"height":259},
+		{"id":"8478e7e1c954846d","type":"file","file":"canvas/O 数理科学和化学 Canvas.canvas","x":1100,"y":-80,"width":249,"height":259},
+		{"id":"72f093cd581a340a","type":"file","file":"chineselibraryclassification/K 历史、地理.md","x":269,"y":-1039,"width":485,"height":878,"color":"2"},
+		{"id":"6c406ca264a51499","type":"file","file":"chineselibraryclassification/A 马克思主义、列宁主义、毛泽东思想、邓小平理论.md","x":829,"y":-1039,"width":520,"height":878,"color":"1"}
+	],
+	"edges":[]
+}
