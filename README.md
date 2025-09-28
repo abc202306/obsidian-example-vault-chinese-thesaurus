@@ -5,18 +5,18 @@ This is an Obisidian Example Vault for storing and visualizing the subject terms
 
 > [!NOTE]
 > 
-> 1. [截图（pictures）](<#截图（pictures）>)
-> 2. [笔记数据的来源](<#笔记数据的来源>)
-> 3. [项目文档 (docs)](<#项目文档 (docs)>)
-> 4. [集锦笔记 (collection)](<#集锦笔记 (collection)>)
-> 5. [数据记录文件夹](<#数据记录文件夹>)
-> 6. [窗体笔记 (base)](<#窗体笔记 (base)>)
-> 7. [报表笔记 (report)](<#报表笔记 (report)>)
-> 8. [白板笔记 (canvas)](<#白板笔记 (canvas)>)
-> 9. [JavaScript 脚本文件 (javascript)](<#JavaScript 脚本文件 (javascript)>)
-> 10. [中国图书馆分类法简表截图](<#中国图书馆分类法简表截图>)
+> 1. [截图-pictures](#截图-pictures)
+> 2. [笔记数据的来源](#笔记数据的来源)
+> 3. [项目文档-docs](#项目文档-docs)
+> 4. [集锦笔记-collection](#集锦笔记-collection)
+> 5. [数据记录文件夹](#数据记录文件夹)
+> 6. [窗体笔记-base](#窗体笔记-base)
+> 7. [报表笔记-report](#报表笔记-report)
+> 8. [白板笔记-canvas](#白板笔记-canvas)
+> 9. [JavaScript脚本文件](#JavaScript脚本文件)
+> 10. [中国图书馆分类法简表截图](#中国图书馆分类法简表截图)
 
-## 截图（pictures）
+## 截图-pictures
 
 > （打开笔记 `view/汉语主题词表的视图.md` 的效果）
 
@@ -38,14 +38,14 @@ This is an Obisidian Example Vault for storing and visualizing the subject terms
 - 主题词笔记数据的来源
 	- 《汉语主题词表》数据来源于网站 [汉语主题词表服务系统](https://ct.istic.ac.cn/site/organize/index)
 
-## 项目文档 (docs)
+## 项目文档-docs
 
 - [1. 【设计文档】笔记库的结构和依赖](</docs/1. 【设计文档】笔记库的结构和依赖.md>)
 - [2. 【设计文档】汉语主题词表笔记的相关标准](</docs/2. 【设计文档】汉语主题词表笔记的相关标准.md>)
 - [3. 【参考文档】如何剪藏《汉表服务系统》的主题词](</docs/3. 【参考文档】如何剪藏《汉表服务系统》的主题词.md>)
 - [4. 【参考文档】论如何使用笔记库](</docs/4. 【参考文档】论如何使用笔记库.md>)
 
-## 集锦笔记 (collection)
+## 集锦笔记-collection
 
 - [中国图书馆分类法 Collection](</collection/中国图书馆分类法 Collection.md>)
 - [汉语主题词 Collection](</collection/汉语主题词 Collection.md>)
@@ -61,7 +61,7 @@ This is an Obisidian Example Vault for storing and visualizing the subject terms
 - `chinesethesaurusclassificationassembly/`
 - `chinesethesaurussources/`
 
-## 窗体笔记 (base)
+## 窗体笔记-base
 
 - [Chinese Thesaurus Source Base.base](</base/Chinese Thesaurus Source Base.base>)
 - [Chinese Library Classification Base.base](</base/Chinese Library Classification Base.base>)
@@ -70,7 +70,7 @@ This is an Obisidian Example Vault for storing and visualizing the subject terms
 - [Chinese Thesaurus Classification Assembly Base.base](</base/Chinese Thesaurus Classification Assembly Base.base>)
 - [Chinese Thesaurus Base.base](</base/Chinese Thesaurus Base.base>)
 
-## 报表笔记 (report)
+## 报表笔记-report
 
 - [汉语主题词数据库 Report](</report/汉语主题词数据库 Report.md>)
 - [汉语主题词数据库 Report Config](</report/汉语主题词数据库 Report Config.md>)
@@ -79,7 +79,7 @@ This is an Obisidian Example Vault for storing and visualizing the subject terms
 - [汉语主题词数据库 Report Table Classification](</report/汉语主题词数据库 Report Table Classification.md>)
 - [汉语主题词数据库 Report Table Term](</report/汉语主题词数据库 Report Table Term.md>)
 
-## 白板笔记 (canvas)
+## 白板笔记-canvas
 
 - [中国图书馆分类法 Canvas](</canvas/中国图书馆分类法 Canvas.canvas>)
 - [D 政治、法律 Canvas](</canvas/D 政治、法律 Canvas.canvas>)
@@ -87,7 +87,7 @@ This is an Obisidian Example Vault for storing and visualizing the subject terms
 - [J2 绘画 Canvas](</canvas/J2 绘画 Canvas.canvas>)
 - [O 数理科学和化学 Canvas](</canvas/O 数理科学和化学 Canvas.canvas>)
 
-## JavaScript 脚本文件 (javascript)
+## JavaScript脚本文件
 
 - `get-config.js`
 - `get-group-key.js`
