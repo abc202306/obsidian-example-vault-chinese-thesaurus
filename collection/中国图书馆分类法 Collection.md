@@ -34,12 +34,16 @@ url: http://www.ztflh.com
 bases:
   - "[[Chinese Library Classification Base.base]]"
 ctime: 2024-12-06T16:38:05+08:00
-mtime: 2025-09-27T17:26:38+08:00
+mtime: 2025-09-27T22:28:23+08:00
+kws:
+  - "[[中国图书馆分类法]]"
+  - "[[Collection]]"
 ---
 
 # 中国图书馆分类法 Collection
 
 - see also: 中国图书馆分类法网站 | [《中图法》网站](http://clc.nlc.cn/)
+- aliases: 中图法, Chinese Library Classification, CLC, http://www.ztflh.com
 
 ## 中国图书馆分类法的大类
 

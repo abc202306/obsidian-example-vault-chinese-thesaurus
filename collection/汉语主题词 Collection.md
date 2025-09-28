@@ -17,7 +17,7 @@ bases:
   - "[[Chinese Thesaurus Base.base]]"
   - "[[Chinese Thesaurus DB Record Base.base]]"
 ctime: 2025-08-17T13:53:26+08:00
-mtime: 2025-09-27T17:26:44+08:00
+mtime: 2025-09-27T19:48:10+08:00
 ---
 
 # 汉语主题词 Collection
@@ -28,6 +28,7 @@ mtime: 2025-09-27T17:26:44+08:00
 		- [[汉语主题词分类 Collection]]
 		- [[汉语主题词组配分类 Collection]]
 		- [[汉语主题词来源 Collection]]
+	- aliases: 主题词表, descriptor-table, Chinese Thesaurus, Thesaurus
 
 ## Notes
 
