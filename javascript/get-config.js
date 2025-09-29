@@ -26,12 +26,12 @@ async function getConfigObjectFromMarkdownFileSection(fileName, sectionName) {
 function parseMarkdownTableStrToJSObject(tableStr) {
     const lines = tableStr.trim().split('\n');
     if (lines.length < 2) return [];
-    const headers = lines[0].split('|').map(h => h.trim()).filter(h => h);
+    const headers = lines[0].split('|').map(h => h.trim()).map((h,idx)=> h || `col${idx}`);
     const data = lines.slice(2).map(line => {
-        const values = line.split('|').map(v => v.trim()).filter(v => v);
+        const values = line.split('|').map(v => v.trim());
         const obj = {};
         headers.forEach((header, index) => {
-            obj[header] = values[index] || null;
+            obj[header] = values[index] || "";
         });
         return obj;
     });

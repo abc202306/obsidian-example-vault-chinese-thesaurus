@@ -1,6 +1,6 @@
 filters:
   and:
-    - file.inFolder("chinesethesaurusdb/chinesethesaurusclassificationassembly")
+    - file.inFolder("chinesethesaurusclassificationassembly")
 views:
   - type: table
     name: Table

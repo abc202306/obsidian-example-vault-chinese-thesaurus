@@ -1,6 +1,6 @@
 ---
 ctime: 2025-09-27T15:40:20+08:00
-mtime: 2025-09-27T16:51:50+08:00
+mtime: 2025-09-28T13:07:01+08:00
 ---
 
 # 汉语主题词数据库 Report Table Classification Assembly
@@ -9,6 +9,7 @@ mtime: 2025-09-27T16:51:50+08:00
 
 const getConfigObjectFromMarkdownFileSection = await new Promise(resolve=>dv.view("get-config", resolve));
 const reportConfig = await getConfigObjectFromMarkdownFileSection("汉语主题词数据库 Report Config", "配置");
+console.log("reportConfig",reportConfig)
 const rootDir = reportConfig.find(record=>record["配置变量名"]==="汉语主题词表数据根目录")["配置变量值"];
 
 /** @function */
@@ -16,11 +17,16 @@ const getGroupKey = await new Promise(resolve => dv.view("get-group-key", resolv
 /** @function */
 const getDCDescriptors = await new Promise(resolve => dv.view("get-dc-descriptors", resolve));
 
+function joinPath(...paths){
+	const newPaths = paths.filter(p=>p.length!==0).map(p=>p.replace(/^\//,"").replace(/\/$/,""))
+	return newPaths.join("/")
+}
+
 const configMap = {
 	path: {
-		descriptor: rootDir + "/" + reportConfig.find(record=>record["配置变量名"]==="主题词子目录")["配置变量值"],
-		descriptorCls: rootDir + "/" + reportConfig.find(record=>record["配置变量名"]==="主题词分类表子目录")["配置变量值"],
-		assemblyDescriptorCls: rootDir + "/" + reportConfig.find(record=>record["配置变量名"]==="主题词组配分类表子目录")["配置变量值"]
+		descriptor: joinPath(rootDir, reportConfig.find(record=>record["配置变量名"]==="主题词子目录")["配置变量值"]||""),
+		descriptorCls: joinPath(rootDir, reportConfig.find(record=>record["配置变量名"]==="主题词分类表子目录")["配置变量值"]||""),
+		assemblyDescriptorCls: joinPath(rootDir, reportConfig.find(record=>record["配置变量名"]==="主题词组配分类表子目录")["配置变量值"]||"")
 	}
 }
 

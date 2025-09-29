@@ -74,7 +74,7 @@ This is an Obisidian Example Vault for storing and visualizing the subject terms
 
 - [汉语主题词数据库 Report](</report/汉语主题词数据库 Report.md>)
 - [汉语主题词数据库 Report Config](</report/汉语主题词数据库 Report Config.md>)
-- [汉语主题词数据库 Report Flow All Record](</report/汉语主题词数据库 Report Flow All Record.md>)
+- [汉语主题词数据库 Report Flow All Record Limit 50](<汉语主题词数据库 Report Flow All Record Limit 50.md>)
 - [汉语主题词数据库 Report Table Classification Assembly](</report/汉语主题词数据库 Report Table Classification Assembly.md>)
 - [汉语主题词数据库 Report Table Classification](</report/汉语主题词数据库 Report Table Classification.md>)
 - [汉语主题词数据库 Report Table Term](</report/汉语主题词数据库 Report Table Term.md>)

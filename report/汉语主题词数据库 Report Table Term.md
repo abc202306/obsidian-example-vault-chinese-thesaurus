@@ -1,6 +1,6 @@
 ---
 ctime: 2025-09-27T15:39:45+08:00
-mtime: 2025-09-27T16:51:50+08:00
+mtime: 2025-09-28T13:07:01+08:00
 ---
 
 # 汉语主题词数据库 Report Table Term
@@ -13,9 +13,14 @@ const folderName = reportConfig.find(record=>record["配置变量名"]==="主题
 /** @function */
 const getGroupKey = await new Promise(resolve => dv.view("get-group-key", resolve))
 
+function joinPath(...paths){
+	const newPaths = paths.filter(p=>p.length!==0).map(p=>p.replace(/^\//,"").replace(/\/$/,""))
+	return newPaths.join("/")
+}
+
 const config = {
 	paths: {
-		descriptor: rootDir+"/"+folderName
+		descriptor: joinPath(rootDir, folderName)
 	},
 	headers: [
 		"File",

@@ -1,9 +1,9 @@
 ---
 ctime: 2025-09-27T15:41:10+08:00
-mtime: 2025-09-27T16:51:50+08:00
+mtime: 2025-09-28T13:26:21+08:00
 ---
 
-# 汉语主题词数据库 Report Flow All Record
+# 汉语主题词数据库 Report Flow All Record Limit 50
 
 ```dataviewjs
 const getConfigObjectFromMarkdownFileSection = await new Promise(resolve=>dv.view("get-config", resolve));
@@ -25,6 +25,7 @@ let i = 0;
 let j = 0;
 dv.pages(`"${relatedCTDataPath}"`)
 	.sort(p=>p.file.ctime,"desc")
+	.limit(50)
 	.groupBy(p=>getGroupKey(p))
 	.sort(g=>g.rows[0].file.ctime,"desc")
 	.forEach(g=>{
