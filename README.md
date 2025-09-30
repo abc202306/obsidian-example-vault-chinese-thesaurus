@@ -3,6 +3,8 @@
 
 This is an Obisidian Example Vault for storing and visualizing the subject terms of the "Chinese Thesaurus".
 
+预览： https://abc202306.github.io/website-obsidian-example-vault-chinese-thesaurus
+
 > [!NOTE]
 > 
 > 1. [截图-pictures](#截图-pictures)
