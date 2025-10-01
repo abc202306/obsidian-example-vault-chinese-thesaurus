@@ -1,3 +1,6 @@
+---
+id: "[[@host-is-github.com@ @type-is-git-repository@ @author-name-is-abc202306@ @git-repository-name-is-obsidian-example-vault-chinese-thesaurus@ @tags-is-tag-obsidian-vault-sep-tag-chinese-thesaurus@]]"
+---
 
 这是一个 Obisidian 示例库，用于存储和可视化显示 《汉语主题词表》 的主题词
 
