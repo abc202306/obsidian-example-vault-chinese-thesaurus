@@ -1,12 +1,7 @@
 ---
 up:
   - "[[T 工业技术]]"
-ctime: 2024-12-06T17:12:34+08:00
 english: General technology
-aliases:
-  - TB - General technology
-  - General technology
-  - 一般工业技术
 down:
   - "[[TB1 工程基础科学]]"
   - "[[TB2 工程设计与测绘]]"
@@ -17,7 +12,12 @@ down:
   - "[[TB7 真空技术]]"
   - "[[TB8 摄影技术]]"
   - "[[TB9 计量学]]"
-mtime: 2025-09-09T12:37:15+08:00
+aliases:
+  - TB - General technology
+  - General technology
+  - 一般工业技术
+ctime: 2024-12-06T17:12:34+08:00
+mtime: 2025-10-01T12:23:19+08:00
 ---
 
 # TB 一般工业技术

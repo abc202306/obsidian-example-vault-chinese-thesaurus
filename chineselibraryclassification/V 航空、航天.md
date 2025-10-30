@@ -1,23 +1,26 @@
 ---
 up:
-  - "[[中国图书馆分类法 Collection]]"
-ctime: 2025-03-01T23:25:51+08:00
+  - "[[中国图书馆分类法]]"
 english: Aviation,spaceflight
-aliases:
-  - V - Aviation,spaceflight
-  - Aviation,spaceflight
-  - 航空、航天
 down:
   - "[[V1 航空、航天技术的研究与探索]]"
   - "[[V2 航空]]"
   - "[[V4 航天（宇宙航行）]]"
   - "[[[V7] 航空、航天医学]]"
-mtime: 2025-09-09T12:37:07+08:00
+aliases:
+  - V - Aviation,spaceflight
+  - Aviation,spaceflight
+  - 航空、航天
+icon: "[[V 航空、航天 - Pasted image 20251004154307.png]]"
+ctime: 2025-03-01T23:25:51+08:00
+mtime: 2025-10-04T15:43:25+08:00
 ---
 
 # V 航空、航天
 
-- up: [[中国图书馆分类法 Collection]]
+![[V 航空、航天 - Pasted image 20251004154307.png|200]]
+
+- up: [[中国图书馆分类法]]
 - down:
 	- [[V1 航空、航天技术的研究与探索]]
 		- [[V1 航空、航天技术的研究与探索|Research and exploration of aviation and spaceflight technology]]

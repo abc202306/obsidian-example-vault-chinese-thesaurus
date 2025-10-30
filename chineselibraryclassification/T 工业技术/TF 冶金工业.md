@@ -1,13 +1,13 @@
 ---
 up:
   - "[[T 工业技术]]"
-ctime: 2024-12-06T17:15:31+08:00
 english: Metallurgy industries
 aliases:
   - TF - Metallurgy industries
   - Metallurgy industries
   - 冶金工业
-mtime: 2025-09-09T12:37:15+08:00
+ctime: 2024-12-06T17:15:31+08:00
+mtime: 2025-10-01T11:41:11+08:00
 ---
 
 # TF 冶金工业

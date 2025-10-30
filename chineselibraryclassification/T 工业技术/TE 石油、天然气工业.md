@@ -1,13 +1,13 @@
 ---
 up:
   - "[[T 工业技术]]"
-ctime: 2024-12-06T17:14:43+08:00
 english: Oil industry,natural gas industry
 aliases:
   - TE - Oil industry,natural gas industry
   - Oil industry,natural gas industry
   - 石油、天然气工业
-mtime: 2025-09-09T12:37:15+08:00
+ctime: 2024-12-06T17:14:43+08:00
+mtime: 2025-10-01T11:41:06+08:00
 ---
 
 # TE 石油、天然气工业

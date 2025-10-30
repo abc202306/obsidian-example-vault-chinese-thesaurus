@@ -1,12 +1,7 @@
 ---
 up:
-  - "[[中国图书馆分类法 Collection]]"
-ctime: 2025-03-01T23:24:27+08:00
+  - "[[中国图书馆分类法]]"
 english: Agriculture science
-aliases:
-  - S - Agriculture science
-  - Agriculture science
-  - 农业科学
 down:
   - "[[S-0 一般性理论]]"
   - "[[S-1 农业科学技术现状与发展]]"
@@ -21,12 +16,20 @@ down:
   - "[[S7 林业]]"
   - "[[S8 畜牧、动物医学、狩猎、蚕、蜂]]"
   - "[[S9 水产、渔业]]"
-mtime: 2025-09-09T12:37:09+08:00
+aliases:
+  - S - Agriculture science
+  - Agriculture science
+  - 农业科学
+icon: "[[S 农业科学 - Pasted image 20251004153850.png]]"
+ctime: 2025-03-01T23:24:27+08:00
+mtime: 2025-10-04T15:39:14+08:00
 ---
 
 # S 农业科学
 
-- up: [[中国图书馆分类法 Collection]]
+![[S 农业科学 - Pasted image 20251004153850.png|200]]
+
+- up: [[中国图书馆分类法]]
 - down:
 	- [[S-0 一般性理论]]
 	- [[S-1 农业科学技术现状与发展]]

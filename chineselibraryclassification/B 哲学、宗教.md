@@ -1,12 +1,7 @@
 ---
 up:
-  - "[[中国图书馆分类法 Collection]]"
-ctime: 2025-03-01T23:15:08+08:00
+  - "[[中国图书馆分类法]]"
 english: Philosophy and religion
-aliases:
-  - B - Philosophy and religion
-  - Philosophy and religion
-  - 哲学、宗教
 down:
   - "[[B-4 哲学教育与普及]]"
   - "[[B0 哲学理论]]"
@@ -23,12 +18,20 @@ down:
   - "[[B83 美学]]"
   - "[[B84 心理学]]"
   - "[[B9 宗教]]"
-mtime: 2025-09-09T12:37:19+08:00
+aliases:
+  - B - Philosophy and religion
+  - Philosophy and religion
+  - 哲学、宗教
+icon: "[[Greek_uc_phi_icon.svg]]"
+ctime: 2025-03-01T23:15:08+08:00
+mtime: 2025-10-04T15:04:25+08:00
 ---
 
 # B 哲学、宗教
 
-- up: [[中国图书馆分类法 Collection]]
+![[Greek_uc_phi_icon.svg|200]]
+
+- up: [[中国图书馆分类法]]
 - down:
 	- [[B-4 哲学教育与普及]]
 	- [[B0 哲学理论]]

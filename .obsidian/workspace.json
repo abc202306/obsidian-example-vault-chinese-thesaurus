@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "2b2eceab98946b26",
+        "id": "30c211e8b095cc55",
         "type": "tabs",
         "children": [
           {
-            "id": "9dda631f7e5d45ca",
+            "id": "286c35e3b7d4f5b8",
             "type": "leaf",
             "state": {
-              "type": "empty",
+              "type": "graph",
               "state": {},
-              "icon": "lucide-file",
-              "title": "New tab"
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
             }
           }
         ]
@@ -29,6 +29,7 @@
       {
         "id": "7386edec158416d2",
         "type": "tabs",
+        "dimension": 72.92682926829268,
         "children": [
           {
             "id": "a09b9b60140fcbd5",
@@ -70,13 +71,54 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
+      },
+      {
+        "id": "d1963abc0d0138c6",
+        "type": "tabs",
+        "dimension": 27.073170731707318,
+        "children": [
+          {
+            "id": "13c58d39873117be",
+            "type": "leaf",
+            "state": {
+              "type": "localgraph",
+              "state": {
+                "options": {
+                  "collapse-filter": true,
+                  "search": "",
+                  "localJumps": 1,
+                  "localBacklinks": true,
+                  "localForelinks": true,
+                  "localInterlinks": false,
+                  "showTags": false,
+                  "showAttachments": false,
+                  "hideUnresolved": false,
+                  "collapse-color-groups": true,
+                  "colorGroups": [],
+                  "collapse-display": true,
+                  "showArrow": false,
+                  "textFadeMultiplier": 0,
+                  "nodeSizeMultiplier": 1,
+                  "lineSizeMultiplier": 1,
+                  "collapse-forces": true,
+                  "centerStrength": 0.518713248970312,
+                  "repelStrength": 10,
+                  "linkStrength": 1,
+                  "linkDistance": 250,
+                  "scale": 0.1833959173849457,
+                  "close": true
+                }
+              },
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 310.5,
-    "collapsed": true
+    "width": 310.5
   },
   "right": {
     "id": "0f625f3186cf6842",
@@ -85,7 +127,7 @@
       {
         "id": "fdf98c8b7c9f13e9",
         "type": "tabs",
-        "dimension": 44.675925925925924,
+        "dimension": 40.063424947145876,
         "children": [
           {
             "id": "571269e5be69849d",
@@ -108,13 +150,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "docs/info/汉语主题词表.md",
+                "file": "README.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 汉语主题词表"
+              "title": "Outline of README"
             }
           },
           {
@@ -147,7 +189,7 @@
       {
         "id": "c16a237089adb708",
         "type": "tabs",
-        "dimension": 55.32407407407407,
+        "dimension": 59.936575052854124,
         "children": [
           {
             "id": "271e46be27c3891e",
@@ -200,53 +242,57 @@
       "webpage-html-export:Export as HTML": false
     }
   },
-  "active": "9dda631f7e5d45ca",
+  "active": "286c35e3b7d4f5b8",
   "lastOpenFiles": [
-    "data/chinesethesaurusdb/chineselibraryclassification/Q 生物科学/Q7 分子生物学.md",
-    "data/chinesethesaurusdb/chineselibraryclassification/Q 生物科学.md",
-    "docs/info/汉语主题词表.md",
-    "docs/info/中国图书馆分类法.md",
-    "views/bases/Chinese Thesaurus Classification Assembly Base.base",
-    "views/bases/Chinese Thesaurus Classification Base.base",
-    "views/bases/Chinese Thesaurus Source Base.base",
-    "views/bases/Chinese Thesaurus Base.base",
-    "views/bases/Chinese Library Classification Base.base",
-    "views/dataview/Folder View.md",
-    "views/dataview/汉语主题词表的视图.md",
-    "views/dataview/打开最近的多个文件.md",
-    "data/chinesethesaurusdb/chineselibraryclassification/G 文化、科学、教育、体育/G8 体育/G87 其他体育运动/G874 航海运动.md",
-    "data/chinesethesaurusdb/chineselibraryclassification/G 文化、科学、教育、体育/G8 体育/G87 其他体育运动/G875 航空运动.md",
-    "data/chinesethesaurusdb/chineselibraryclassification/G 文化、科学、教育、体育/G8 体育/G87 其他体育运动/G876 无线电运动.md",
-    "data/chinesethesaurusdb/chineselibraryclassification/G 文化、科学、教育、体育/G8 体育/G81 世界各国体育事业.md",
-    "data/chinesethesaurusdb/chineselibraryclassification/G 文化、科学、教育、体育/G8 体育/G82 田径运动.md",
-    "data/chinesethesaurusdb/chineselibraryclassification/G 文化、科学、教育、体育/G8 体育/G83 体操运动.md",
-    "data/chinesethesaurusdb/chineselibraryclassification/G 文化、科学、教育、体育/G8 体育/G84 球类运动.md",
-    "data/chinesethesaurusdb/chineselibraryclassification/G 文化、科学、教育、体育/G8 体育/G85 武术及民族形式体育.md",
-    "data/chinesethesaurusdb/chineselibraryclassification/G 文化、科学、教育、体育/G8 体育/G86 水上、冰上与雪上运动.md",
-    "data/chinesethesaurusdb/chineselibraryclassification/G 文化、科学、教育、体育/G8 体育/G87 其他体育运动.md",
-    "data/chinesethesaurusdb/chineselibraryclassification/G 文化、科学、教育、体育/G4 教育/G44 教育心理学.md",
-    "data/chinesethesaurusdb/chineselibraryclassification/G 文化、科学、教育、体育/G4 教育/G45 教师与学生.md",
-    "data/chinesethesaurusdb/chineselibraryclassification/G 文化、科学、教育、体育/G4 教育/G46 教育行政.md",
-    "data/chinesethesaurusdb/chineselibraryclassification/G 文化、科学、教育、体育/G4 教育/G47 学校管理.md",
-    "data/chinesethesaurusdb/chineselibraryclassification/G 文化、科学、教育、体育/G4 教育/G48 学校建筑和设备的管理.md",
-    "data/chinesethesaurusdb/chineselibraryclassification/G 文化、科学、教育、体育/G8 体育/G80 体育理论.md",
-    "data/chinesethesaurusdb/chineselibraryclassification/G 文化、科学、教育、体育/G8 体育.md",
-    "data/chinesethesaurusdb/chineselibraryclassification/G 文化、科学、教育、体育/G3 科学、科学研究/G35 情报学、情报工作/[G355] 机器翻译.md",
-    "data/chinesethesaurusdb/chineselibraryclassification/G 文化、科学、教育、体育/G3 科学、科学研究/G35 情报学、情报工作/G359 世界各国情报事业.md",
-    "assets/pictures/obsidian-example-vault-chinese-thesaurus/preview-04-01.png",
-    "assets/pictures/obsidian-example-vault-chinese-thesaurus/preview-01-06.png",
-    "views/bases",
-    "views/dataview",
-    "data/chinesethesaurusdb/chinesethesaurussources",
-    "data/chinesethesaurusdb/chinesethesaurusclassificationassembly",
-    "data/chinesethesaurusdb/chinesethesaurusclassification",
-    "assets/pictures/obsidian-example-vault-chinese-thesaurus/preview-01-05.png",
-    "assets/pictures/obsidian-example-vault-chinese-thesaurus/preview-01-04.png",
-    "assets/pictures/obsidian-example-vault-chinese-thesaurus/preview-03-01.png",
-    "assets/pictures/obsidian-example-vault-chinese-thesaurus/preview-02-03.png",
-    "assets/preview-01-03.png",
-    "assets/preview-01-02.png",
-    "assets/preview-02-02.png",
-    "assets/preview-02.png"
+    "base/Chinese Library Classification Base.base",
+    "README.md",
+    "assets/pictures/clcwebsitepreview/screencapture-clc-nlc-cn-ztfdsb-jsp-2025-06-05-13_18_53.png",
+    "assets/pictures/ctvaultpreview/ct-preview-01-05.png",
+    "Untitled/Untitled.base",
+    "Untitled",
+    "@host-is-github.com@ @type-is-git-repository@ @author-name-is-abc202306@ @git-repository-name-is-obsidian-example-vault-chinese-thesaurus@ @tag-is-tag-obsidian-vault-sep-tag-chinese-thesaurus@.md",
+    "@host-is-github.com@ @type-is-git-repository@ @author-name-is-abc202306@ @git-repository-name-is-obsidian-example-vault-chinese-thesaurus@ @tag-is-obsidian-vault-sep-chinese-thesaurus@.md",
+    "@host-is-github.com@@type-is-git-repository@@author-name-is-abc202306@@git-repository-name-is-obsidian-example-vault-chinese-thesaurus@@tag-is-obsidian-vault-sep-chinese-thesaurus@.md",
+    "collection/汉语主题词 Collection.md",
+    "collection/汉语主题词来源 Collection.md",
+    "chinesethesaurussources/工程技术卷.md",
+    "chinesethesaurus/安全软件.md",
+    "chinesethesaurus/事件处理程序.md",
+    "chinesethesaurus/工具软件.md",
+    "chinesethesaurus/加载器.md",
+    "chineselibraryclassification/Z 综合性图书/ZT_ 通用概念.md",
+    "chineselibraryclassification/Z 综合性图书/ZT_ 通用概念/ZT3_ 数量、数值、参数.md",
+    "chineselibraryclassification/Z 综合性图书/ZT_ 通用概念/ZT73_ 时间、时期.md",
+    "chinesethesaurusclassification/ZT73_ 时间、时期 主题词分类.md",
+    "chinesethesaurus/时间.md",
+    "chinesethesaurus/日期.md",
+    "chinesethesaurus/量化器.md",
+    "chinesethesaurus/网络爬虫.md",
+    "chinesethesaurus/诊断软件.md",
+    "chinesethesaurus/支撑软件.md",
+    "chinesethesaurus/智能武器.md",
+    "chinesethesaurus/智能武器系统.md",
+    "chinesethesaurus/主题词.md",
+    "chinesethesaurus/Linux加载程序.md",
+    "canvas/中国图书馆分类法 Canvas.canvas",
+    "canvas/O 数理科学和化学 Canvas.canvas",
+    "canvas/J2 绘画 Canvas.canvas",
+    "canvas/H 语言、文字 Canvas.canvas",
+    "canvas/D 政治、法律 Canvas.canvas",
+    "canvas",
+    "base/Chinese Thesaurus Source Base.base",
+    "base/Chinese Thesaurus DB Record Base.base",
+    "base/Chinese Thesaurus Classification Base.base",
+    "base/Chinese Thesaurus Classification Assembly Base.base",
+    "base/Chinese Thesaurus Base.base",
+    "base",
+    "pictures/示例库预览/ct-preview-02-03.png",
+    "pictures/obsidian-example-vault-chinese-thesaurus/preview-04-01.png",
+    "pictures/obsidian-example-vault-chinese-thesaurus/preview-01-06.png",
+    "pictures/obsidian-example-vault-chinese-thesaurus/preview-01-05.png",
+    "pictures/obsidian-example-vault-chinese-thesaurus/preview-01-04.png",
+    "pictures/obsidian-example-vault-chinese-thesaurus/preview-03-01.png",
+    "pictures/obsidian-example-vault-chinese-thesaurus/preview-02-03.png",
+    "assets/preview-01-03.png"
   ]
 }

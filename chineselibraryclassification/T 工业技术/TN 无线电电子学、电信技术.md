@@ -1,12 +1,7 @@
 ---
 up:
   - "[[T 工业技术]]"
-ctime: 2024-12-06T17:21:07+08:00
 english: Electronic technique, communication technique
-aliases:
-  - TN - Electronic technique, communication technique
-  - Electronic technique, communication technique
-  - 无线电电子学、电信技术
 down:
   - "[[[TN98] 无线电、电信测量技术及仪器]]"
   - "[[TN-9 电子工业经济]]"
@@ -26,7 +21,12 @@ down:
   - "[[TN96 无线电导航]]"
   - "[[TN97 电子对抗（干扰及抗干扰）]]"
   - "[[TN99 无线电电子学的应用]]"
-mtime: 2025-09-09T12:37:13+08:00
+aliases:
+  - TN - Electronic technique, communication technique
+  - Electronic technique, communication technique
+  - 无线电电子学、电信技术
+ctime: 2024-12-06T17:21:07+08:00
+mtime: 2025-10-01T12:23:08+08:00
 ---
 
 # TN 无线电电子学、电信技术

@@ -1,12 +1,7 @@
 ---
 up:
-  - "[[中国图书馆分类法 Collection]]"
-ctime: 2025-03-01T23:23:54+08:00
+  - "[[中国图书馆分类法]]"
 english: Medicine,health
-aliases:
-  - R - Medicine,health
-  - Medicine,health
-  - 医药、卫生
 down:
   - "[[R-0 一般理论]]"
   - "[[R-1 现状与发展]]"
@@ -28,12 +23,20 @@ down:
   - "[[R79 外国民族医学]]"
   - "[[R8 特种医学]]"
   - "[[R9 药学]]"
-mtime: 2025-09-09T12:37:15+08:00
+aliases:
+  - R - Medicine,health
+  - Medicine,health
+  - 医药、卫生
+icon: "[[R 医药、卫生 - Pasted image 20251004153724.png]]"
+ctime: 2025-03-01T23:23:54+08:00
+mtime: 2025-10-04T15:37:37+08:00
 ---
 
 # R 医药、卫生
 
-- up: [[中国图书馆分类法 Collection]]
+![[R 医药、卫生 - Pasted image 20251004153724.png|200]]
+
+- up: [[中国图书馆分类法]]
 - down:
 	- [[R-0 一般理论]]
 	- [[R-1 现状与发展]]

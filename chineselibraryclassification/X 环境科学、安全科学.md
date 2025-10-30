@@ -1,12 +1,7 @@
 ---
 up:
-  - "[[中国图书馆分类法 Collection]]"
-ctime: 2025-03-01T23:26:10+08:00
+  - "[[中国图书馆分类法]]"
 english: Environmental science, safety science
-aliases:
-  - X - Environmental science, safety science
-  - Environmental science, safety science
-  - 环境科学、安全科学
 down:
   - "[[X-0 环境科学理论]]"
   - "[[X-1 环境科学技术现状与发展]]"
@@ -20,12 +15,20 @@ down:
   - "[[X7 废物处理与综合利用]]"
   - "[[X8 环境质量评价与环境监测]]"
   - "[[X9 安全科学]]"
-mtime: 2025-09-09T12:37:06+08:00
+aliases:
+  - X - Environmental science, safety science
+  - Environmental science, safety science
+  - 环境科学、安全科学
+icon: "[[X 环境科学、安全科学 - Pasted image 20251004154439.png]]"
+ctime: 2025-03-01T23:26:10+08:00
+mtime: 2025-10-04T15:44:56+08:00
 ---
 
 # X 环境科学、安全科学
 
-- up: [[中国图书馆分类法 Collection]]
+![[X 环境科学、安全科学 - Pasted image 20251004154439.png|200]]
+
+- up: [[中国图书馆分类法]]
 - down:
 	- [[X-0 环境科学理论]]
 	- [[X-1 环境科学技术现状与发展]]

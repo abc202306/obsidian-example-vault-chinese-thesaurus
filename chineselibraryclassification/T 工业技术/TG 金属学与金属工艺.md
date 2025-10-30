@@ -1,13 +1,13 @@
 ---
 up:
   - "[[T 工业技术]]"
-ctime: 2024-12-06T17:16:53+08:00
 english: Metallography and metal processing technology
 aliases:
   - TG - Metallography and metal processing technology
   - Metallography and metal processing technology
   - 金属学与金属工艺
-mtime: 2025-09-09T12:37:15+08:00
+ctime: 2024-12-06T17:16:53+08:00
+mtime: 2025-10-01T11:41:10+08:00
 ---
 
 # TG 金属学与金属工艺

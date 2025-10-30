@@ -2,17 +2,21 @@ filters:
   and:
     - file.inFolder("chineselibraryclassification")
 views:
-  - type: table
-    name: Table
+  - type: cards
+    name: Cards Icon
+    filters:
+      and:
+        - "!icon.isEmpty()"
     order:
       - file.name
-      - up
-      - down
       - english
-      - ctime
+      - down
     columnSize:
       note.english: 281
       note.ctime: 184
+    image: note.icon
+    cardSize: 130
+    imageFit: contain
   - type: cards
     name: Cards
     order:
@@ -24,3 +28,23 @@ views:
     columnSize:
       note.english: 281
       note.ctime: 184
+    cardSize: 200
+  - type: table
+    name: Table
+    order:
+      - file.name
+      - up
+      - down
+      - english
+      - ctime
+    columnSize:
+      note.english: 281
+      note.ctime: 184
+  - type: table
+    name: CreatedRecently
+    order:
+      - file.name
+      - file.ctime
+    sort:
+      - property: file.ctime
+        direction: DESC

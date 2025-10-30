@@ -1,12 +1,7 @@
 ---
 up:
-  - "[[中国图书馆分类法 Collection]]"
-ctime: 2024-12-06T17:36:48+08:00
+  - "[[中国图书馆分类法]]"
 english: Culture, science, education and sport
-aliases:
-  - G - Culture, science, education and sport
-  - Culture, science, education and sport
-  - 文化、科学、教育、体育
 down:
   - "[[G0 文化理论]]"
   - "[[G1 世界各国文化与文化事业]]"
@@ -17,12 +12,20 @@ down:
   - "[[{G6} 各级教育]]"
   - "[[{G7} 各类教育]]"
   - "[[G8 体育]]"
-mtime: 2025-09-09T12:37:18+08:00
+aliases:
+  - G - Culture, science, education and sport
+  - Culture, science, education and sport
+  - 文化、科学、教育、体育
+icon: "[[G 文化、科学、教育、体育 - Pasted image 20251004152126.png]]"
+ctime: 2024-12-06T17:36:48+08:00
+mtime: 2025-10-04T15:23:46+08:00
 ---
 
 # G 文化、科学、教育、体育
 
-- up: [[中国图书馆分类法 Collection]]
+![[G 文化、科学、教育、体育 - Pasted image 20251004152126.png|200]]
+
+- up: [[中国图书馆分类法]]
 - down:
 	- [[G0 文化理论]]
 		- [[G0 文化理论|Theories of culture]]

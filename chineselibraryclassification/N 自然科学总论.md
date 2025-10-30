@@ -1,12 +1,7 @@
 ---
 up:
-  - "[[中国图书馆分类法 Collection]]"
-ctime: 2025-03-01T23:22:00+08:00
+  - "[[中国图书馆分类法]]"
 english: Natural science (General)
-aliases:
-  - A - Natural science (General)
-  - Natural science (General)
-  - 自然科学总论
 down:
   - "[[N0 自然科学理论与方法论]]"
   - "[[N1 自然科学现状及发展]]"
@@ -22,12 +17,20 @@ down:
   - "[[N93 非线性科学]]"
   - "[[N94 系统科学]]"
   - "[[[N99] 情报学、情报工作]]"
-mtime: 2025-09-09T12:37:17+08:00
+aliases:
+  - A - Natural science (General)
+  - Natural science (General)
+  - 自然科学总论
+icon: "[[Stylised_atom_with_three_Bohr_model_orbits_and_stylised_nucleus.svg]]"
+ctime: 2025-03-01T23:22:00+08:00
+mtime: 2025-10-04T15:31:13+08:00
 ---
 
 # N 自然科学总论
 
-- up: [[中国图书馆分类法 Collection]]
+![[Stylised_atom_with_three_Bohr_model_orbits_and_stylised_nucleus.svg|200]]
+
+- up: [[中国图书馆分类法]]
 - down:
 	- [[N0 自然科学理论与方法论]]
 		- [[N0 自然科学理论与方法论|Theories and methodology of natural science]]

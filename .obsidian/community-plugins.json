@@ -1,5 +1,6 @@
 [
   "dataview",
   "templater-obsidian",
-  "webpage-html-export"
+  "webpage-html-export",
+  "tiddlywiki-import-export"
 ]

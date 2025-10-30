@@ -1,12 +1,7 @@
 ---
 up:
-  - "[[中国图书馆分类法 Collection]]"
-ctime: 2025-03-01T23:20:12+08:00
+  - "[[中国图书馆分类法]]"
 english: Economy
-aliases:
-  - F - Economy
-  - Economy
-  - 经济
 down:
   - "[[F0 经济学]]"
   - "[[F1 世界各国经济概况、经济史、经济地理]]"
@@ -18,12 +13,20 @@ down:
   - "[[F6 邮电经济]]"
   - "[[F7 贸易经济]]"
   - "[[F8 财政、金融]]"
-mtime: 2025-09-09T12:37:19+08:00
+aliases:
+  - F - Economy
+  - Economy
+  - 经济
+icon: "[[Supply-demand-equilibrium.svg]]"
+ctime: 2025-03-01T23:20:12+08:00
+mtime: 2025-10-04T15:19:10+08:00
 ---
 
 # F 经济
 
-- up: [[中国图书馆分类法 Collection]]
+![[Supply-demand-equilibrium.svg|200]]
+
+- up: [[中国图书馆分类法]]
 - down:
 	- [[F0 经济学]]
 		- [[F0 经济学|Economics]]

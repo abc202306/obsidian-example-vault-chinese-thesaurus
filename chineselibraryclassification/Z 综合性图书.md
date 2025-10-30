@@ -1,12 +1,7 @@
 ---
 up:
-  - "[[中国图书馆分类法 Collection]]"
-ctime: 2025-03-01T23:26:49+08:00
+  - "[[中国图书馆分类法]]"
 english: Comprehensive books
-aliases:
-  - Z - Comprehensive books
-  - Comprehensive books
-  - 综合性图书
 down:
   - "[[Z1 丛书]]"
   - "[[Z2 百科全书、类书]]"
@@ -17,12 +12,20 @@ down:
   - "[[Z8 图书目录、文摘、索引]]"
   - "[[ZT_ 通用概念|ZT* 通用概念]]"
   - "[[ZY_ 附表|ZY* 附表]]"
-mtime: 2025-09-09T12:37:04+08:00
+aliases:
+  - Z - Comprehensive books
+  - Comprehensive books
+  - 综合性图书
+icon: "[[Z 综合性图书 - Pasted image 20251004154559.png]]"
+ctime: 2025-03-01T23:26:49+08:00
+mtime: 2025-10-04T15:54:34+08:00
 ---
 
 # Z 综合性图书
 
-- up: [[中国图书馆分类法 Collection]]
+![[Z 综合性图书 - Pasted image 20251004154559.png|200]]
+
+- up: [[中国图书馆分类法]]
 - down:
 	- [[Z1 丛书]] 
 		- [[Z1 丛书|Comprehensive serials]]

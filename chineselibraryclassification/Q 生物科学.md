@@ -1,12 +1,7 @@
 ---
 up:
-  - "[[中国图书馆分类法 Collection]]"
-ctime: 2025-03-01T23:23:28+08:00
+  - "[[中国图书馆分类法]]"
 english: Biology
-aliases:
-  - Q - Biology
-  - Biology
-  - 生物科学
 down:
   - "[[Q-0 生物科学的理论与方法]]"
   - "[[Q-1 生物科学现状与发展]]"
@@ -28,12 +23,20 @@ down:
   - "[[Q95 动物学]]"
   - "[[Q96 昆虫学]]"
   - "[[Q98 人类学]]"
-mtime: 2025-09-09T12:37:15+08:00
+aliases:
+  - Q - Biology
+  - Biology
+  - 生物科学
+icon: "[[DNA_simple_horizontal.svg]]"
+ctime: 2025-03-01T23:23:28+08:00
+mtime: 2025-10-04T15:03:01+08:00
 ---
 
 # Q 生物科学
 
-- up: [[中国图书馆分类法 Collection]]
+![[DNA_simple_horizontal.svg|200]]
+
+- up: [[中国图书馆分类法]]
 - down:
 	- [[Q-0 生物科学的理论与方法]]
 	- [[Q-1 生物科学现状与发展]]

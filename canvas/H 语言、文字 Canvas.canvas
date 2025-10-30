@@ -1,8 +1,8 @@
 {
 	"nodes":[
-		{"id":"b0c79d1cbedfea9f","type":"file","file":"chineselibraryclassification/H 语言、文字.md","x":-420,"y":-950,"width":400,"height":1520,"color":"5"},
-		{"id":"07e0ea83d1da3bce","type":"file","file":"chineselibraryclassification/H 语言、文字/H3 常用外国语.md","x":20,"y":-950,"width":400,"height":1520,"color":"5"},
-		{"id":"6ba9d4557031bbb5","type":"file","file":"chineselibraryclassification/H 语言、文字/H3 常用外国语/H31 英语.md","x":480,"y":-950,"width":400,"height":1520,"color":"5"}
+		{"id":"b0c79d1cbedfea9f","type":"file","file":"chinesethesaurusdb/chineselibraryclassification/H 语言、文字.md","x":-420,"y":-950,"width":400,"height":1520,"color":"5"},
+		{"id":"07e0ea83d1da3bce","type":"file","file":"chinesethesaurusdb/chineselibraryclassification/H 语言、文字/H3 常用外国语.md","x":20,"y":-950,"width":400,"height":1520,"color":"5"},
+		{"id":"6ba9d4557031bbb5","type":"file","file":"chinesethesaurusdb/chineselibraryclassification/H 语言、文字/H3 常用外国语/H31 英语.md","x":480,"y":-950,"width":400,"height":1520,"color":"5"}
 	],
 	"edges":[]
 }

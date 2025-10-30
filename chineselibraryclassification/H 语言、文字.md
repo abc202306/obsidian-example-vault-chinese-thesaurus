@@ -1,12 +1,7 @@
 ---
 up:
-  - "[[中国图书馆分类法 Collection]]"
-ctime: 2025-03-01T23:20:30+08:00
+  - "[[中国图书馆分类法]]"
 english: Language,written language
-aliases:
-  - H - Language,written language
-  - Language,written language
-  - 语言、文字
 down:
   - "[[H0 语言学]]"
   - "[[H1 汉语]]"
@@ -26,12 +21,20 @@ down:
   - "[[H83 美洲诸语言]]"
   - "[[H84 大洋洲诸语言]]"
   - "[[H9 国际辅助语]]"
-mtime: 2025-09-09T12:37:18+08:00
+aliases:
+  - H - Language,written language
+  - Language,written language
+  - 语言、文字
+icon: "[[H 语言、文字 - Pasted image 20251004152303.png]]"
+ctime: 2025-03-01T23:20:30+08:00
+mtime: 2025-10-04T15:23:27+08:00
 ---
 
 # H 语言、文字
 
-- up: [[中国图书馆分类法 Collection]]
+![[H 语言、文字 - Pasted image 20251004152303.png|200]]
+
+- up: [[中国图书馆分类法]]
 - down:
 	- [[H0 语言学]]
 		- [[H0 语言学|Linguistics]]

@@ -1,7 +1,7 @@
 
-这是一个 Obisidian 示例库，用于存储和可视化显示 《汉语主题词表》 的主题词
+这是一个 Obsidian 示例库，用于存储和可视化显示 《汉语主题词表》 的主题词
 
-This is an Obisidian Example Vault for storing and visualizing the subject terms of the "Chinese Thesaurus".
+This is an Obsidian Example Vault for storing and visualizing the subject terms of the "Chinese Thesaurus".
 
 预览： https://abc202306.github.io/website-obsidian-example-vault-chinese-thesaurus
 
@@ -22,15 +22,15 @@ This is an Obisidian Example Vault for storing and visualizing the subject terms
 
 > （打开笔记 `view/汉语主题词表的视图.md` 的效果）
 
-![](/pictures/示例库预览/ct-preview-01-05.png)
+![](/assets/pictures/ctvaultpreview/ct-preview-01-05.png)
 
-![](/pictures/示例库预览/ct-preview-01-06.png)
+![](/assets/pictures/ctvaultpreview/ct-preview-01-06.png)
 
-![](/pictures/示例库预览/ct-preview-02-03.png)
+![](/assets/pictures/ctvaultpreview/ct-preview-02-03.png)
 
-![](/pictures/示例库预览/ct-preview-03-01.png)
+![](/assets/pictures/ctvaultpreview/ct-preview-03-01.png)
 
-![](/pictures/示例库预览/ct-preview-04-01.png)
+![](/assets/pictures/ctvaultpreview/ct-preview-04-01.png)
 
 ## 笔记数据的来源
 
@@ -49,11 +49,11 @@ This is an Obisidian Example Vault for storing and visualizing the subject terms
 
 ## 集锦笔记-collection
 
-- [中国图书馆分类法 Collection](</collection/中国图书馆分类法 Collection.md>)
-- [汉语主题词 Collection](</collection/汉语主题词 Collection.md>)
-- [汉语主题词来源 Collection](</collection/汉语主题词来源 Collection.md>)
-- [汉语主题词组配分类 Collection](</collection/汉语主题词组配分类 Collection.md>)
-- [汉语主题词分类 Collection](</collection/汉语主题词分类 Collection.md>)
+- [中国图书馆分类法](</collection/中国图书馆分类法.md>)
+- [汉语主题词](</collection/汉语主题词.md>)
+- [汉语主题词来源](</collection/汉语主题词来源.md>)
+- [汉语主题词组配分类](</collection/汉语主题词组配分类.md>)
+- [汉语主题词分类](</collection/汉语主题词分类.md>)
 
 ## 数据记录文件夹
 
@@ -67,7 +67,6 @@ This is an Obisidian Example Vault for storing and visualizing the subject terms
 
 - [Chinese Thesaurus Source Base.base](</base/Chinese Thesaurus Source Base.base>)
 - [Chinese Library Classification Base.base](</base/Chinese Library Classification Base.base>)
-- [Chinese Thesaurus DB Record Base.base](</base/Chinese Thesaurus DB Record Base.base>)
 - [Chinese Thesaurus Classification Base.base](</base/Chinese Thesaurus Classification Base.base>)
 - [Chinese Thesaurus Classification Assembly Base.base](</base/Chinese Thesaurus Classification Assembly Base.base>)
 - [Chinese Thesaurus Base.base](</base/Chinese Thesaurus Base.base>)
@@ -97,4 +96,4 @@ This is an Obisidian Example Vault for storing and visualizing the subject terms
 
 ## 中国图书馆分类法简表截图
 
-![](/pictures/中国图书馆分类法服务系统/preview/screencapture-clc-nlc-cn-ztfdsb-jsp-2025-06-05-13_18_53.png)
+![](/assets/pictures/clcwebsitepreview/screencapture-clc-nlc-cn-ztfdsb-jsp-2025-06-05-13_18_53.png)

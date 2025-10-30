@@ -1,12 +1,7 @@
 ---
 up:
-  - "[[中国图书馆分类法 Collection]]"
-ctime: 2025-03-01T23:25:04+08:00
+  - "[[中国图书馆分类法]]"
 english: Technology
-aliases:
-  - T - Technology
-  - Technology
-  - 工业技术
 down:
   - "[[T-0 工业技术理论]]"
   - "[[T-1 工业技术现状与发展]]"
@@ -29,12 +24,20 @@ down:
   - "[[TS 轻工业、手工业]]"
   - "[[TU 建筑科学]]"
   - "[[TV 水利工程]]"
-mtime: 2025-09-09T12:37:04+08:00
+aliases:
+  - T - Technology
+  - Technology
+  - 工业技术
+icon: "[[T 工业技术 - Pasted image 20251004154018.png]]"
+ctime: 2025-03-01T23:25:04+08:00
+mtime: 2025-10-04T15:42:12+08:00
 ---
 
 # T 工业技术
 
-- up: [[中国图书馆分类法 Collection]]
+![[T 工业技术 - Pasted image 20251004154018.png|200]]
+
+- up: [[中国图书馆分类法]]
 - down:
 	- [[T-0 工业技术理论]]
 	- [[T-1 工业技术现状与发展]]

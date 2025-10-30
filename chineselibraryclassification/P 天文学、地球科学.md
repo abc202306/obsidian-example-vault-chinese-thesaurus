@@ -1,12 +1,7 @@
 ---
 up:
-  - "[[中国图书馆分类法 Collection]]"
-ctime: 2025-03-01T23:22:47+08:00
+  - "[[中国图书馆分类法]]"
 english: Astronomy, earth science
-aliases:
-  - P - Astronomy, earth science
-  - Astronomy, earth science
-  - 天文学、地球科学
 down:
   - "[[P1 天文学]]"
   - "[[P2 测绘学]]"
@@ -15,12 +10,20 @@ down:
   - "[[P5 地质学]]"
   - "[[P7 海洋学]]"
   - "[[P9 自然地理学]]"
-mtime: 2025-09-09T12:37:15+08:00
+aliases:
+  - P - Astronomy, earth science
+  - Astronomy, earth science
+  - 天文学、地球科学
+icon: "[[astronomy_1946706.png]]"
+ctime: 2025-03-01T23:22:47+08:00
+mtime: 2025-10-04T15:35:55+08:00
 ---
 
 # P 天文学、地球科学
 
-- up: [[中国图书馆分类法 Collection]]
+![[astronomy_1946706.png|200]]
+
+- up: [[中国图书馆分类法]]
 - down:
 	- [[P1 天文学]]
 		- [[P1 天文学|Astronomy]]

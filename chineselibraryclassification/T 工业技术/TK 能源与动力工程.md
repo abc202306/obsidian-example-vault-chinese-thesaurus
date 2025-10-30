@@ -1,13 +1,13 @@
 ---
 up:
   - "[[T 工业技术]]"
-ctime: 2024-12-06T17:19:11+08:00
 english: Energy and power engineering
 aliases:
   - TK - Energy and power engineering
   - Energy and power engineering
   - 能源与动力工程
-mtime: 2025-09-09T12:37:14+08:00
+ctime: 2024-12-06T17:19:11+08:00
+mtime: 2025-10-01T11:41:07+08:00
 ---
 
 # TK 能源与动力工程

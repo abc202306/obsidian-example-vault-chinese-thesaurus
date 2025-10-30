@@ -1,12 +1,7 @@
 ---
 up:
-  - "[[中国图书馆分类法 Collection]]"
-ctime: 2024-12-06T17:38:40+08:00
+  - "[[中国图书馆分类法]]"
 english: Politics,law
-aliases:
-  - D - Politics,law
-  - Politics,law
-  - 政治、法律
 down:
   - "[[D0 政治理论]]"
   - "[[D1 国际共产主义运动]]"
@@ -19,12 +14,20 @@ down:
   - "[[D8 外交、国际关系]]"
   - "[[D9 法律]]"
   - "[[DF 法律]]"
-mtime: 2025-09-09T12:37:19+08:00
+aliases:
+  - D - Politics,law
+  - Politics,law
+  - 政治、法律
+icon: "[[A_coloured_voting_box_(no_bg)_(cropped).svg]]"
+ctime: 2024-12-06T17:38:40+08:00
+mtime: 2025-10-04T15:11:29+08:00
 ---
 
 # D 政治、法律
 
-- up: [[中国图书馆分类法 Collection]]
+![[A_coloured_voting_box_(no_bg)_(cropped).svg|200]]
+
+- up: [[中国图书馆分类法]]
 - down:
 	- [[D0 政治理论]]
 		- [[D0 政治理论|Movement and organizations of labour, peasants, youth and women]]

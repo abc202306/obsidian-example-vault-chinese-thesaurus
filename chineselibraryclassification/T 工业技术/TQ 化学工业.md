@@ -1,13 +1,13 @@
 ---
 up:
   - "[[T 工业技术]]"
-ctime: 2024-12-06T17:22:44+08:00
 english: Chemical industries
 aliases:
   - TQ - Chemical industries
   - Chemical industries
   - 化学工业
-mtime: 2025-09-09T12:37:12+08:00
+ctime: 2024-12-06T17:22:44+08:00
+mtime: 2025-10-01T11:41:04+08:00
 ---
 
 # TQ 化学工业

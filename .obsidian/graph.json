@@ -1,9 +1,9 @@
 {
   "collapse-filter": false,
-  "search": "-path:\"data/82 汉语主题词表.md\"",
+  "search": "",
   "showTags": false,
   "showAttachments": false,
-  "hideUnresolved": true,
+  "hideUnresolved": false,
   "showOrphans": true,
   "collapse-color-groups": true,
   "colorGroups": [
@@ -102,6 +102,6 @@
   "repelStrength": 20,
   "linkStrength": 1,
   "linkDistance": 250,
-  "scale": 0.011311979752309721,
+  "scale": 0.015725515735877747,
   "close": true
 }

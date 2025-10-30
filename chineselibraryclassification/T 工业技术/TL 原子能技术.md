@@ -1,13 +1,13 @@
 ---
 up:
   - "[[T 工业技术]]"
-ctime: 2024-12-06T17:19:35+08:00
 english: Nuclear engineering
 aliases:
   - TL - Nuclear engineering
   - Nuclear engineering
   - 原子能技术
-mtime: 2025-09-09T12:37:13+08:00
+ctime: 2024-12-06T17:19:35+08:00
+mtime: 2025-10-01T11:41:08+08:00
 ---
 
 # TL 原子能技术

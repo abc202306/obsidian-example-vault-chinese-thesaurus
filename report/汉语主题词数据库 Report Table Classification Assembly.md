@@ -9,7 +9,6 @@ mtime: 2025-09-28T13:07:01+08:00
 
 const getConfigObjectFromMarkdownFileSection = await new Promise(resolve=>dv.view("get-config", resolve));
 const reportConfig = await getConfigObjectFromMarkdownFileSection("汉语主题词数据库 Report Config", "配置");
-console.log("reportConfig",reportConfig)
 const rootDir = reportConfig.find(record=>record["配置变量名"]==="汉语主题词表数据根目录")["配置变量值"];
 
 /** @function */

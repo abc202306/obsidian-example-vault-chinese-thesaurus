@@ -1,13 +1,13 @@
 ---
 up:
   - "[[T 工业技术]]"
-ctime: 2024-12-06T17:17:37+08:00
 english: Mechanical industries,instrument industries
 aliases:
   - TH - Mechanical industries,instrument industries
   - Mechanical industries,instrument industries
   - 机械、仪表工业
-mtime: 2025-09-09T12:37:14+08:00
+ctime: 2024-12-06T17:17:37+08:00
+mtime: 2025-10-01T11:41:08+08:00
 ---
 
 # TH 机械、仪表工业

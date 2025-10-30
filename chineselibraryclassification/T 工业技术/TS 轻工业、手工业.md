@@ -1,12 +1,7 @@
 ---
 up:
   - "[[T 工业技术]]"
-ctime: 2024-12-06T17:23:54+08:00
 english: Light industry，handicraft industry，living service industry
-aliases:
-  - TS - Light industry，handicraft industry，living service industry
-  - Light industry，handicraft industry，living service industry
-  - 轻工业、手工业
 down:
   - "[[[TS-9] 轻工业、手工业经济]]"
   - "[[TS0 一般性问题]]"
@@ -23,7 +18,12 @@ down:
   - "[[TS94 服装工业、制鞋工业]]"
   - "[[TS95 其他轻工业、手工业]]"
   - "[[TS97 生活服务技术]]"
-mtime: 2025-09-09T12:37:10+08:00
+aliases:
+  - TS - Light industry，handicraft industry，living service industry
+  - Light industry，handicraft industry，living service industry
+  - 轻工业、手工业
+ctime: 2024-12-06T17:23:54+08:00
+mtime: 2025-10-01T12:23:06+08:00
 ---
 
 # TS 轻工业、手工业

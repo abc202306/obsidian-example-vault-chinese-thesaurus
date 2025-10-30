@@ -5,5 +5,7 @@
   "propertiesInDocument": "hidden",
   "newLinkFormat": "shortest",
   "useMarkdownLinks": false,
-  "promptDelete": false
+  "promptDelete": false,
+  "vimMode": true,
+  "showLineNumber": true
 }

@@ -8,6 +8,7 @@
     "broadterms": "multitext",
     "synonyms": "multitext",
     "narrowerterms": "multitext",
-    "relatedterms": "multitext"
+    "relatedterms": "multitext",
+    "mtime": "datetime"
   }
 }

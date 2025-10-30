@@ -1,12 +1,7 @@
 ---
 up:
-  - "[[中国图书馆分类法 Collection]]"
-ctime: 2025-03-01T23:21:40+08:00
+  - "[[中国图书馆分类法]]"
 english: History, geography
-aliases:
-  - K - History, geography
-  - History, geography
-  - 历史、地理
 down:
   - "[[K0 史学理论]]"
   - "[[K1 世界史]]"
@@ -22,12 +17,21 @@ down:
   - "[[K85 文物考古]]"
   - "[[K89 风俗习惯]]"
   - "[[K9 地理]]"
-mtime: 2025-09-09T12:37:17+08:00
+aliases:
+  - K - History, geography
+  - History, geography
+  - 历史、地理
+icon: "[[K 历史、地理 - Pasted image 20251004155007.png]]"
+cover: "[[Carstian_Luyckx_-_Still_life_with_a_globe,_books,_shells_and_corals_resting_on_a_stone_ledge.jpg]]"
+ctime: 2025-03-01T23:21:40+08:00
+mtime: 2025-10-04T15:50:55+08:00
 ---
 
 # K 历史、地理
 
-- up: [[中国图书馆分类法 Collection]]
+![[K 历史、地理 - Pasted image 20251004155007.png|200]]
+
+- up: [[中国图书馆分类法]]
 - down:
 	- [[K0 史学理论]]
 		- [[K0 史学理论|Theories of historical science]]
@@ -59,3 +63,7 @@ mtime: 2025-09-09T12:37:17+08:00
 		- [[K9 地理|Geography]]
 - english:
 	- History, geography
+
+## Cover
+
+![[Carstian_Luyckx_-_Still_life_with_a_globe,_books,_shells_and_corals_resting_on_a_stone_ledge.jpg|200]]

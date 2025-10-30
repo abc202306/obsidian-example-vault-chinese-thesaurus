@@ -1,12 +1,7 @@
 ---
 up:
   - "[[T 工业技术]]"
-ctime: 2024-12-06T17:22:03+08:00
 english: Automation technology, computer technology
-aliases:
-  - TP - Automation technology, computer technology
-  - Automation technology, computer technology
-  - 自动化技术、计算机技术
 down:
   - "[[[TP-9] 自动化技术经济]]"
   - "[[TP1 自动化基础理论]]"
@@ -15,7 +10,12 @@ down:
   - "[[TP6 射流技术（流控技术）]]"
   - "[[TP7 遥感技术]]"
   - "[[TP8 远动技术]]"
-mtime: 2025-09-09T12:37:13+08:00
+aliases:
+  - TP - Automation technology, computer technology
+  - Automation technology, computer technology
+  - 自动化技术、计算机技术
+ctime: 2024-12-06T17:22:03+08:00
+mtime: 2025-10-01T12:23:08+08:00
 ---
 
 # TP 自动化技术、计算机技术

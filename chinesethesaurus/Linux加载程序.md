@@ -1,7 +1,6 @@
 ---
 up:
-  - "[[汉语主题词 Collection]]"
-ctime: 2025-06-07T21:01:14+08:00
+  - "[[汉语主题词]]"
 sources:
   - "[[工程技术卷]]"
 categories:
@@ -16,7 +15,8 @@ relatedterms:
 aliases:
   - LILO
   - Linux loader
-mtime: 2025-09-09T12:37:04+08:00
+ctime: 2025-06-07T21:01:14+08:00
+mtime: 2025-10-01T11:40:28+08:00
 ---
 
 # Linux 加载程序

@@ -1,12 +1,7 @@
 ---
 up:
-  - "[[中国图书馆分类法 Collection]]"
-ctime: 2025-03-01T23:18:48+08:00
+  - "[[中国图书馆分类法]]"
 english: Military affairs
-aliases:
-  - E - Military affairs
-  - Military affairs
-  - 军事
 down:
   - "[[E0 军事理论]]"
   - "[[E1 世界军事]]"
@@ -15,12 +10,20 @@ down:
   - "[[E8 战略学、战役学、战术学]]"
   - "[[E9 军事技术]]"
   - "[[E99 军事地形学、军事地理学]]"
-mtime: 2025-09-09T12:37:19+08:00
+aliases:
+  - E - Military affairs
+  - Military affairs
+  - 军事
+icon: "[[E 军事 - Pasted image 20251006230426.png]]"
+ctime: 2025-03-01T23:18:48+08:00
+mtime: 2025-10-06T23:04:42+08:00
 ---
 
 # E 军事
 
-- up: [[中国图书馆分类法 Collection]]
+![[E 军事 - Pasted image 20251006230426.png|200]]
+
+- up: [[中国图书馆分类法]]
 - down:
 	- [[E0 军事理论]]
 		- [[E0 军事理论|Theories of military]]

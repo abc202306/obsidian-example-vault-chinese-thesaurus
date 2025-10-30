@@ -1,12 +1,7 @@
 ---
 up:
-  - "[[中国图书馆分类法 Collection]]"
-ctime: 2025-03-01T23:16:15+08:00
+  - "[[中国图书馆分类法]]"
 english: Social science (General)
-aliases:
-  - C - Social science (General)
-  - Social science (General)
-  - 社会科学总论
 down:
   - "[[C0 社会科学理论与方法论]]"
   - "[[C1 社会科学现状及发展]]"
@@ -25,12 +20,20 @@ down:
   - "[[C95 民族学]]"
   - "[[C96 人才学]]"
   - "[[C97 劳动科学]]"
-mtime: 2025-09-09T12:37:19+08:00
+aliases:
+  - C - Social science (General)
+  - Social science (General)
+  - 社会科学总论
+icon: "[[C 社会科学总论 - Pasted image 20251004150904.png]]"
+ctime: 2025-03-01T23:16:15+08:00
+mtime: 2025-10-04T15:09:30+08:00
 ---
 
 # C 社会科学总论
 
-- up: [[中国图书馆分类法 Collection]]
+![[C 社会科学总论 - Pasted image 20251004150904.png|200]]
+
+- up: [[中国图书馆分类法]]
 - down:
 	- [[C0 社会科学理论与方法论]]
 		- [[C0 社会科学理论与方法论|Theories and methodology of social science]]

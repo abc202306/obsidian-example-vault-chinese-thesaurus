@@ -1,12 +1,7 @@
 ---
 up:
   - "[[T 工业技术]]"
-ctime: 2024-12-06T17:17:59+08:00
 english: Weapon industries
-aliases:
-  - TJ - Weapon industries
-  - Weapon industries
-  - 武器工业
 down:
   - "[[TJ-9 武器工业经济]]"
   - "[[TJ0 一般性问题]]"
@@ -18,7 +13,12 @@ down:
   - "[[TJ7 火箭、导弹]]"
   - "[[TJ8 战车、战舰、战机、航天武器]]"
   - "[[TJ9 核武器与其他特种武器及其防护设备]]"
-mtime: 2025-09-09T12:37:14+08:00
+aliases:
+  - TJ - Weapon industries
+  - Weapon industries
+  - 武器工业
+ctime: 2024-12-06T17:17:59+08:00
+mtime: 2025-10-01T12:23:17+08:00
 ---
 
 # TJ 武器工业
