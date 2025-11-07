@@ -11,14 +11,10 @@
             "id": "375e48c4a23cc551",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "README.md",
-                "mode": "preview",
-                "source": true
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "README"
+              "title": "New tab"
             }
           }
         ]
@@ -78,7 +74,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 310.5
+    "width": 358.5
   },
   "right": {
     "id": "0f625f3186cf6842",
@@ -110,13 +106,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md",
+                "file": "base/Chinese Library Classification Aliase Base.base",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of README"
+              "title": "Outline of Chinese Library Classification Aliase Base"
             }
           },
           {
@@ -172,7 +168,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "base/Chinese Library Classification Aliase Base.base",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -182,7 +178,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for README"
+              "title": "Backlinks for Chinese Library Classification Aliase Base"
             }
           }
         ],
@@ -205,8 +201,15 @@
       "webpage-html-export:Export as HTML": false
     }
   },
-  "active": "375e48c4a23cc551",
+  "active": "a09b9b60140fcbd5",
   "lastOpenFiles": [
+    "collection/汉语主题词来源.md",
+    "collection/汉语主题词分类.md",
+    "collection/汉语主题词.md",
+    "collection/中国图书馆分类法别名.md",
+    "collection/中国图书馆分类法.md",
+    "collection",
+    "README.md",
     "docs/3. 【参考文档】如何剪藏《汉表服务系统》的主题词.md",
     "docs/4. 【参考文档】论如何使用笔记库.md",
     "docs/2. 【设计文档】汉语主题词表笔记的相关标准.md",
@@ -240,22 +243,15 @@
     "report/汉语主题词数据库 Report Flow All Record Limit 50.md",
     "chinesethesaurusclassification/B84 心理学 主题词分类.md",
     "canvas/H 语言、文字 Canvas.canvas",
-    "README.md",
     "Untitled/Untitled.base",
     "Untitled",
     "@host-is-github.com@ @type-is-git-repository@ @author-name-is-abc202306@ @git-repository-name-is-obsidian-example-vault-chinese-thesaurus@ @tag-is-tag-obsidian-vault-sep-tag-chinese-thesaurus@.md",
-    "@host-is-github.com@ @type-is-git-repository@ @author-name-is-abc202306@ @git-repository-name-is-obsidian-example-vault-chinese-thesaurus@ @tag-is-obsidian-vault-sep-chinese-thesaurus@.md",
-    "@host-is-github.com@@type-is-git-repository@@author-name-is-abc202306@@git-repository-name-is-obsidian-example-vault-chinese-thesaurus@@tag-is-obsidian-vault-sep-chinese-thesaurus@.md",
-    "collection/汉语主题词 Collection.md",
-    "collection/汉语主题词来源 Collection.md",
-    "chinesethesaurussources/工程技术卷.md",
     "canvas/中国图书馆分类法 Canvas.canvas",
     "canvas/O 数理科学和化学 Canvas.canvas",
     "canvas/J2 绘画 Canvas.canvas",
     "canvas/D 政治、法律 Canvas.canvas",
     "canvas",
     "base/Chinese Thesaurus DB Record Base.base",
-    "base",
     "pictures/示例库预览/ct-preview-02-03.png",
     "pictures/obsidian-example-vault-chinese-thesaurus/preview-04-01.png"
   ]
