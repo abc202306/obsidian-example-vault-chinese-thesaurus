@@ -1,6 +1,6 @@
 filters:
   and:
-    - file.inFolder("chinesethesaurusdb/chineselibraryclassificationaliases")
+    - file.inFolder("chineselibraryclassificationaliases")
 views:
   - type: table
     name: Table

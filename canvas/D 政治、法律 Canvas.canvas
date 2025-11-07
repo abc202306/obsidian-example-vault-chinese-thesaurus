@@ -1,9 +1,9 @@
 {
 	"nodes":[
-		{"id":"3c58387f1ceff560","type":"file","file":"chinesethesaurusdb/chineselibraryclassification/D 政治、法律.md","x":-1000,"y":-774,"width":440,"height":980,"color":"3"},
-		{"id":"2f44e756c754c0b3","type":"file","file":"chinesethesaurusdb/chineselibraryclassification/D 政治、法律/D0 政治理论.md","x":-520,"y":-774,"width":440,"height":980,"color":"3"},
-		{"id":"7ff9445773f8cf3f","type":"file","file":"chinesethesaurusdb/chineselibraryclassification/D 政治、法律/D2 中国共产党.md","x":-40,"y":-774,"width":400,"height":980,"color":"3"},
-		{"id":"6c243510c433138d","type":"file","file":"chinesethesaurusdb/chineselibraryclassification/D 政治、法律/D6 中国政治.md","x":400,"y":-774,"width":400,"height":980,"color":"3"}
+		{"id":"3c58387f1ceff560","type":"file","file":"chineselibraryclassification/D 政治、法律.md","x":-1000,"y":-774,"width":440,"height":980,"color":"3"},
+		{"id":"2f44e756c754c0b3","type":"file","file":"chineselibraryclassification/D 政治、法律/D0 政治理论.md","x":-520,"y":-774,"width":440,"height":980,"color":"3"},
+		{"id":"7ff9445773f8cf3f","type":"file","file":"chineselibraryclassification/D 政治、法律/D2 中国共产党.md","x":-40,"y":-774,"width":400,"height":980,"color":"3"},
+		{"id":"6c243510c433138d","type":"file","file":"chineselibraryclassification/D 政治、法律/D6 中国政治.md","x":400,"y":-774,"width":400,"height":980,"color":"3"}
 	],
 	"edges":[]
 }
