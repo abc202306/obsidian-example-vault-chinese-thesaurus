@@ -11,7 +11,7 @@ mtime: 2025-09-29T12:52:22+08:00
 
 | 配置变量名       | 配置变量值                                  | 配置变量位置     |
 | ----------- | -------------------------------------- | ---------- |
-| 汉语主题词表数据根目录 | chinesethesaurusdb/data                | 文件夹路径/绝对路径 |
+| 汉语主题词表数据根目录 | chinesethesaurusdb                     | 文件夹路径/绝对路径 |
 | 主题词子目录      | chinesethesaurus                       | 文件夹路径/相对路径 |
 | 主题词分类表子目录   | chinesethesaurusclassification         | 文件夹路径/相对路径 |
 | 主题词组配分类表子目录 | chinesethesaurusclassificationassembly | 文件夹路径/相对路径 |

@@ -1,6 +1,6 @@
 filters:
   and:
-    - file.inFolder("chinesethesaurus")
+    - file.inFolder("chinesethesaurusdb/chinesethesaurus")
 views:
   - type: table
     name: Table
@@ -15,10 +15,13 @@ views:
       - sources
       - ctime
       - up
-    sort: []
+    sort:
+      - property: ctime
+        direction: DESC
     columnSize:
-      note.broadterms: 130
+      note.broadterms: 179
       note.english: 195
+      note.categories: 622
       note.ctime: 189
   - type: cards
     name: Cards

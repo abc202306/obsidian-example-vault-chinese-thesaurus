@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "30c211e8b095cc55",
+        "id": "9714e72029dda6b9",
         "type": "tabs",
         "children": [
           {
-            "id": "286c35e3b7d4f5b8",
+            "id": "375e48c4a23cc551",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "README.md",
+                "mode": "preview",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "README"
             }
           }
         ]
@@ -29,7 +33,6 @@
       {
         "id": "7386edec158416d2",
         "type": "tabs",
-        "dimension": 72.92682926829268,
         "children": [
           {
             "id": "a09b9b60140fcbd5",
@@ -72,49 +75,6 @@
             }
           }
         ]
-      },
-      {
-        "id": "d1963abc0d0138c6",
-        "type": "tabs",
-        "dimension": 27.073170731707318,
-        "children": [
-          {
-            "id": "13c58d39873117be",
-            "type": "leaf",
-            "state": {
-              "type": "localgraph",
-              "state": {
-                "options": {
-                  "collapse-filter": true,
-                  "search": "",
-                  "localJumps": 1,
-                  "localBacklinks": true,
-                  "localForelinks": true,
-                  "localInterlinks": false,
-                  "showTags": false,
-                  "showAttachments": false,
-                  "hideUnresolved": false,
-                  "collapse-color-groups": true,
-                  "colorGroups": [],
-                  "collapse-display": true,
-                  "showArrow": false,
-                  "textFadeMultiplier": 0,
-                  "nodeSizeMultiplier": 1,
-                  "lineSizeMultiplier": 1,
-                  "collapse-forces": true,
-                  "centerStrength": 0.518713248970312,
-                  "repelStrength": 10,
-                  "linkStrength": 1,
-                  "linkDistance": 250,
-                  "scale": 0.1833959173849457,
-                  "close": true
-                }
-              },
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
-            }
-          }
-        ]
       }
     ],
     "direction": "horizontal",
@@ -127,7 +87,7 @@
       {
         "id": "fdf98c8b7c9f13e9",
         "type": "tabs",
-        "dimension": 40.063424947145876,
+        "dimension": 61.274509803921575,
         "children": [
           {
             "id": "571269e5be69849d",
@@ -178,18 +138,20 @@
             "type": "leaf",
             "state": {
               "type": "file-properties",
-              "state": {},
+              "state": {
+                "file": "README.md"
+              },
               "icon": "lucide-info",
-              "title": "File properties"
+              "title": "File properties for README"
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       },
       {
         "id": "c16a237089adb708",
         "type": "tabs",
-        "dimension": 59.936575052854124,
+        "dimension": 38.72549019607843,
         "children": [
           {
             "id": "271e46be27c3891e",
@@ -210,6 +172,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "README.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -219,7 +182,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for README"
             }
           }
         ],
@@ -242,12 +205,42 @@
       "webpage-html-export:Export as HTML": false
     }
   },
-  "active": "286c35e3b7d4f5b8",
+  "active": "375e48c4a23cc551",
   "lastOpenFiles": [
-    "base/Chinese Library Classification Base.base",
-    "README.md",
+    "docs/3. 【参考文档】如何剪藏《汉表服务系统》的主题词.md",
+    "docs/4. 【参考文档】论如何使用笔记库.md",
+    "docs/2. 【设计文档】汉语主题词表笔记的相关标准.md",
+    "chinesethesaurusclassificationassembly/TP317 TP393.09 主题词组配分类.md",
+    "chinesethesaurusclassificationassembly/TP317 TP319 主题词组配分类.md",
+    "chinesethesaurusclassificationassembly/TN943 TP309.7 主题词组配分类.md",
+    "chinesethesaurusclassification/P19 时间、历法 主题词分类.md",
+    "chinesethesaurusclassification/TN915 通信网 主题词分类.md",
+    "chinesethesaurusclassificationassembly/TP319 TP393.09 主题词组配分类.md",
+    "chinesethesaurusclassification/Z 综合性图书 主题词分类.md",
+    "chinesethesaurusclassification/TP311.562 计算机测试软件 主题词分类.md",
+    "chinesethesaurusclassification/TJ99 其他特种武器 主题词分类.md",
+    "chinesethesaurusclassification/E9 军事技术 主题词分类.md",
+    "assets/pictures/clcitemcover/K/Carstian_Luyckx_-_Still_life_with_a_globe,_books,_shells_and_corals_resting_on_a_stone_ledge.jpg",
+    "assets/pictures/clcbasescreenshots/中国图书馆分类法 Collection - Pasted image 20251004155557.png",
     "assets/pictures/clcwebsitepreview/screencapture-clc-nlc-cn-ztfdsb-jsp-2025-06-05-13_18_53.png",
+    "assets/pictures/ctvaultpreview/ct-preview-01-06.png",
+    "assets/pictures/ctvaultpreview/ct-preview-04-01.png",
+    "assets/pictures/ctvaultpreview/ct-preview-03-01.png",
+    "assets/pictures/ctvaultpreview/ct-preview-02-03.png",
     "assets/pictures/ctvaultpreview/ct-preview-01-05.png",
+    "base/Chinese Library Classification Base.base",
+    "base/Chinese Thesaurus Base.base",
+    "base/Chinese Thesaurus Classification Assembly Base.base",
+    "base/Chinese Thesaurus Classification Base.base",
+    "base/Chinese Thesaurus Source Base.base",
+    "report/汉语主题词数据库 Report Table Term.md",
+    "report/汉语主题词数据库 Report Table Classification.md",
+    "report/汉语主题词数据库 Report Config.md",
+    "report/汉语主题词数据库 Report.md",
+    "report/汉语主题词数据库 Report Flow All Record Limit 50.md",
+    "chinesethesaurusclassification/B84 心理学 主题词分类.md",
+    "canvas/H 语言、文字 Canvas.canvas",
+    "README.md",
     "Untitled/Untitled.base",
     "Untitled",
     "@host-is-github.com@ @type-is-git-repository@ @author-name-is-abc202306@ @git-repository-name-is-obsidian-example-vault-chinese-thesaurus@ @tag-is-tag-obsidian-vault-sep-tag-chinese-thesaurus@.md",
@@ -256,43 +249,14 @@
     "collection/汉语主题词 Collection.md",
     "collection/汉语主题词来源 Collection.md",
     "chinesethesaurussources/工程技术卷.md",
-    "chinesethesaurus/安全软件.md",
-    "chinesethesaurus/事件处理程序.md",
-    "chinesethesaurus/工具软件.md",
-    "chinesethesaurus/加载器.md",
-    "chineselibraryclassification/Z 综合性图书/ZT_ 通用概念.md",
-    "chineselibraryclassification/Z 综合性图书/ZT_ 通用概念/ZT3_ 数量、数值、参数.md",
-    "chineselibraryclassification/Z 综合性图书/ZT_ 通用概念/ZT73_ 时间、时期.md",
-    "chinesethesaurusclassification/ZT73_ 时间、时期 主题词分类.md",
-    "chinesethesaurus/时间.md",
-    "chinesethesaurus/日期.md",
-    "chinesethesaurus/量化器.md",
-    "chinesethesaurus/网络爬虫.md",
-    "chinesethesaurus/诊断软件.md",
-    "chinesethesaurus/支撑软件.md",
-    "chinesethesaurus/智能武器.md",
-    "chinesethesaurus/智能武器系统.md",
-    "chinesethesaurus/主题词.md",
-    "chinesethesaurus/Linux加载程序.md",
     "canvas/中国图书馆分类法 Canvas.canvas",
     "canvas/O 数理科学和化学 Canvas.canvas",
     "canvas/J2 绘画 Canvas.canvas",
-    "canvas/H 语言、文字 Canvas.canvas",
     "canvas/D 政治、法律 Canvas.canvas",
     "canvas",
-    "base/Chinese Thesaurus Source Base.base",
     "base/Chinese Thesaurus DB Record Base.base",
-    "base/Chinese Thesaurus Classification Base.base",
-    "base/Chinese Thesaurus Classification Assembly Base.base",
-    "base/Chinese Thesaurus Base.base",
     "base",
     "pictures/示例库预览/ct-preview-02-03.png",
-    "pictures/obsidian-example-vault-chinese-thesaurus/preview-04-01.png",
-    "pictures/obsidian-example-vault-chinese-thesaurus/preview-01-06.png",
-    "pictures/obsidian-example-vault-chinese-thesaurus/preview-01-05.png",
-    "pictures/obsidian-example-vault-chinese-thesaurus/preview-01-04.png",
-    "pictures/obsidian-example-vault-chinese-thesaurus/preview-03-01.png",
-    "pictures/obsidian-example-vault-chinese-thesaurus/preview-02-03.png",
-    "assets/preview-01-03.png"
+    "pictures/obsidian-example-vault-chinese-thesaurus/preview-04-01.png"
   ]
 }

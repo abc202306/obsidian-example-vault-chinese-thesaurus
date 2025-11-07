@@ -4,7 +4,7 @@ up:
 sources:
   - "[[工程技术卷]]"
 categories:
-  - "[[TP311.561 软件工具 主题词分类]]"
+  - "[[TP311.561 软件工具 主题词分类|TP311.561 软件工具]]"
 english: Linux loader
 synonyms:
   - LILO
@@ -16,7 +16,7 @@ aliases:
   - LILO
   - Linux loader
 ctime: 2025-06-07T21:01:14+08:00
-mtime: 2025-10-01T11:40:28+08:00
+mtime: 2025-11-06T20:40:01+08:00
 ---
 
 # Linux 加载程序

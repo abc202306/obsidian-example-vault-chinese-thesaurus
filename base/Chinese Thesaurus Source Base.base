@@ -1,16 +1,15 @@
 filters:
   and:
-    - file.inFolder("chinesethesaurussources")
+    - file.inFolder("chinesethesaurusdb/chinesethesaurussources")
 views:
   - type: table
     name: Table
     order:
       - file.name
-      - subpages
       - up
+      - file.links
     columnSize:
-      note.subpages: 814
-      note.up: 202
+      note.up: 126
   - type: cards
     name: Cards
     order:

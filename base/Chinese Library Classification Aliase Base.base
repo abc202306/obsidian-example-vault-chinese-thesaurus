@@ -1,0 +1,9 @@
+filters:
+  and:
+    - file.inFolder("chinesethesaurusdb/chineselibraryclassificationaliases")
+views:
+  - type: table
+    name: Table
+    order:
+      - file.name
+      - seealso
