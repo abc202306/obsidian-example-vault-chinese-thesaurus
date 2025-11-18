@@ -11,10 +11,14 @@
             "id": "375e48c4a23cc551",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "README.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "README"
             }
           }
         ]
@@ -106,13 +110,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "base/Chinese Library Classification Aliase Base.base",
+                "file": "README.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Chinese Library Classification Aliase Base"
+              "title": "Outline of README"
             }
           },
           {
@@ -168,7 +172,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "base/Chinese Library Classification Aliase Base.base",
+                "file": "README.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -178,7 +182,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Chinese Library Classification Aliase Base"
+              "title": "Backlinks for README"
             }
           }
         ],
@@ -201,15 +205,16 @@
       "webpage-html-export:Export as HTML": false
     }
   },
-  "active": "a09b9b60140fcbd5",
+  "active": "375e48c4a23cc551",
   "lastOpenFiles": [
+    "docs/CT - README.md",
+    "README.md",
     "collection/汉语主题词来源.md",
     "collection/汉语主题词分类.md",
     "collection/汉语主题词.md",
     "collection/中国图书馆分类法别名.md",
     "collection/中国图书馆分类法.md",
     "collection",
-    "README.md",
     "docs/3. 【参考文档】如何剪藏《汉表服务系统》的主题词.md",
     "docs/4. 【参考文档】论如何使用笔记库.md",
     "docs/2. 【设计文档】汉语主题词表笔记的相关标准.md",
@@ -245,7 +250,6 @@
     "canvas/H 语言、文字 Canvas.canvas",
     "Untitled/Untitled.base",
     "Untitled",
-    "@host-is-github.com@ @type-is-git-repository@ @author-name-is-abc202306@ @git-repository-name-is-obsidian-example-vault-chinese-thesaurus@ @tag-is-tag-obsidian-vault-sep-tag-chinese-thesaurus@.md",
     "canvas/中国图书馆分类法 Canvas.canvas",
     "canvas/O 数理科学和化学 Canvas.canvas",
     "canvas/J2 绘画 Canvas.canvas",

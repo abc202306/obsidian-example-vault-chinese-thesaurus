@@ -1,6 +1,16 @@
+summaries:
+  Unique: values.unique().length
+  Filled: values.filter(!value.isType("null")).length
+  Count: values.length
 filters:
   and:
     - file.inFolder("chinesethesaurus")
+formulas:
+  fileNameChar01: file.name[0]
+  placehold: '"|__| =>"'
+properties:
+  formula.fileNameChar01:
+    displayName: 📁
 views:
   - type: table
     name: Table
@@ -13,16 +23,21 @@ views:
       - categories
       - synonyms
       - sources
-      - ctime
       - up
+      - ctime
     sort:
       - property: ctime
         direction: DESC
     columnSize:
-      note.broadterms: 179
-      note.english: 195
-      note.categories: 622
-      note.ctime: 189
+      note.narrowerterms: 312
+      note.broadterms: 131
+      note.english: 147
+      note.relatedterms: 177
+      note.categories: 142
+      note.synonyms: 135
+      note.sources: 125
+      note.up: 101
+      note.ctime: 116
   - type: cards
     name: Cards
     order:
@@ -40,3 +55,122 @@ views:
       note.broadterms: 130
       note.english: 195
       note.ctime: 189
+  - type: table
+    name: Group
+    groupBy:
+      property: formula.fileNameChar01
+      direction: ASC
+    order:
+      - formula.placehold
+      - file.name
+      - narrowerterms
+      - broadterms
+      - english
+      - relatedterms
+      - categories
+      - synonyms
+      - sources
+      - up
+      - ctime
+    sort:
+      - property: ctime
+        direction: DESC
+    summaries: {}
+    columnSize:
+      formula.placehold: 54
+      note.narrowerterms: 255
+      note.broadterms: 131
+      note.english: 147
+      note.relatedterms: 177
+      note.categories: 142
+      note.synonyms: 135
+      note.sources: 125
+      note.up: 101
+      note.ctime: 116
+  - type: table
+    name: 工程技术卷
+    filters:
+      and:
+        - sources.containsAny(link("工程技术卷"))
+    order:
+      - file.name
+      - narrowerterms
+      - broadterms
+      - english
+      - relatedterms
+      - categories
+      - synonyms
+      - sources
+      - up
+      - ctime
+    sort:
+      - property: ctime
+        direction: DESC
+    columnSize:
+      note.narrowerterms: 312
+      note.broadterms: 131
+      note.english: 147
+      note.relatedterms: 177
+      note.categories: 142
+      note.synonyms: 135
+      note.sources: 125
+      note.up: 101
+      note.ctime: 116
+  - type: table
+    name: 自然科学卷
+    filters:
+      and:
+        - sources.containsAny(link("自然科学卷"))
+    order:
+      - file.name
+      - narrowerterms
+      - broadterms
+      - english
+      - relatedterms
+      - categories
+      - synonyms
+      - sources
+      - up
+      - ctime
+    sort:
+      - property: ctime
+        direction: DESC
+    columnSize:
+      note.narrowerterms: 312
+      note.broadterms: 131
+      note.english: 147
+      note.relatedterms: 177
+      note.categories: 142
+      note.synonyms: 135
+      note.sources: 125
+      note.up: 101
+      note.ctime: 116
+  - type: table
+    name: 基础词库
+    filters:
+      and:
+        - sources.containsAny(link("基础词库"))
+    order:
+      - file.name
+      - narrowerterms
+      - broadterms
+      - english
+      - relatedterms
+      - categories
+      - synonyms
+      - sources
+      - up
+      - ctime
+    sort:
+      - property: ctime
+        direction: DESC
+    columnSize:
+      note.narrowerterms: 312
+      note.broadterms: 131
+      note.english: 147
+      note.relatedterms: 177
+      note.categories: 142
+      note.synonyms: 135
+      note.sources: 125
+      note.up: 101
+      note.ctime: 116
