@@ -20,6 +20,8 @@ aliases:
 icon: "[[Supply-demand-equilibrium.svg]]"
 ctime: 2025-03-01T23:20:12+08:00
 mtime: 2025-10-04T15:19:10+08:00
+clctitle: 经济
+clcid: F
 ---
 
 # F 经济

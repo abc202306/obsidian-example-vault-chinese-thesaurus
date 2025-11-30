@@ -23,6 +23,8 @@ aliases:
 icon: "[[S 农业科学 - Pasted image 20251004153850.png]]"
 ctime: 2025-03-01T23:24:27+08:00
 mtime: 2025-10-04T15:39:14+08:00
+clctitle: 农业科学
+clcid: S
 ---
 
 # S 农业科学

@@ -7,3 +7,4 @@ views:
     order:
       - file.name
       - seealso
+      - categories

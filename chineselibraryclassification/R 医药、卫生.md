@@ -30,6 +30,8 @@ aliases:
 icon: "[[R 医药、卫生 - Pasted image 20251004153724.png]]"
 ctime: 2025-03-01T23:23:54+08:00
 mtime: 2025-10-04T15:37:37+08:00
+clctitle: 医药、卫生
+clcid: R
 ---
 
 # R 医药、卫生

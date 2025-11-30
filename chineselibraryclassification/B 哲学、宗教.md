@@ -25,6 +25,8 @@ aliases:
 icon: "[[Greek_uc_phi_icon.svg]]"
 ctime: 2025-03-01T23:15:08+08:00
 mtime: 2025-10-04T15:04:25+08:00
+clctitle: 哲学、宗教
+clcid: B
 ---
 
 # B 哲学、宗教

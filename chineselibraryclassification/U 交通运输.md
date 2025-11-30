@@ -13,6 +13,8 @@ aliases:
   - U - Transportation
   - Transportation
   - 交通运输
+clcid: U
+clctitle: 交通运输
 icon: "[[U 交通运输 - Pasted image 20251004154130.png]]"
 ctime: 2025-03-01T23:25:25+08:00
 mtime: 2025-10-04T15:41:58+08:00

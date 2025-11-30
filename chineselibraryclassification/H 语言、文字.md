@@ -28,6 +28,8 @@ aliases:
 icon: "[[H 语言、文字 - Pasted image 20251004152303.png]]"
 ctime: 2025-03-01T23:20:30+08:00
 mtime: 2025-10-04T15:23:27+08:00
+clctitle: 语言、文字
+clcid: H
 ---
 
 # H 语言、文字

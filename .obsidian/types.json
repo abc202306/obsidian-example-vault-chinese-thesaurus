@@ -3,12 +3,7 @@
     "aliases": "aliases",
     "cssclasses": "multitext",
     "tags": "tags",
-    "up": "multitext",
     "ctime": "datetime",
-    "broadterms": "multitext",
-    "synonyms": "multitext",
-    "narrowerterms": "multitext",
-    "relatedterms": "multitext",
     "mtime": "datetime"
   }
 }

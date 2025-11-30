@@ -1,24 +1,23 @@
 {
   "main": {
-    "id": "c662c44e0f07b987",
+    "id": "d31a7fa72064ac73",
     "type": "split",
     "children": [
       {
-        "id": "9714e72029dda6b9",
+        "id": "c3b69358ceba207f",
         "type": "tabs",
         "children": [
           {
-            "id": "375e48c4a23cc551",
+            "id": "d01a87a705e72657",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "bases",
               "state": {
-                "file": "README.md",
-                "mode": "source",
-                "source": false
+                "file": "base/Chinese Library Classification Aliase Base.base",
+                "viewName": "Table"
               },
-              "icon": "lucide-file",
-              "title": "README"
+              "icon": "lucide-table",
+              "title": "Chinese Library Classification Aliase Base"
             }
           }
         ]
@@ -27,15 +26,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "1ddf07682d709ebd",
+    "id": "69c90e1524f2970f",
     "type": "split",
     "children": [
       {
-        "id": "7386edec158416d2",
+        "id": "30b4d5b61210f152",
         "type": "tabs",
         "children": [
           {
-            "id": "a09b9b60140fcbd5",
+            "id": "2c4a5f42592b9a9f",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -48,12 +47,12 @@
             }
           },
           {
-            "id": "324e8a11894f6e15",
+            "id": "ae7ea106938c85ad",
             "type": "leaf",
             "state": {
               "type": "search",
               "state": {
-                "query": "分子生物学",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -65,7 +64,7 @@
             }
           },
           {
-            "id": "177af05c3e1c0fb3",
+            "id": "deec05a4e95679c1",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -78,83 +77,36 @@
       }
     ],
     "direction": "horizontal",
-    "width": 358.5
+    "width": 266.5
   },
   "right": {
-    "id": "0f625f3186cf6842",
+    "id": "4aaedeb23df86444",
     "type": "split",
     "children": [
       {
-        "id": "fdf98c8b7c9f13e9",
+        "id": "a5b7abfec9ff934b",
         "type": "tabs",
-        "dimension": 61.274509803921575,
         "children": [
           {
-            "id": "571269e5be69849d",
+            "id": "93f75d2e5ead6e31",
             "type": "leaf",
             "state": {
-              "type": "tag",
+              "type": "backlink",
               "state": {
-                "sortOrder": "frequency",
-                "useHierarchy": true,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
                 "showSearch": false,
-                "searchQuery": ""
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
               },
-              "icon": "lucide-tags",
-              "title": "Tags"
+              "icon": "links-coming-in",
+              "title": "Backlinks"
             }
           },
           {
-            "id": "0418a376bedf3064",
-            "type": "leaf",
-            "state": {
-              "type": "outline",
-              "state": {
-                "file": "README.md",
-                "followCursor": false,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-list",
-              "title": "Outline of README"
-            }
-          },
-          {
-            "id": "64827f7204de044d",
-            "type": "leaf",
-            "state": {
-              "type": "all-properties",
-              "state": {
-                "sortOrder": "frequency",
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-archive",
-              "title": "All properties"
-            }
-          },
-          {
-            "id": "9c90b6d2b5c987d1",
-            "type": "leaf",
-            "state": {
-              "type": "file-properties",
-              "state": {
-                "file": "README.md"
-              },
-              "icon": "lucide-info",
-              "title": "File properties for README"
-            }
-          }
-        ],
-        "currentTab": 1
-      },
-      {
-        "id": "c16a237089adb708",
-        "type": "tabs",
-        "dimension": 38.72549019607843,
-        "children": [
-          {
-            "id": "271e46be27c3891e",
+            "id": "29a97de559c8af19",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
@@ -167,30 +119,25 @@
             }
           },
           {
-            "id": "59cd8f981f5db703",
+            "id": "a669fc202494afac",
             "type": "leaf",
             "state": {
-              "type": "backlink",
+              "type": "all-properties",
               "state": {
-                "file": "README.md",
-                "collapseAll": true,
-                "extraContext": false,
-                "sortOrder": "alphabetical",
+                "sortOrder": "frequency",
                 "showSearch": false,
-                "searchQuery": "",
-                "backlinkCollapsed": false,
-                "unlinkedCollapsed": false
+                "searchQuery": ""
               },
-              "icon": "links-coming-in",
-              "title": "Backlinks for README"
+              "icon": "lucide-archive",
+              "title": "All properties"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 340.5
+    "width": 364.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -200,63 +147,50 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false,
-      "templater-obsidian:Templater": false,
-      "webpage-html-export:Export as HTML": false
+      "bases:Create new base": false
     }
   },
-  "active": "375e48c4a23cc551",
+  "active": "d01a87a705e72657",
   "lastOpenFiles": [
-    "docs/CT - README.md",
-    "README.md",
-    "collection/汉语主题词来源.md",
-    "collection/汉语主题词分类.md",
-    "collection/汉语主题词.md",
-    "collection/中国图书馆分类法别名.md",
-    "collection/中国图书馆分类法.md",
-    "collection",
-    "docs/3. 【参考文档】如何剪藏《汉表服务系统》的主题词.md",
-    "docs/4. 【参考文档】论如何使用笔记库.md",
-    "docs/2. 【设计文档】汉语主题词表笔记的相关标准.md",
-    "chinesethesaurusclassificationassembly/TP317 TP393.09 主题词组配分类.md",
-    "chinesethesaurusclassificationassembly/TP317 TP319 主题词组配分类.md",
-    "chinesethesaurusclassificationassembly/TN943 TP309.7 主题词组配分类.md",
-    "chinesethesaurusclassification/P19 时间、历法 主题词分类.md",
-    "chinesethesaurusclassification/TN915 通信网 主题词分类.md",
-    "chinesethesaurusclassificationassembly/TP319 TP393.09 主题词组配分类.md",
-    "chinesethesaurusclassification/Z 综合性图书 主题词分类.md",
-    "chinesethesaurusclassification/TP311.562 计算机测试软件 主题词分类.md",
-    "chinesethesaurusclassification/TJ99 其他特种武器 主题词分类.md",
-    "chinesethesaurusclassification/E9 军事技术 主题词分类.md",
-    "assets/pictures/clcitemcover/K/Carstian_Luyckx_-_Still_life_with_a_globe,_books,_shells_and_corals_resting_on_a_stone_ledge.jpg",
-    "assets/pictures/clcbasescreenshots/中国图书馆分类法 Collection - Pasted image 20251004155557.png",
-    "assets/pictures/clcwebsitepreview/screencapture-clc-nlc-cn-ztfdsb-jsp-2025-06-05-13_18_53.png",
-    "assets/pictures/ctvaultpreview/ct-preview-01-06.png",
-    "assets/pictures/ctvaultpreview/ct-preview-04-01.png",
-    "assets/pictures/ctvaultpreview/ct-preview-03-01.png",
-    "assets/pictures/ctvaultpreview/ct-preview-02-03.png",
-    "assets/pictures/ctvaultpreview/ct-preview-01-05.png",
     "base/Chinese Library Classification Base.base",
     "base/Chinese Thesaurus Base.base",
-    "base/Chinese Thesaurus Classification Assembly Base.base",
-    "base/Chinese Thesaurus Classification Base.base",
     "base/Chinese Thesaurus Source Base.base",
-    "report/汉语主题词数据库 Report Table Term.md",
-    "report/汉语主题词数据库 Report Table Classification.md",
-    "report/汉语主题词数据库 Report Config.md",
-    "report/汉语主题词数据库 Report.md",
-    "report/汉语主题词数据库 Report Flow All Record Limit 50.md",
-    "chinesethesaurusclassification/B84 心理学 主题词分类.md",
-    "canvas/H 语言、文字 Canvas.canvas",
-    "Untitled/Untitled.base",
-    "Untitled",
+    "base/Chinese Thesaurus Classification Base.base",
+    "chineselibraryclassificationaliases/C931 管理技术、管理方法.md",
+    "chineselibraryclassificationaliases/F2 经济计划、经济管理.md",
+    "chineselibraryclassificationaliases/E929 化学武器使用、化学武器防御.md",
+    "chineselibraryclassificationaliases/D63 中国国家行政管理.md",
+    "chinesethesaurus/爱童癖.md",
+    "chinesethesaurus/办公软件.md",
+    "chinesethesaurus/版本控制.md",
+    "chinesethesaurus/安全软件.md",
+    "chinesethesaurusclassification/B80 思维科学 主题词分类.md",
+    "chinesethesaurusclassification/B024 唯物辩证法 主题词分类.md",
+    "chinesethesaurusclassification/B2 中国哲学 主题词分类.md",
+    "chinesethesaurussources/工程技术卷.md",
+    "chinesethesaurussources/基础词库.md",
+    "chinesethesaurussources/自然科学卷.md",
+    "collection/汉语主题词.md",
+    "collection/汉语主题词分类.md",
+    "collection/中国图书馆分类法.md",
+    "collection/汉语主题词来源.md",
+    "collection/中国图书馆分类法别名.md",
+    "docs/1. 【设计文档】笔记库的结构和依赖.md",
+    "docs/2. 【设计文档】汉语主题词表笔记的相关标准.md",
+    "docs/3. 【参考文档】如何剪藏《汉表服务系统》的主题词.md",
+    "docs/4. 【参考文档】论如何使用笔记库.md",
+    "README.md",
     "canvas/中国图书馆分类法 Canvas.canvas",
     "canvas/O 数理科学和化学 Canvas.canvas",
+    "chineselibraryclassification/H 语言、文字/H61 南亚语系（澳斯特罗 - 亚细亚语系）.md",
+    "base/Chinese Library Classification Aliase Base.base",
+    "lagacy",
     "canvas/J2 绘画 Canvas.canvas",
+    "canvas/H 语言、文字 Canvas.canvas",
     "canvas/D 政治、法律 Canvas.canvas",
-    "canvas",
-    "base/Chinese Thesaurus DB Record Base.base",
-    "pictures/示例库预览/ct-preview-02-03.png",
-    "pictures/obsidian-example-vault-chinese-thesaurus/preview-04-01.png"
+    "clcid.json",
+    "templater",
+    "templates",
+    "新建文件夹"
   ]
 }

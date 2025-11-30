@@ -17,6 +17,8 @@ aliases:
 icon: "[[astronomy_1946706.png]]"
 ctime: 2025-03-01T23:22:47+08:00
 mtime: 2025-10-04T15:35:55+08:00
+clctitle: 天文学、地球科学
+clcid: P
 ---
 
 # P 天文学、地球科学

@@ -15,6 +15,8 @@ aliases:
 icon: "[[O 数理科学和化学 - Pasted image 20251004153234.png]]"
 ctime: 2025-03-01T23:22:19+08:00
 mtime: 2025-10-04T15:34:23+08:00
+clctitle: 数理科学和化学
+clcid: O
 ---
 
 # O 数理科学和化学

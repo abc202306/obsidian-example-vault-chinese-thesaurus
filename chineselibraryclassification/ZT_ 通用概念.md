@@ -23,6 +23,8 @@ down:
 aliases:
   - ZT* 通用概念
   - 通用概念
+clcid: ZT*
+clctitle: 通用概念
 ctime: 2024-03-01T12:35:36+08:00
 mtime: 2025-10-01T12:22:47+08:00
 ---

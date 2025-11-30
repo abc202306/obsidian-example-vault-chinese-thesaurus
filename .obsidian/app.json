@@ -1,11 +1,6 @@
 {
   "alwaysUpdateLinks": true,
-  "readableLineLength": false,
-  "showUnsupportedFiles": true,
-  "propertiesInDocument": "hidden",
+  "defaultViewMode": "preview",
   "newLinkFormat": "shortest",
-  "useMarkdownLinks": false,
-  "promptDelete": false,
-  "vimMode": true,
-  "showLineNumber": true
+  "useMarkdownLinks": false
 }

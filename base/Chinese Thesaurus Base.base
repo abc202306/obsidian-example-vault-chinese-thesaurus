@@ -29,7 +29,7 @@ views:
       - property: ctime
         direction: DESC
     columnSize:
-      note.narrowerterms: 312
+      note.narrowerterms: 132
       note.broadterms: 131
       note.english: 147
       note.relatedterms: 177

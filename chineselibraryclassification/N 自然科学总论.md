@@ -24,6 +24,8 @@ aliases:
 icon: "[[Stylised_atom_with_three_Bohr_model_orbits_and_stylised_nucleus.svg]]"
 ctime: 2025-03-01T23:22:00+08:00
 mtime: 2025-10-04T15:31:13+08:00
+clctitle: 自然科学总论
+clcid: N
 ---
 
 # N 自然科学总论

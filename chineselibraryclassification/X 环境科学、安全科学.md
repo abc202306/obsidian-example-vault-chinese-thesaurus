@@ -19,6 +19,8 @@ aliases:
   - X - Environmental science, safety science
   - Environmental science, safety science
   - 环境科学、安全科学
+clcid: X
+clctitle: 环境科学、安全科学
 icon: "[[X 环境科学、安全科学 - Pasted image 20251004154439.png]]"
 ctime: 2025-03-01T23:26:10+08:00
 mtime: 2025-10-04T15:44:56+08:00

@@ -27,6 +27,8 @@ aliases:
 icon: "[[C 社会科学总论 - Pasted image 20251004150904.png]]"
 ctime: 2025-03-01T23:16:15+08:00
 mtime: 2025-10-04T15:09:30+08:00
+clctitle: 社会科学总论
+clcid: C
 ---
 
 # C 社会科学总论

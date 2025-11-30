@@ -30,6 +30,8 @@ aliases:
 icon: "[[DNA_simple_horizontal.svg]]"
 ctime: 2025-03-01T23:23:28+08:00
 mtime: 2025-10-04T15:03:01+08:00
+clctitle: 生物科学
+clcid: Q
 ---
 
 # Q 生物科学

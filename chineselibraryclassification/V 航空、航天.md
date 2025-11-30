@@ -11,6 +11,8 @@ aliases:
   - V - Aviation,spaceflight
   - Aviation,spaceflight
   - 航空、航天
+clcid: V
+clctitle: 航空、航天
 icon: "[[V 航空、航天 - Pasted image 20251004154307.png]]"
 ctime: 2025-03-01T23:25:51+08:00
 mtime: 2025-10-04T15:43:25+08:00

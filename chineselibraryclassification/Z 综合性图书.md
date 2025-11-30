@@ -16,6 +16,8 @@ aliases:
   - Z - Comprehensive books
   - Comprehensive books
   - 综合性图书
+clcid: Z
+clctitle: 综合性图书
 icon: "[[Z 综合性图书 - Pasted image 20251004154559.png]]"
 ctime: 2025-03-01T23:26:49+08:00
 mtime: 2025-10-04T15:54:34+08:00

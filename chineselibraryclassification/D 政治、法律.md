@@ -6,11 +6,11 @@ down:
   - "[[D0 政治理论]]"
   - "[[D1 国际共产主义运动]]"
   - "[[D2 中国共产党]]"
-  - "[[D33~37 各国共产党|D33/37 各国共产党]]"
+  - "[[D33_37 各国共产党|D33/37 各国共产党]]"
   - "[[D4 工人、农民、青年、妇女运动与组织]]"
   - "[[D5 世界政治]]"
   - "[[D6 中国政治]]"
-  - "[[D73~77 各国政治|D73/77 各国政治]]"
+  - "[[D73_77 各国政治|D73/77 各国政治]]"
   - "[[D8 外交、国际关系]]"
   - "[[D9 法律]]"
   - "[[DF 法律]]"
@@ -21,6 +21,8 @@ aliases:
 icon: "[[A_coloured_voting_box_(no_bg)_(cropped).svg]]"
 ctime: 2024-12-06T17:38:40+08:00
 mtime: 2025-10-04T15:11:29+08:00
+clctitle: 政治、法律
+clcid: D
 ---
 
 # D 政治、法律
@@ -35,16 +37,16 @@ mtime: 2025-10-04T15:11:29+08:00
 		- [[D1 国际共产主义运动|Movement and organizations of labour, peasants, youth and women]]
 	- [[D2 中国共产党]]
 		- [[D2 中国共产党|The Communist Party of China]]
-	- [[D33~37 各国共产党|D33/37 各国共产党]]
-		- [[D33~37 各国共产党|Communist parties of foreign countries]]
+	- [[D33_37 各国共产党|D33/37 各国共产党]]
+		- [[D33_37 各国共产党|Communist parties of foreign countries]]
 	- [[D4 工人、农民、青年、妇女运动与组织]]
 		- [[D4 工人、农民、青年、妇女运动与组织|Movement and organizations of labour, peasants, youth and women]]
 	- [[D5 世界政治]]
 		- [[D5 世界政治|World politics]]
 	- [[D6 中国政治]]
 		- [[D6 中国政治|Chinese politics]]
-	- [[D73~77 各国政治|D73/77 各国政治]]
-		- [[D73~77 各国政治|Political affairs of foreign countries]]
+	- [[D73_77 各国政治|D73/77 各国政治]]
+		- [[D73_77 各国政治|Political affairs of foreign countries]]
 	- [[D8 外交、国际关系]]
 		- [[D8 外交、国际关系|Diplomacy and international relations]]
 	- [[D9 法律]]

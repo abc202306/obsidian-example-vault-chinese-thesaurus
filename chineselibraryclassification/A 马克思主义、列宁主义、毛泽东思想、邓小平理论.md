@@ -18,6 +18,8 @@ aliases:
 icon: "[[Marx_Engels_icon.svg]]"
 ctime: 2025-03-20T18:13:08+08:00
 mtime: 2025-10-04T15:02:44+08:00
+clctitle: 马克思主义、列宁主义、毛泽东思想、邓小平理论
+clcid: A
 ---
 
 # A 马克思主义、列宁主义、毛泽东思想、邓小平理论

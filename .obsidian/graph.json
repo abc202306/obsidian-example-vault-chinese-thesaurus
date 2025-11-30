@@ -1,107 +1,22 @@
 {
   "collapse-filter": false,
-  "search": "",
+  "search": "path:docs/",
   "showTags": false,
-  "showAttachments": false,
+  "showAttachments": true,
   "hideUnresolved": false,
   "showOrphans": true,
   "collapse-color-groups": true,
-  "colorGroups": [
-    {
-      "query": "path:\"data/82 汉语主题词表/主题词/\"  ",
-      "color": {
-        "a": 1,
-        "rgb": 14048348
-      }
-    },
-    {
-      "query": "path:\"data/82 汉语主题词表/主题词组配分类表/\"  ",
-      "color": {
-        "a": 1,
-        "rgb": 6054102
-      }
-    },
-    {
-      "query": " ",
-      "color": {
-        "a": 1,
-        "rgb": 13917398
-      }
-    },
-    {
-      "query": "path:\"data/1 中国图书馆分类法/\"  ",
-      "color": {
-        "a": 1,
-        "rgb": 6084188
-      }
-    },
-    {
-      "query": "",
-      "color": {
-        "a": 1,
-        "rgb": 6084269
-      }
-    },
-    {
-      "query": "path:\"data/82 汉语主题词表/主题词分类表/\" ",
-      "color": {
-        "a": 1,
-        "rgb": 6073814
-      }
-    },
-    {
-      "query": "",
-      "color": {
-        "a": 1,
-        "rgb": 6053078
-      }
-    },
-    {
-      "query": "",
-      "color": {
-        "a": 1,
-        "rgb": 11361494
-      }
-    },
-    {
-      "query": "",
-      "color": {
-        "a": 1,
-        "rgb": 14048429
-      }
-    },
-    {
-      "query": "",
-      "color": {
-        "a": 1,
-        "rgb": 14048348
-      }
-    },
-    {
-      "query": "",
-      "color": {
-        "a": 1,
-        "rgb": 14069084
-      }
-    },
-    {
-      "query": "",
-      "color": {
-        "a": 1,
-        "rgb": 11392604
-      }
-    }
-  ],
-  "collapse-display": false,
+  "colorGroups": [],
+  "collapse-display": true,
   "showArrow": false,
   "textFadeMultiplier": 0,
-  "nodeSizeMultiplier": 1.34598501070664,
+  "nodeSizeMultiplier": 1,
   "lineSizeMultiplier": 1,
-  "collapse-forces": false,
-  "centerStrength": 0.44271948608137,
-  "repelStrength": 20,
+  "collapse-forces": true,
+  "centerStrength": 0.518713248970312,
+  "repelStrength": 10,
   "linkStrength": 1,
   "linkDistance": 250,
-  "scale": 0.015725515735877747,
-  "close": true
+  "scale": 0.01789059390877295,
+  "close": false
 }

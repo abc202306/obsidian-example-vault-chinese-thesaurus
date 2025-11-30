@@ -31,6 +31,8 @@ aliases:
 icon: "[[T 工业技术 - Pasted image 20251004154018.png]]"
 ctime: 2025-03-01T23:25:04+08:00
 mtime: 2025-10-04T15:42:12+08:00
+clctitle: 工业技术
+clcid: T
 ---
 
 # T 工业技术
