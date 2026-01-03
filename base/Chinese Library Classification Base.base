@@ -1,8 +1,9 @@
 filters:
   and:
-    - file.inFolder("chineselibraryclassification")
+    - file.hasLink("中国图书馆分类法")
 formulas:
   lastaliase: aliases[-1]
+  iconimage: image(icon)
 views:
   - type: cards
     name: Cards Icon
@@ -11,8 +12,6 @@ views:
         - "!icon.isEmpty()"
     order:
       - file.name
-      - english
-      - down
     columnSize:
       note.english: 281
       note.ctime: 184
@@ -23,13 +22,12 @@ views:
     name: Table
     order:
       - file.name
-      - formula.lastaliase
-      - aliases
+      - formula.iconimage
     sort:
-      - property: formula.lastaliase
+      - property: file.name
         direction: ASC
     columnSize:
-      formula.lastaliase: 286
+      file.name: 331
   - type: cards
     name: Cards
     order:

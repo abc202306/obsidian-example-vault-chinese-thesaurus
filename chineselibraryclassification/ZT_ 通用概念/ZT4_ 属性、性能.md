@@ -3,6 +3,7 @@ up:
   - "[[ZT_ 通用概念]]"
 aliases:
   - 属性、性能
+  - ZT4* 属性、性能
 clcid: ZT4*
 clctitle: 属性、性能
 ctime: 2025-03-01T12:42:21+08:00

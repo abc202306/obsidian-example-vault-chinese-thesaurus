@@ -12,6 +12,8 @@ views:
     sort:
       - property: categories
         direction: ASC
+    columnSize:
+      note.subpages: 397
   - type: cards
     name: Cards
     order:

@@ -1,0 +1,13 @@
+filters:
+  and:
+    - file.ext == "md"
+views:
+  - type: table
+    name: Table
+    order:
+      - file.name
+      - ctime
+    sort:
+      - property: ctime
+        direction: DESC
+    limit: 50
